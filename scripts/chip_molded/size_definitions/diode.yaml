@@ -7,8 +7,6 @@ SMD_2114:
     body_width:
       nominal: 3.6
       tolerance: 0.1
-    #terminator_spacing_min:
-    #terminator_spacing_max:
     terminal_length:
       nominal: 1.15
       tolerance: 0.1
@@ -24,8 +22,6 @@ SMD_3220:
     body_width:
       nominal: 5.0
       tolerance: 0.1
-    #terminator_spacing_min:
-    #terminator_spacing_max:
     terminal_length:
       nominal: 1.95
       tolerance: 0.1

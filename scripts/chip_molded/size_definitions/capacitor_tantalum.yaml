@@ -1,4 +1,4 @@
-SMD_1608-08:
+C_1608-08:
     code_metric: '1608-08'
     # size   | 1,6 x 0,8 x 0,8 mm
     #code_letter: 'Kemet-—'
@@ -11,10 +11,10 @@ SMD_1608-08:
     #terminator_spacing_max:
     terminal_length: 0.5
     terminal_length_tol: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: https://www.vishay.com/docs/48064/_t58_vmn_pt0471_1601.pdf)'
 
-SMD_1608-10:
+C_1608-10:
     code_metric: '1608-10'
     # size   | 1,6 x 0,85 x 1,05 mm
     #code_letter: 'Kemet-—'
@@ -27,10 +27,10 @@ SMD_1608-10:
     #terminator_spacing_max:
     terminal_length: 0.5
     terminal_length_tol: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: https://www.vishay.com/docs/48064/_t58_vmn_pt0471_1601.pdf)'
 
-SMD_2012-12:
+C_2012-12:
     code_metric: '2012-12'
     # size   | 2,05 x 1,35 x 1,2 mm
     code_letter: 'Kemet-R'
@@ -49,10 +49,10 @@ SMD_2012-12:
     terminal_width:
         nominal: 0.9
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: https://www.vishay.com/docs/40182/tmch.pdf)'
 
-SMD_2012-15:
+C_2012-15:
     code_metric: '2012-15'
     # size   | 2,05 x 1,35 x 1,5 mm
     #code_letter: 'Kemet-—'
@@ -71,10 +71,10 @@ SMD_2012-15:
     terminal_width:
         nominal: 0.9
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: https://www.vishay.com/docs/40182/tmch.pdf)'
 
-SMD_3216-10:
+C_3216-10:
     code_metric: '3216-10'
     # size   | 3,2 x 1,6 x 1,0 mm
     code_letter: 'Kemet-I'
@@ -93,10 +93,10 @@ SMD_3216-10:
     terminal_width:
         nominal: 1.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_3216-12:
+C_3216-12:
     code_metric: '3216-12'
     # size   | 3,2 x 1,6 x 1,2 mm
     code_letter: 'Kemet-S'
@@ -115,10 +115,10 @@ SMD_3216-12:
     terminal_width:
         nominal: 1.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_3216-18:
+C_3216-18:
     code_metric: '3216-18'
     # size   | 3,2 x 1,6 x 1,8 mm
     code_letter: 'Kemet-A'
@@ -137,10 +137,10 @@ SMD_3216-18:
     terminal_width:
         nominal: 1.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_3528-12:
+C_3528-12:
     code_metric: '3528-12'
     # size   | 3,5 x 2,8 x 1,2 mm
     code_letter: 'Kemet-T'
@@ -159,10 +159,10 @@ SMD_3528-12:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_3528-15:
+C_3528-15:
     code_metric: '3528-15'
     # size   | 3,5 x 2,8 x 1,5 mm
     #code_letter: 'Kemet-—'
@@ -181,10 +181,10 @@ SMD_3528-15:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_3528-21:
+C_3528-21:
     code_metric: '3528-21'
     # size   | 3,5 x 2,8 x 2,1 mm
     code_letter: 'Kemet-B'
@@ -203,10 +203,10 @@ SMD_3528-21:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_6032-15:
+C_6032-15:
     code_metric: '6032-15'
     # size   | 6,0 x 3,2 x 1,5 mm
     code_letter: 'Kemet-U'
@@ -225,10 +225,10 @@ SMD_6032-15:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_6032-20:
+C_6032-20:
     code_metric: '6032-20'
     # size   | 6,0 x 3,2 x 2,0 mm
     #code_letter: 'Kemet-—'
@@ -247,10 +247,10 @@ SMD_6032-20:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_6032-28:
+C_6032-28:
     code_metric: '6032-28'
     # size   | 6,0 x 3,2 x 2,8 mm
     code_letter: 'Kemet-C'
@@ -269,10 +269,10 @@ SMD_6032-28:
     terminal_width:
         nominal: 2.2
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7132-20:
+C_7132-20:
     code_metric: '7132-20'
     # size   | 7,1 x 3,2 x 2,0 mm
     code_letter: 'AVX-U'
@@ -288,10 +288,10 @@ SMD_7132-20:
     terminator_spacing:
         nominal: 3.6
         tolerance: 0.6
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7132-28:
+C_7132-28:
     code_metric: '7132-28'
     # size   | 7,1 x 3,2 x 2,8 mm
     code_letter: 'AVX-C'
@@ -307,10 +307,10 @@ SMD_7132-28:
     terminator_spacing:
         nominal: 3.6
         tolerance: 0.6
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7260-15:
+C_7260-15:
     code_metric: '7260-15'
     # size   | 7,2 x 6,0 x 1,5 mm
     code_letter: 'AVX-R'
@@ -326,10 +326,10 @@ SMD_7260-15:
     terminal_length:
         nominal: 1.3
         tolerance: 0.4
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7260-20:
+C_7260-20:
     code_metric: '7260-20'
     # size   | 7,2 x 6,0 x 2,0 mm
     code_letter: 'AVX-M'
@@ -345,10 +345,10 @@ SMD_7260-20:
     terminal_length:
         nominal: 1.3
         tolerance: 0.4
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7260-28:
+C_7260-28:
     code_metric: '7260-28'
     # size   | 7,2 x 6,0 x 2,8 mm
     code_letter: 'AVX-M'
@@ -364,10 +364,10 @@ SMD_7260-28:
     terminal_length:
         nominal: 1.3
         tolerance: 0.4
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7260-38:
+C_7260-38:
     code_metric: '7260-38'
     # size   | 7,2 x 6,0 x 3,8 mm
     code_letter: 'AVX-R'
@@ -383,10 +383,10 @@ SMD_7260-38:
     terminal_length:
         nominal: 1.3
         tolerance: 0.4
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/F72-F75.pdf)'
 
-SMD_7343-15:
+C_7343-15:
     code_metric: '7343-15'
     # size   | 7,3 x 4,3 x 1,5 mm
     code_letter: 'Kemet-W'
@@ -404,10 +404,10 @@ SMD_7343-15:
         tolerance: 0.3
     terminal_width_min: 2.3
     terminal_width_max: 2.5
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7343-20:
+C_7343-20:
     code_metric: '7343-20'
     # size   | 7,3 x 4,3 x 2,0 mm
     code_letter: 'Kemet-V'
@@ -426,10 +426,10 @@ SMD_7343-20:
     terminal_width:
         nominal: 2.4
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7343-30:
+C_7343-30:
     code_metric: '7343-30'
     # size   | 7,3 x 4,3 x 3,0 mm
     #code_letter: 'Kemet-—'
@@ -448,10 +448,10 @@ SMD_7343-30:
     terminal_width:
         nominal: 2.4
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7343-31:
+C_7343-31:
     code_metric: '7343-31'
     # size   | 7,3 x 4,3 x 3,1 mm
     code_letter: 'Kemet-D'
@@ -470,10 +470,10 @@ SMD_7343-31:
     terminal_width:
         nominal: 2.4
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7343-40:
+C_7343-40:
     code_metric: '7343-40'
     # size   | 7,3 x 4,3 x 4,0 mm
     code_letter: 'Kemet-Y'
@@ -492,10 +492,10 @@ SMD_7343-40:
     terminal_width:
         nominal: 2.4
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7343-43:
+C_7343-43:
     code_metric: '7343-43'
     # size   | 7,3 x 4,3 x 4,3 mm
     code_letter: 'Kemet-X'
@@ -514,10 +514,10 @@ SMD_7343-43:
     terminal_width:
         nominal: 2.4
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7360-38:
+C_7360-38:
     code_metric: '7360-38'
     # size   | 7,3 x 6,0 x 3,8 mm
     code_letter: 'Kemet-E'
@@ -536,10 +536,10 @@ SMD_7360-38:
     terminal_width:
         nominal: 4.1
         tolerance: 0.1
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf)'
 
-SMD_7361-38:
+C_7361-38:
     code_metric: '7361-38'
     # size   | 7,3 x 6,1 x 3,8 mm
     #code_letter: 'Kemet-—'
@@ -558,10 +558,10 @@ SMD_7361-38:
     terminal_width:
         nominal: 3.1
         tolerance: 0.2
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/NOS.pdf)'
 
-SMD_7361-438:
+C_7361-438:
     code_metric: '7361-438'
     # size | 7,3 x 6,1 x 4,3 mm
     #code_letter: 'Kemet-—'
@@ -580,5 +580,5 @@ SMD_7361-438:
     terminal_width:
         nominal: 3.1
         tolerance: 0.2
-    ipc_reference: "ipc_spec_tantalumn"
+    ipc_reference: "ipc_spec_tantalum"
     size_info: '(Body size from: http://datasheets.avx.com/NOS.pdf)'
