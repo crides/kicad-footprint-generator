@@ -57,6 +57,9 @@ class FileHandler(object):
             if sys.version_info[0] == 2 and type(output) != unicode:
                 output = unicode(output, "utf-8")
 
+            if not output.endswith("\n"):
+                output += "\n"
+
             f.write(output)
 
             f.close()
