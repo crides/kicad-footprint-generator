@@ -98,7 +98,7 @@ capacitor_handsolder:
 capacitor_tantalum:
     fp_lib_name: 'Capacitor_Tantalum_SMD'
     size_definitions: ['capacitor_tantalum.yaml']
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
+    ipc_reference: "ipc_spec_tantalum"
     prefix: 'CP'
     description: 'Tantalum Capacitor SMD {code_letter:s} ({code_metric:s} Metric), IPC_7351 nominal, {size_info:s}, generated with kicad-footprint-generator'
     keywords: 'capacitor tantalum'
@@ -110,7 +110,7 @@ capacitor_tantalum:
 capacitor_tantalum_handsolder:
     fp_lib_name: 'Capacitor_Tantalum_SMD'
     size_definitions: ['capacitor_tantalum.yaml']
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
+    ipc_reference: "ipc_spec_tantalum"
     prefix: 'CP'
     description: 'Tantalum Capacitor SMD {code_letter:s} ({code_metric:s} Metric), IPC_7351 nominal, {size_info:s}, generated with kicad-footprint-generator'
     keywords: 'capacitor tantalum'
