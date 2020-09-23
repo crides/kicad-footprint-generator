@@ -10,5 +10,4 @@ SMD_2920:
     terminal_length:
         minimum: 0.5
         maximum: 1.2
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://www.megastar.com/products/fusetronic/polyswitch/PDF/smd2920.pdf)'

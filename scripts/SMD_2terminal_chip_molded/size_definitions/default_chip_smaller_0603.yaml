@@ -13,3 +13,4 @@ SMD_0402:
       minimum: 0.4
       maximum: 0.7
     size_info: '(Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf)'
+    ipc_reference: "ipc_spec_smaller_0603"

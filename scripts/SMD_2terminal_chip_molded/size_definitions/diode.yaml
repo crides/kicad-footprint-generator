@@ -10,7 +10,6 @@ SMD_2114:
     terminal_length:
       nominal: 1.15
       tolerance: 0.1
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://datasheets.avx.com/schottky.pdf)'
 
 SMD_3220:
@@ -25,5 +24,4 @@ SMD_3220:
     terminal_length:
       nominal: 1.95
       tolerance: 0.1
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://datasheets.avx.com/schottky.pdf)'

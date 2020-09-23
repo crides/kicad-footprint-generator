@@ -11,6 +11,7 @@ SMD_01005:
       nominal: 0.1
       tolerance: 0.03
     size_info: '(Body size source: http://www.vishay.com/docs/20056/crcw01005e3.pdf)'
+    ipc_reference: "ipc_spec_smaller_0603"
 
 SMD_0201:
    code_imperial: "0201"
@@ -25,3 +26,4 @@ SMD_0201:
       nominal: 0.15
       tolerance: 0.05
    size_info: '(Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf)'
+   ipc_reference: "ipc_spec_smaller_0603"

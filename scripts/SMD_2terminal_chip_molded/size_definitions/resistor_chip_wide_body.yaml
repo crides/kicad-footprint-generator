@@ -10,7 +10,6 @@ R_0612:
     terminal_length:
       nominal: 0.4
       tolerance: 0.15
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size source: https://www.vishay.com/docs/20019/rcwe.pdf)'
 
 R_0815:
@@ -25,7 +24,6 @@ R_0815:
     terminal_length:
         nominal: 0.4
         tolerance: 0.2
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size source: https://www.susumu.co.jp/common/pdf/n_catalog_partition07_en.pdf)'
     # originally used https://www.vishay.com/docs/20019/rcwe.pdf but that part is gone
     # https://www.bourns.com/docs/Product-Datasheets/CRK.pdf has a strange 2.3mm nominal width
@@ -43,7 +41,6 @@ R_1020:
     terminal_length:
       nominal: 0.55
       tolerance: 0.15
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size source: https://www.vishay.com/docs/20019/rcwe.pdf)'
 
 R_1218:
@@ -58,5 +55,4 @@ R_1218:
     terminal_length:
         nominal: 0.45
         tolerance: 0.2
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size source: https://www.vishay.com/docs/20035/dcrcwe3.pdf)'

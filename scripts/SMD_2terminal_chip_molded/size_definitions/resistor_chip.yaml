@@ -96,6 +96,20 @@ R_2512:
         maximum: 0.85
     size_info: '(Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)'
 
+R_2816:
+    code_imperial: "2816"
+    code_metric: "7142"
+    body_length:
+      nominal: 7.1
+      tolerance: 0.254
+    body_width:
+      nominal: 4.2
+      tolerance: 0.254
+    terminal_length:
+      minimum: 1.316 # 1.57 - 0.254
+      maximum: 2.744 # 2.49 + 0.254
+    size_info: '(Body size from: https://www.vishay.com/docs/30100/wsl.pdf)'
+
 R_4020:
     code_imperial: "4020"
     code_metric: "10251"
@@ -108,5 +122,4 @@ R_4020:
     terminal_length:
       nominal: 0.9
       tolerance: 0.2
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size source: http://datasheet.octopart.com/HVC0603T5004FET-Ohmite-datasheet-26699797.pdf)'

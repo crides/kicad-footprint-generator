@@ -80,7 +80,6 @@ C_1825:
     terminal_length:
         minimum: 0.25
         maximum: 0.95
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)'
 
 C_2220:
@@ -95,7 +94,6 @@ C_2220:
     terminal_length:
         nominal: 0.85
         tolerance: 0.35
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://datasheets.avx.com/AVX-HV_MLCC.pdf)'
 
 C_2225:
@@ -110,7 +108,6 @@ C_2225:
     terminal_length:
         nominal: 0.85
         tolerance: 0.35
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://datasheets.avx.com/AVX-HV_MLCC.pdf)'
 
 C_3640:
@@ -125,5 +122,4 @@ C_3640:
     terminal_length:
         minimum: 0.76
         maximum: 1.52
-    ipc_reference: "ipc_spec_larger_or_equal_0603"
     size_info: '(Body size from: http://datasheets.avx.com/AVX-HV_MLCC.pdf)'

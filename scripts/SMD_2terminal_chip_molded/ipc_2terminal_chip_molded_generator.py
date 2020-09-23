@@ -32,8 +32,7 @@ def merge_dicts(*dict_args):
         result.update(dictionary)
     return result
 
-
-class TwoTerminalSMDchip():
+class TwoTerminalSMD():
     def __init__(self, command_file, configuration):
         self.configuration = configuration
         with open(command_file, 'r') as command_stream:
@@ -135,9 +134,12 @@ class TwoTerminalSMDchip():
         fab_line_width = self.configuration.get('fab_line_width', 0.1)
         silk_line_width = self.configuration.get('silk_line_width', 0.12)
 
-        device_dimensions = TwoTerminalSMDchip.deviceDimensions(device_size_data)
+        device_dimensions = TwoTerminalSMD.deviceDimensions(device_size_data)
 
-        ipc_reference = footprint_group_data['ipc_reference']
+        if 'ipc_reference' in device_size_data:
+            ipc_reference = device_size_data['ipc_reference']
+        else:
+            ipc_reference = footprint_group_data['ipc_reference']
         ipc_density = footprint_group_data['ipc_density']
         ipc_data_set = self.ipc_defintions[ipc_reference][ipc_density]
         ipc_round_base = self.ipc_defintions[ipc_reference]['round_base']
@@ -366,5 +368,5 @@ if __name__ == "__main__":
         configuration['round_rect_radius_ratio'] = 0
 
     for filepath in args.files:
-        two_terminal_smd = TwoTerminalSMDchip(filepath, configuration)
+        two_terminal_smd = TwoTerminalSMD(filepath, configuration)
         two_terminal_smd.generateFootprints()

@@ -120,16 +120,7 @@ SMD_2512:
       maximum: 5.22
     size_info: '(Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf)'
 
-SMD_2816:
-    code_imperial: "2816"
-    code_metric: "7142"
-    body_length:
-        nominal: 7.1
-        tolerance: 0.254
-    body_width:
-        nominal: 4.2
-        tolerance: 0.254
-    terminal_length:
-      minimum: 1.316
-      maximum: 2.744
-    size_info: '(Body size from: https://www.vishay.com/docs/30100/wsl.pdf)'
+#Could not find any LED, diode, inductor or fuse in this body size
+# SMD_2816:
+    # code_imperial: "2816"
+    # code_metric: "7142"

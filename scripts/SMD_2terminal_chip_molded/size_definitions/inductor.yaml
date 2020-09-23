@@ -46,9 +46,9 @@ L_1806:
     body_length:
         minimum: 4.2
         maximum: 4.8
-    body_width:
-        minimum: 0.6
-        maximum: 1.2
+    body_width: # IPC-SM-782 shows 0.6-1.2mm which seems to be a copy and paste error from the 2012 body width, so copy the 3216 dimensions
+        minimum: 1.3
+        maximum: 1.9
     terminal_length:
         minimum: 0.3
         maximum: 0.8
