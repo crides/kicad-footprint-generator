@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
    
     
-    pins=[1,2,3,4,5,6,7,8,9,10,12,16,24]
+    pins=[1,2,3,4,5,6,7,8,9,10,11,12,16,24]
     rm=7.5
     package_height=15
     leftbottom_offset=[2.75, 6.7, 3.75]
@@ -76,7 +76,7 @@ if __name__ == '__main__':
      
 
     
-    pins=[1,2,3,4,5,6,7,8,9,10,12,16,24]
+    pins=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,24]
     rm=5
     package_height=15
     leftbottom_offset=[2.75, 6.7, 3.75]
@@ -122,7 +122,7 @@ if __name__ == '__main__':
                                   tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
 
 
-    pins=[1,2,3,4,6,8,12,16,24,36,48]
+    pins=[1,2,3,4,5,6,7,8,9,12,14,16,24,36,48]
     rm=5
     package_height=14
     leftbottom_offset=[3.5, 9, 3.8]
@@ -172,7 +172,7 @@ if __name__ == '__main__':
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
                                   tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
 
-    pins=[1,2,3,4,6,8,12,16,24]
+    pins=[1,2,3,4,5,6,7,8,9,12,16,24]
     rm=7.5
     package_height=14
     leftbottom_offset=[3.5, 9, 6.3]
@@ -222,7 +222,7 @@ if __name__ == '__main__':
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
                                   tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
 
-    pins=[1,2,3,4,6,8,12,16,24]
+    pins=[1,2,3,4,5,6,8,9,12,16,24]
     rm=10
     package_height=14
     leftbottom_offset=[3.5, 9, 8.8]
