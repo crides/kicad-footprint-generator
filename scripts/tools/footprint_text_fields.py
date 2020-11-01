@@ -88,7 +88,7 @@ def addTextFields(kicad_mod, configuration, body_edges, courtyard, fp_name, text
         **_getTextFieldDetails(reference_fields[0], body_edges, courtyard, text_y_inside_position, allow_rotation)))
 
     for additional_ref in reference_fields[1:]:
-        kicad_mod.append(Text(type='user', text='%R',
+        kicad_mod.append(Text(type='user', text='${REFERENCE}',
         **_getTextFieldDetails(additional_ref, body_edges, courtyard, text_y_inside_position, allow_rotation)))
 
     value_fields = configuration['values']
