@@ -30,12 +30,12 @@ def qfn(args):
     dir3D = 'Inductor_SMD.3dshapes'
     f = Footprint(footprint_name)
 
-    file3Dname = "${KISYS3DMOD}/" + dir3D + "/" + footprint_name + ".wrl"
+    file3Dname = "${KICAD6_3DMODEL_DIR}/" + dir3D + "/" + footprint_name + ".wrl"
     words = footprint_name.split("_")
     if words[-1].lower().startswith('handsolder'):
         words[-1] = ''
         ff = '_'.join(words)
-        file3Dname = "${KISYS3DMOD}/" + dir3D + "/" + ff + ".wrl"
+        file3Dname = "${KICAD6_3DMODEL_DIR}/" + dir3D + "/" + ff + ".wrl"
     f.append(StandardBox(footprint=f, description=description, datasheet=datasheet, at=at, size=size, tags=fptag, SmdTht=SmdTht, extratexts=extratexts, pins=pins, file3Dname=file3Dname ))
     #
     #

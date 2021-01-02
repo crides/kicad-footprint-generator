@@ -271,7 +271,7 @@ def generate_one_footprint(model, params, configuration):
                 layer='F.Fab', width=configuration['fab_line_width']))
 
     #################################################### 3d file ###################################################
-    p3dname = '{prefix:s}{lib_name:s}.3dshapes/{fp_name}.wrl'.format(prefix = configuration.get('3d_model_prefix', '${KISYS3DMOD}/'), lib_name=lib_name, fp_name=footprint_name)
+    p3dname = '{prefix:s}{lib_name:s}.3dshapes/{fp_name}.wrl'.format(prefix = configuration.get('3d_model_prefix', '${KICAD6_3DMODEL_DIR}/'), lib_name=lib_name, fp_name=footprint_name)
     kicad_mod.append(Model(filename=p3dname,
                            at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
 

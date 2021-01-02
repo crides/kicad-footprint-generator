@@ -48,7 +48,7 @@ for padNum in padNums:
     f.setDescription(datasheet)
     f.setTags("Connector PCBEdge molex EDGELOCK")
     f.setAttribute("virtual")
-    f.append(Model(filename="${KISYS3DMOD}/Connector_PCBEdge.3dshapes/" + footprint_name + ".wrl",
+    f.append(Model(filename="${KICAD6_3DMODEL_DIR}/Connector_PCBEdge.3dshapes/" + footprint_name + ".wrl",
                    at=[0.0, 0.0, 0.0],
                    scale=[1.0, 1.0, 1.0],
                    rotate=[0.0, 0.0, 0.0]))

@@ -28,7 +28,7 @@ def plcc4(args):
     f.setDescription(desc + args["datasheet"])
     f.setTags("LED Cree PLCC-4")
     f.setAttribute("smd")
-    f.append(Model(filename="${KISYS3DMOD}/LEDs.3dshapes/" + footprint_name + ".wrl",
+    f.append(Model(filename="${KICAD6_3DMODEL_DIR}/LEDs.3dshapes/" + footprint_name + ".wrl",
                    at=[0.0, 0.0, 0.0],
                    scale=[1.0, 1.0, 1.0],
                    rotate=[0.0, 0.0, 0.0]))

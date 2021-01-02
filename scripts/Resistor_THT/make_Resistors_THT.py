@@ -24,7 +24,7 @@ from footprint_scripts_resistorlike import *
 
 
 if __name__ == '__main__':
-    lib_name="${KISYS3DMOD}/Resistor_THT"
+    lib_name="${KICAD6_3DMODEL_DIR}/Resistor_THT"
 
     # standard resistors: http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf
     type = "cyl"

@@ -30,7 +30,7 @@ def rotary_coded_switch(args):
     else:
         tech = "SMD"
         f.setAttribute("smd")
-    f.append(Model(filename="${KISYS3DMOD}/Buttons_Switches_" + tech + ".3dshapes/" + footprint_name + ".wrl", at=[0, 0, 0], scale=[1, 1, 1], rotate=[0.0, 0.0, 0.0]))
+    f.append(Model(filename="${KICAD6_3DMODEL_DIR}/Buttons_Switches_" + tech + ".3dshapes/" + footprint_name + ".wrl", at=[0, 0, 0], scale=[1, 1, 1], rotate=[0.0, 0.0, 0.0]))
 
     wCrtYd = 0.05
     wFab = 0.1

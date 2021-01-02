@@ -188,7 +188,7 @@ class QFP():
             pad_y=pad_details['left']['size'][1])
         suffix_3d = suffix if device_params.get('include_suffix_in_3dpath', 'True') == 'True' else ""
 
-        model3d_path_prefix = self.configuration.get('3d_model_prefix','${KISYS3DMOD}')
+        model3d_path_prefix = self.configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}')
         name_format = self.configuration['fp_name_format_string']
 
         fp_name = name_format.format(

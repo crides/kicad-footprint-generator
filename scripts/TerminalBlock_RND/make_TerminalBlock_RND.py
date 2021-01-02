@@ -49,7 +49,7 @@ if __name__ == '__main__':
                                   opening=opening, opening_yoffset=opening_yoffset, 
                                   bevel_height=bevel_height, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize,nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name="${KISYS3DMOD}/TerminalBlock_RND", classname="TerminalBlock_RND", classname_description="terminal block RND 205-{0:05}".format(76+p), webpage="http://cdn-reichelt.de/documents/datenblatt/C151/RND_205-00276_DB_EN.pdf", script_generated_note=script_generated_note)
+                                  tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/TerminalBlock_RND", classname="TerminalBlock_RND", classname_description="terminal block RND 205-{0:05}".format(76+p), webpage="http://cdn-reichelt.de/documents/datenblatt/C151/RND_205-00276_DB_EN.pdf", script_generated_note=script_generated_note)
 
     
     pins=range(2,12+1)
@@ -81,7 +81,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
                                   
@@ -114,7 +114,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
     pins=range(2,12+1)
@@ -160,7 +160,7 @@ if __name__ == '__main__':
                                   secondDrillDiameter=secondDrillDiameter,secondDrillOffset=secondDrillOffset,secondDrillPad=secondDrillPad,
                                   secondEllipseSize=secondEllipseSize,secondEllipseOffset=secondEllipseOffset,
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                                  tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
    
     pins=range(2,12+1)
     rm=10
@@ -191,7 +191,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
     
@@ -224,7 +224,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
                                   
@@ -257,7 +257,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
  
     
@@ -290,7 +290,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
     
     pins=range(2,12+1)
@@ -322,7 +322,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
                                   
@@ -355,7 +355,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
     pins=range(2,12+1)
@@ -387,7 +387,7 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)
 
                                   
@@ -420,5 +420,5 @@ if __name__ == '__main__':
                                   package_height=package_height, leftbottom_offset=leftbottom_offset, 
                                   ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, bevel_height=bevel_height, slit_screw=slit_screw, screw_pin_offset=screw_pin_offset, secondHoleDiameter=secondHoleDiameter, secondHoleOffset=secondHoleOffset, thirdHoleDiameter=thirdHoleDiameter, thirdHoleOffset=thirdHoleOffset, fourthHoleDiameter=fourthHoleDiameter, fourthHoleOffset=fourthHoleOffset, 
                                   nibbleSize=nibbleSize, nibblePos=nibblePos, fabref_offset=fabref_offset,
-                                  tags_additional=[], lib_name='${KISYS3DMOD}/'+classname, classname=classname, classname_description=classname_description, 
+                                  tags_additional=[], lib_name='${KICAD6_3DMODEL_DIR}/'+classname, classname=classname, classname_description=classname_description, 
                                   webpage=webpage, script_generated_note=script_generated_note)

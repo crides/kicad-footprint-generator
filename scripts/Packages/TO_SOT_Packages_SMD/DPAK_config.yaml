@@ -30,7 +30,7 @@ base:
             z_mm: 0.1                                                
         pins:
             colour: 'metal grey pins'                                
-    3d_prefix: '${KISYS3DMOD}/TO_SOT_Packages_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/TO_SOT_Packages_SMD.3dshapes'
 variants:
     - pins: 3                                                        
       pitch_mm: 2.28
@@ -89,7 +89,7 @@ base:
             z_mm: 0.1                                                 
         pins:
             colour: 'metal grey pins'                                
-    3d_prefix: '${KISYS3DMOD}/TO_SOT_Packages_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/TO_SOT_Packages_SMD.3dshapes'
 variants:
     - pins: 3                                                        
       pitch_mm: 2.54
@@ -160,7 +160,7 @@ base:
             z_mm: 0.1                                                 
         pins:
             colour: 'metal grey pins'                                
-    3d_prefix: '${KISYS3DMOD}/TO_SOT_Packages_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/TO_SOT_Packages_SMD.3dshapes'
 variants:
     - pins: 3                                                        
       pitch_mm: 5.45
@@ -207,7 +207,7 @@ base:
             z_mm: 0.1                                                 
         pins:
             colour: 'metal grey pins'                                
-    3d_prefix: '${KISYS3DMOD}/TO_SOT_Packages_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/TO_SOT_Packages_SMD.3dshapes'
 variants:
     - pins: 3                                                        
       pitch_mm: 2.3

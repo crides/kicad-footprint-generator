@@ -21,7 +21,7 @@ f = Footprint(footprint_name)
 f.setDescription(datasheet)
 f.setTags("Inductor SMD DEM35xxC")
 f.setAttribute("smd")
-f.append(Model(filename="${KISYS3DMOD}/Inductor_SMD.3dshapes/" + footprint_name + ".wrl",
+f.append(Model(filename="${KICAD6_3DMODEL_DIR}/Inductor_SMD.3dshapes/" + footprint_name + ".wrl",
                at=[0.0, 0.0, 0.0],
                scale=[1.0, 1.0, 1.0],
                rotate=[0.0, 0.0, 0.0]))

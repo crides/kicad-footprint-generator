@@ -145,7 +145,7 @@ class TwoTerminalSMDchip():
             pad_y=pad_details['size'][1])
         prefix = footprint_group_data['prefix']
 
-        model3d_path_prefix = self.configuration.get('3d_model_prefix','${KISYS3DMOD}')
+        model3d_path_prefix = self.configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}')
         suffix_3d = suffix if footprint_group_data.get('include_suffix_in_3dpath', 'True') == 'True' else ""
 
         code_metric = device_size_data.get('code_metric')

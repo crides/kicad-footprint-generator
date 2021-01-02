@@ -25,7 +25,7 @@ def ptc_fuse_tht(args):
     f.setDescription("PTC Resettable Fuse, Ihold = " + ihold +
                      ", Itrip=" + itrip + ", " + datasheet)
     f.setTags("ptc resettable fuse polyfuse THT")
-    f.append(Model(filename="${KISYS3DMOD}/Fuse.3dshapes/" +
+    f.append(Model(filename="${KICAD6_3DMODEL_DIR}/Fuse.3dshapes/" +
                    footprint_name + ".wrl",
                    at=[0.0, 0.0, 0.0],
                    scale=[1.0, 1.0, 1.0],

@@ -366,7 +366,7 @@ def generate_one_footprint(idx, pincount, series_definition, configuration, grou
         courtyard={'top':cy1, 'bottom':cy2}, fp_name=footprint_name, text_y_inside_position=text_center)
 
     ########################### file names ###############################
-    model3d_path_prefix = configuration.get('3d_model_prefix','${KISYS3DMOD}/')
+    model3d_path_prefix = configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}/')
 
     lib_name = configuration['lib_name_format_string'].format(man=group_definition['manufacturer'],
         series=series_definition['series'])

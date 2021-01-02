@@ -186,7 +186,7 @@ def generate_one_footprint(partnumber, pincount, configuration):
         at=[0,actuator_y1-(ear_height-pcb_edge_gap)/2.0], size=[0.5,0.5], layer='Dwgs.User', thickness=0.08, rotation=0))
 
     ##################### Output and 3d model ############################
-    model3d_path_prefix = configuration.get('3d_model_prefix','${KISYS3DMOD}/')
+    model3d_path_prefix = configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}/')
 
     if lib_by_conn_category:
         lib_name = configuration['lib_name_specific_function_format_string'].format(category=conn_category)

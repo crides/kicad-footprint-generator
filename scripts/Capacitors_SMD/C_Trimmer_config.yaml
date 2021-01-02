@@ -14,7 +14,7 @@ base:
            colour: 'white body'
         rotor:
            colour: 'white body'
-    3d_prefix: '${KISYS3DMOD}/Capacitors_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/Capacitors_SMD.3dshapes'
 variants:
     - series: TZR1
       manufacturer: Murata
@@ -180,7 +180,7 @@ base:
            colour: 'white body'
         rotor:
            colour: 'white body'
-    3d_prefix: '${KISYS3DMOD}/Capacitors_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/Capacitors_SMD.3dshapes'
 variants:
     - series: TZC3
       manufacturer: Murata
@@ -220,7 +220,7 @@ base:
            colour: 'white body'
         rotor:
            colour: 'white body'
-    3d_prefix: '${KISYS3DMOD}/Capacitors_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/Capacitors_SMD.3dshapes'
 variants:
     - series: JZ
       manufacturer: Voltronics
@@ -281,7 +281,7 @@ base:
            colour: 'white body'
         rotor:
            colour: 'white body'
-    3d_prefix: '${KISYS3DMOD}/Capacitors_SMD.3dshapes'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/Capacitors_SMD.3dshapes'
 variants:
     - series: TZB4-A
       manufacturer: Murata

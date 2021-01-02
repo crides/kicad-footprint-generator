@@ -36,7 +36,7 @@ def create_smd_shielding(name, **kwargs):
     kicad_mod.setDescription(kwargs['description'])
     kicad_mod.setTags('Shielding Cabinet')
     kicad_mod.setAttribute('smd')
-    kicad_mod.append(Model(filename="${KISYS3DMOD}/RF_Shielding.3dshapes/" + name + ".wrl"))
+    kicad_mod.append(Model(filename="${KICAD6_3DMODEL_DIR}/RF_Shielding.3dshapes/" + name + ".wrl"))
 
     # do some pre calculations
     # TODO: when mirror=False, array has to have even number of array elements

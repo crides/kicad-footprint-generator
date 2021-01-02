@@ -34,7 +34,7 @@ slk_offset = lw_slk
 #
 def makeTerminalBlockStd(footprint_name, pins, rm, package_height, leftbottom_offset, ddrill, pad, screw_diameter, bevel_height, slit_screw=True, screw_pin_offset=[0,0], secondHoleDiameter=0, secondHoleOffset=[0,0], thirdHoleDiameter=0, thirdHoleOffset=[0,0], fourthHoleDiameter=0, fourthHoleOffset=[0,0],secondDrillDiameter=0,secondDrillOffset=[0,0],secondDrillPad=[0,0],nibbleSize=[],nibblePos=[], fabref_offset=[0,0],
                         stackable=False,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
 
     package_size=[2*leftbottom_offset[0]+(pins-1)*rm, package_height];
     if len(leftbottom_offset)==3:
@@ -255,7 +255,7 @@ def makeTerminalBlockStd(footprint_name, pins, rm, package_height, leftbottom_of
 #
 def makeTerminalBlockVertical(footprint_name, pins, rm, package_height, leftbottom_offset, ddrill, pad, opening, opening_yoffset, bevel_height, opening_xoffset=0, secondHoleDiameter=0, secondHoleOffset=[0,0], thirdHoleDiameter=0, thirdHoleOffset=[0,0], fourthHoleDiameter=0, fourthHoleOffset=[0,0],secondDrillDiameter=0,secondDrillOffset=[0,0],secondDrillPad=[0,0],nibbleSize=[],nibblePos=[], fabref_offset=[0,0],
                         stackable=False,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
 
     package_size=[2*leftbottom_offset[0]+(pins-1)*rm, package_height];
     if len(leftbottom_offset)==3:
@@ -478,7 +478,7 @@ def makeTerminalBlockVertical(footprint_name, pins, rm, package_height, leftbott
 #
 def makeTerminalBlock45Degree(footprint_name, pins, rm, package_height, leftbottom_offset, ddrill, pad, opening, opening_xoffset, opening_yoffset, opening_elliptic=False, bevel_height=[], vsegment_lines_offset=[], secondHoleDiameter=0, secondHoleOffset=[0,0], thirdHoleDiameter=0, thirdHoleOffset=[0,0], fourthHoleDiameter=0, fourthHoleOffset=[0,0], fifthHoleDiameter=0, fifthHoleOffset=[0,0],secondDrillDiameter=0,secondDrillOffset=[0,0],secondDrillPad=[0,0],nibbleSize=[],nibblePos=[], fabref_offset=[0,0],secondEllipseSize=[0,0],secondEllipseOffset=[0,0],
                         stackable=False,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="terminal block", webpage="", script_generated_note=""):
 
     package_size=[2*leftbottom_offset[0]+(pins-1)*rm, package_height];
     if len(leftbottom_offset)==3:
@@ -712,7 +712,7 @@ def makeTerminalBlock45Degree(footprint_name, pins, rm, package_height, leftbott
 # slit_screw=true|False: type of screw
 # block_size [w,h]: size of block
 def makeScrewTerminalSingleStd(footprint_name, block_size, block_offset, pins, ddrill, pad, screw_diameter, screw_offset, slit_screw=True,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="single screw terminal terminal block", webpage="", script_generated_note=""):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_Terminal_Blocks", classname="Connectors_Terminal_Blocks", classname_description="single screw terminal terminal block", webpage="", script_generated_note=""):
 
 
     h_fab = block_size[1]

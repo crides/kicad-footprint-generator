@@ -35,7 +35,7 @@ def textool(args):
     f = Footprint(footprint_name)
     f.setDescription("3M " + str(nPads) + "-pin zero insertion force socket, through-hole, row spacing " + str(dimC) + " mm (" + str(mils) + " mils), http://multimedia.3m.com/mws/media/494546O/3mtm-dip-sockets-100-2-54-mm-ts0365.pdf")
     f.setTags("THT DIP DIL ZIF " + str(dimC) + "mm " + str(mils) + "mil Socket")
-    f.append(Model(filename="${KISYS3DMOD}/Socket.3dshapes/" + footprint_name + ".wrl", at=[0.0, 0.0, 0.0], scale=[1.0, 1.0, 1.0], rotate=[0.0, 0.0, 0.0]))
+    f.append(Model(filename="${KICAD6_3DMODEL_DIR}/Socket.3dshapes/" + footprint_name + ".wrl", at=[0.0, 0.0, 0.0], scale=[1.0, 1.0, 1.0], rotate=[0.0, 0.0, 0.0]))
 
     pitch = 2.54
 

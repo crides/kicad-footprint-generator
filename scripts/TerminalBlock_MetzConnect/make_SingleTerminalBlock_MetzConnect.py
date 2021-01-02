@@ -36,7 +36,7 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM2.6".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
        
     block_size=[5,4]
     block_offset=[0.5,0]
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM2.6_WireProtection".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
       
     block_size=[5,5]
     block_offset=[0,0]
@@ -59,13 +59,13 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM3.0".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
     name="360381"
     webpage="http://www.metz-connect.com/de/system/files/METZ_CONNECT_U_Contact_Katalog_Anschlusssysteme_fuer_Leiterplatten_DE_31_07_2017_OFF_024803.pdf?language=en page 133"
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM3.0".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
        
     block_size=[6,4]
     block_offset=[1,0]
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM3.0_WireProtection".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
       
     block_size=[9, 7.3]
     block_offset=[0,0]
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM3.0_Boxed".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
                                        
     block_size=[9, 7.3]
     block_offset=[0,0]
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM3.0_Boxed".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
                                        
     block_size=[9,9]
     block_offset=[0,0]
@@ -118,5 +118,5 @@ if __name__ == '__main__':
     footprint_name="TerminalBlock_MetzConnect_{0}_1x01_Horizontal_ScrewM4.0_Boxed".format(name)
     classname_description="single screw terminal block Metz Connect {0}".format(name)
     makeScrewTerminalSingleStd(footprint_name, block_size=block_size, block_offset=block_offset, pins=pins, ddrill=ddrill, pad=pad, screw_diameter=screw_diameter, screw_offset=screw_offset, slit_screw=slit_screw,
-                        tags_additional=[], lib_name="${KISYS3DMOD}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
+                        tags_additional=[], lib_name="${KICAD6_3DMODEL_DIR}/"+classname, classname=classname, classname_description=classname_description, webpage=webpage, script_generated_note=script_generated_note)
                                   

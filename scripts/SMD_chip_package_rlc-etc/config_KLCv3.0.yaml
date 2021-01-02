@@ -9,7 +9,7 @@ fp_name_non_metric_format_string: '{prefix:s}_{code_imperial:s}{suffix:s}'
 
 fp_name_tantal_format_string: '{prefix:s}_EIA-{code_metric:s}_{code_letter:s}{suffix:s}'
 
-3d_model_prefix: '${KISYS3DMOD}/'
+3d_model_prefix: '${KICAD6_3DMODEL_DIR}/'
 
 
 fab_outline: 'typical' # typical | max | min

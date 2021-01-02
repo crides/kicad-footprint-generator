@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # axial Chokes
     classname="L"
-    libname = "${KISYS3DMOD}/Inductor_THT"
+    libname = "${KICAD6_3DMODEL_DIR}/Inductor_THT"
     seriesname = "Axial"; w = 9.5; d = 4; ddrill = 1; R_POW = 0; add_description="http://cdn-reichelt.de/documents/datenblatt/B400/DS_SMCC_NEU.pdf, http://cdn-reichelt.de/documents/datenblatt/B400/LEADEDINDUCTORS.pdf"; name_additions=["Fastron","SMCC"]
     for rm in [12.7,15.24]:
         makeResistorAxialHorizontal(seriesname=seriesname, rm=rm, rmdisp=rm, w=w, d=d, ddrill=ddrill, R_POW=R_POW, type=type, d2=d2, x_3d=[0, 0, 0], s_3d=[1, 1, 1], has3d=1, specialfpname="", add_description=add_description, name_additions=name_additions, specialtags=name_additions, classname=classname, lib_name=libname, script3d=script3d)
@@ -177,7 +177,7 @@ if __name__ == '__main__':
     rm2=0; w2=0
     type = "round"; seriesname = "Radial";
     classname = "L"
-    libname = "${KISYS3DMOD}/Inductor_THT"
+    libname = "${KICAD6_3DMODEL_DIR}/Inductor_THT"
     script3drbox="L_Choke_radial_box.py"
     with open(script3drbox, "w") as myfile:
         myfile.write("#\n# SCRIPT to generate 3D models\n#\n\n")
@@ -308,7 +308,7 @@ if __name__ == '__main__':
     rm2=0; w2=0
     type = "round";
     classname = "L_Toroid"
-    libname = "${KISYS3DMOD}/Inductor_THT"
+    libname = "${KICAD6_3DMODEL_DIR}/Inductor_THT"
     deco="chokewire"
     type = "concentric" ;seriesname = "Horizontal";
     script3dtoroidhor="L_Choke_toroid_hor.py"
@@ -480,7 +480,7 @@ if __name__ == '__main__':
     type = "round"; seriesname = "Radial";
     deco=""
     classname = "L"
-    libname = "${KISYS3DMOD}/Inductor_THT"
+    libname = "${KICAD6_3DMODEL_DIR}/Inductor_THT"
     w = 12.0; w2=w; h = w; ddrill = 1.2; rm=10.0; rm2=0; R_POW=0; add_description = "http://www.neosid.de/produktblaetter/neosid_Festinduktivitaet_Sd12k.pdf"; name_additions=["Neosid", "SD12k", "style1"]
     makeResistorRadial(seriesname=seriesname, rm=rm, w=w, h=h, ddrill=ddrill, R_POW=R_POW, rm2=rm2, vlines=False, w2=w2, type=type, x_3d=[0, 0, 0], s_3d=[1, 1, 1], has3d=1, specialfpname="", name_additions=name_additions, specialtags=name_additions, add_description=add_description, classname=classname, lib_name=libname, height3d=13, script3d=script3drrs)
     w = 12.0; w2=w; h = w; ddrill = 1.2; rm=5.0; rm2=0; R_POW=0; add_description = "http://www.neosid.de/produktblaetter/neosid_Festinduktivitaet_Sd12k.pdf"; name_additions=["Neosid", "SD12k", "style2"]

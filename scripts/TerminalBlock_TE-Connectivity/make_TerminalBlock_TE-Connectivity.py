@@ -78,7 +78,7 @@ if __name__ == '__main__':
                 nibblePos=nibblePos,
                 fabref_offset=fabref_offset,
                 tags_additional=[],
-                lib_name='${KISYS3DMOD}/'+long_classname,
+                lib_name='${KICAD6_3DMODEL_DIR}/'+long_classname,
                 classname=classname,
                 classname_description=classname_description,
                 webpage=webpage,

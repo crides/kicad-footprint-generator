@@ -402,7 +402,7 @@ def generate_one_footprint(pins_per_row, variant, configuration):
 
     ##################### Output and 3d model ############################
 
-    model3d_path_prefix = configuration.get('3d_model_prefix','${KISYS3DMOD}/')
+    model3d_path_prefix = configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}/')
     lib_name_suffix = '_SMD' if is_smd else '_THT'
 
     lib_name = configuration['lib_name_format_string_full'].format(series=series, man=manufacturer, suffix=lib_name_suffix)

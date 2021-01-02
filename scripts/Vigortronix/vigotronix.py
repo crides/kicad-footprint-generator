@@ -168,7 +168,7 @@ for converter in converters:
     #
     # Add 3D model
     #
-    fp.append(Model(filename="${KISYS3DMOD}/" + TargetDir + "/" + fp_name + ".wrl", at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
+    fp.append(Model(filename="${KICAD6_3DMODEL_DIR}/" + TargetDir + "/" + fp_name + ".wrl", at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
     
 
     #filename

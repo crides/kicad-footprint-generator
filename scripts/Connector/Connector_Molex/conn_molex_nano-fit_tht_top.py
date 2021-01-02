@@ -266,7 +266,7 @@ def generate_one_footprint(pins, params, configuration):
         courtyard={'top':bounding_box['top'] - CrtYd_off, 'bottom':bounding_box['bottom'] + CrtYd_off}, fp_name=footprint_name, text_y_inside_position='right')
 
     ##################### Output and 3d model ############################
-    model3d_path_prefix = configuration.get('3d_model_prefix','${KISYS3DMOD}/')
+    model3d_path_prefix = configuration.get('3d_model_prefix','${KICAD6_3DMODEL_DIR}/')
 
     lib_name = configuration['lib_name_format_string'].format(series=series, man=manufacturer)
     model_name = '{model3d_path_prefix:s}{lib_name:s}.3dshapes/{fp_name:s}.wrl'.format(

@@ -22,7 +22,7 @@ f = Footprint(footprint_name)
 f.setDescription(datasheet)
 f.setTags("LED ROHM SMLVN6")
 f.setAttribute("smd")
-f.append(Model(filename="${KISYS3DMOD}/LED_SMD.3dshapes/" + footprint_name + ".wrl",
+f.append(Model(filename="${KICAD6_3DMODEL_DIR}/LED_SMD.3dshapes/" + footprint_name + ".wrl",
                at=[0.0, 0.0, 0.0],
                scale=[1.0, 1.0, 1.0],
                rotate=[0.0, 0.0, 0.0]))

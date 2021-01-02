@@ -177,7 +177,7 @@ for itr in range (1, 20 + 1):
                               end = [(pin_cnt - 1) * pad_span + fab_outline_x + courtyard_outline, fab_outline_y + courtyard_outline],
                               layer = 'F.CrtYd'))
     #add 3D model
-    kicad_mod.append(Model(filename="${{KISYS3DMOD}}/Connector_Stocko.3dshapes/{}.wrl".format(footprint_name),
+    kicad_mod.append(Model(filename="${{KICAD6_3DMODEL_DIR}}/Connector_Stocko.3dshapes/{}.wrl".format(footprint_name),
                         at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
     #output kicad model
     file_handler = KicadFileHandler(kicad_mod)

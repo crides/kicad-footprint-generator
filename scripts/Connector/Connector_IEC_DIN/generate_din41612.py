@@ -202,7 +202,7 @@ def BFemale(size, pin_cb, more_description):
 	# ------ 3D reference ------
 	# in case someone wants to make a model
 	kicad_mod.append(Model(
-		filename="${KISYS3DMOD}/Connectors_IEC_DIN.3dshapes/" + footprint_name + ".wrl",
+		filename="${KICAD6_3DMODEL_DIR}/Connectors_IEC_DIN.3dshapes/" + footprint_name + ".wrl",
 		at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
 
 	# ------ Output ------
@@ -388,7 +388,7 @@ def BMale(size, pin_cb, more_description):
 	# ------ 3D reference ------
 	# in case someone wants to make a model
 	kicad_mod.append(Model(
-		filename="{prefix}{lib_name}.3dshapes/{fp_name}.wrl".format(prefix = '${KISYS3DMOD}/', lib_name=LIBRARY_NAME, fp_name=footprint_name),
+		filename="{prefix}{lib_name}.3dshapes/{fp_name}.wrl".format(prefix = '${KICAD6_3DMODEL_DIR}/', lib_name=LIBRARY_NAME, fp_name=footprint_name),
 		at=[0, 0, 0], scale=[1, 1, 1], rotate=[0, 0, 0]))
 
 	# ------ Output ------

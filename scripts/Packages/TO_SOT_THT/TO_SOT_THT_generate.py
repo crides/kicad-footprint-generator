@@ -1137,7 +1137,7 @@ if __name__ == '__main__':
     pins = [[2, 3,5], [2, 3,4,5], [2, 3], [2, 3], [2, 3], [2, 3, 4,5], [3], [3,5], [3],  [3], [2, 3, 4, 5, ]]
     rms = [ [0, 0,3.81], [0, 0,2.54,2.54], [0, 0], [0, 0], [0, 0], [0, 0, 2.54,1.7], [0], [0,1.7], [0],  [0], [0, 0, 2.54,1.7]]
 
-    #makeVERTLS("${KISYS3DMOD}/Package_TO_SOT_THT", pack("SOT93", 2, 0, 0, False),False, [0, 0, 0], [0, 0, 0])
+    #makeVERTLS("${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT", pack("SOT93", 2, 0, 0, False),False, [0, 0, 0], [0, 0, 0])
     #exit()
     for p in range(0, len(packs)):
         for pidx in range(0, len(pins[p])):
@@ -1150,7 +1150,7 @@ if __name__ == '__main__':
             r3dr=r3d
 
             pack_norm = pack(packs[p], pins[p][pidx], rms[p][pidx], 0, False)
-            libn = "${KISYS3DMOD}/Package_TO_SOT_THT"
+            libn = "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT"
             makeVERT(libn, pack_norm, True, o3d, s3d, "_LargePads", r3d)
             #makeVERTLS(libn, pack_norm, True, o3dvls, s3d, "_LargePads", r3d)
             makeHOR(libn, pack_norm, True, o3dh, s3d, "_LargePads", r3d)
@@ -1180,7 +1180,7 @@ if __name__ == '__main__':
 
             pack_norm1 = pack(packs[p], pins[p][pidx], rms[p][pidx], 1, False, pitchy,ypinoffset)
             pack_norm2 = pack(packs[p], pins[p][pidx], rms[p][pidx], 2, False, pitchy,ypinoffset)
-            libn = "${KISYS3DMOD}/Package_TO_SOT_THT"
+            libn = "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT"
             makeVERT(libn, pack_norm1, True, o3d, s3d)
             makeVERT(libn, pack_norm2, True, o3d, s3d)
             makeHOR(libn, pack_norm1, True, o3d, s3d)
@@ -1189,10 +1189,10 @@ if __name__ == '__main__':
 
 
                             #pack_largepins=pack(packs[p], pins[p][pidx], rms[p][pidx], True)
-            #makeVERT("${KISYS3DMOD}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
-            #makeHOR("${KISYS3DMOD}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
+            #makeVERT("${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
+            #makeHOR("${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
             #if (len(pack_largepins.additional_pin_pad) <= 0):
-            #    makeHORREV("${KISYS3DMOD}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
+            #    makeHORREV("${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT", pack_largepins, True, o3d, s3d)
 
     # make round packages
     packs=[]
@@ -1334,6 +1334,6 @@ if __name__ == '__main__':
                 s3d = [1,1,1]
 
                 pack = pack_round(packs[p], pins[p][pidx], m, False)
-                libn = "${KISYS3DMOD}/Package_TO_SOT_THT"
+                libn = "${KICAD6_3DMODEL_DIR}/Package_TO_SOT_THT"
                 makeTORound(libn, pack, has3d[p][pidx], o3d, s3d)
             mi=mi+1

@@ -19,7 +19,7 @@ crt_offset = 0.5 # different for connectors
 
 
 def makeDSubStraight(pins, isMale, HighDensity, rmx, rmy, pindrill, pad, mountingdrill, mountingpad, mountingdistance, outline_size, outline_cornerradius, connwidth, connheight, side_angle_degree, conn_cornerradius,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage="", HighDensityOffsetMidLeft=0):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage="", HighDensityOffsetMidLeft=0):
                         
     hasMountingHoles=mountingdrill>0 and mountingdistance>0
     
@@ -261,7 +261,7 @@ def makeDSubStraight(pins, isMale, HighDensity, rmx, rmy, pindrill, pad, mountin
 
 
 def makeDSubEdge(pins, isMale, rmx, pad, mountingdrill, mountingdistance, shield_width, connwidth, can_height, shieldthickness, backcan_width, backcan_height, smaller_backcan_offset, smaller_backcan_height, soldercup_length, soldercup_diameter,soldercup_pad_edge_offset,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage=""):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage=""):
                         
     w_slk=int((pins-1)/2)*rmx+pad[0]+(slk_pad_offset+2*lw_slk)
     h_slk=pad[1]
@@ -456,7 +456,7 @@ def makeDSubEdge(pins, isMale, rmx, pad, mountingdrill, mountingdistance, shield
 
 
 def makeDSubAngled(pins, isMale, HighDensity, rmx, rmy, pindrill, pad, pin_pcb_distance, mountingdrill, mountingpad, mountingdistance, mounting_pcb_distance, shield_width, shield_thickness, can_width, can_height, backbox_width, backbox_height, nut_diameter, nut_length, backcan_width=0, backcan_height=0,
-                        tags_additional=[], lib_name="${{KISYS3DMOD}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage="", HighDensityOffsetMidLeft=0):
+                        tags_additional=[], lib_name="${{KICAD6_3DMODEL_DIR}}/Connectors_DSub", classname="DSub", classname_description="D-Sub connector", webpage="", HighDensityOffsetMidLeft=0):
                         
     hasMountingHoles=mountingdrill>0 and mountingdistance>0
     hasNoBackBox=backcan_width*backcan_height>0 and backbox_width*backbox_height==0

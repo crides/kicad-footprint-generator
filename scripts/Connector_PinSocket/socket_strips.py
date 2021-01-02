@@ -196,7 +196,7 @@ class pinSocketVerticalTHT (object):
            .rect(w_crt, h_crt, origin="topLeft")
 
         # add model
-        kicad_modg.append(Model(filename="${KISYS3DMOD}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
+        kicad_modg.append(Model(filename="${KICAD6_3DMODEL_DIR}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
 
         # write file
         file_handler = KicadFileHandler(kicad_mod)
@@ -361,7 +361,7 @@ class pinSocketHorizontalTHT (object):
            .rect(w_crt, h_crt)
 
         # add model
-        kicad_modg.append(Model(filename="${KISYS3DMOD}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
+        kicad_modg.append(Model(filename="${KICAD6_3DMODEL_DIR}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
 
         # write file
         file_handler = KicadFileHandler(kicad_mod)
@@ -532,7 +532,7 @@ class pinSocketVerticalSMD (object):
         crt.rect(w_crt, h_crt)
 
         # add model
-        kicad_modg.append(Model(filename="${KISYS3DMOD}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
+        kicad_modg.append(Model(filename="${KICAD6_3DMODEL_DIR}/" + lib_name + ".3dshapes/" + footprint_name + ".wrl"))
 
         # write file
         file_handler = KicadFileHandler(kicad_mod)

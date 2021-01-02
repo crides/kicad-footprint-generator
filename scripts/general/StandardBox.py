@@ -93,7 +93,7 @@ class StandardBox(Node):
     # pycodestyle complain over long lines so the complete on is placed in a comment instead
     #
     # StandardBox(footprint=f, description=description, datasheet=datasheet, at=at, size=size, tags=fptag, SmdTht=SmdTht,
-    # extratexts=extratexts, pins=pins, file3Dname = "${KISYS3DMOD}/" + dir3D + "/" + footprint_name + ".wrl")))
+    # extratexts=extratexts, pins=pins, file3Dname = "${KICAD6_3DMODEL_DIR}/" + dir3D + "/" + footprint_name + ".wrl")))
     #
     >>> from KicadModTree import *
     >>> StandardBox(footprint=f, description=description, ....)
