@@ -47,7 +47,7 @@ for padNum in padNums:
     f = Footprint(footprint_name)
     f.setDescription(datasheet)
     f.setTags("Connector PCBEdge molex EDGELOCK")
-    f.setAttribute("smd")
+    f.setAttribute("virtual")
     f.append(Model(filename="${KISYS3DMOD}/Connector_PCBEdge.3dshapes/" + footprint_name + ".wrl",
                    at=[0.0, 0.0, 0.0],
                    scale=[1.0, 1.0, 1.0],
@@ -145,8 +145,8 @@ for padNum in padNums:
         x = xPadLeft + padToPad * i
         if (i >= padNum/2):
             x += centerCardWidth + centerSpaceWidth * 2 + padCenterToSpaceSide * 2 - padToPad
-        f.append(Pad(number=i+1, type=Pad.TYPE_SMT, shape=padShape,
-                     at=[x, yPad], size=padSize, layers=Pad.LAYERS_SMT,
+        f.append(Pad(number=i+1, type=Pad.TYPE_CONNECT, shape=padShape,
+                     at=[x, yPad], size=padSize, layers=Pad.LAYERS_CONNECT_FRONT,
                      radius_ratio=radiusRatio))
 
     padCardWidth = padToPad * (padNum / 2 - 1) + padCenterToSpaceSide * 2
