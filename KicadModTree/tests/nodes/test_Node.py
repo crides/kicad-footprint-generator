@@ -18,7 +18,7 @@ import unittest
 from KicadModTree.nodes.Node import *
 
 
-class TestChildNode(Node):
+class HelperTestChildNode(Node):
     def __init__(self):
         Node.__init__(self)
 
@@ -83,7 +83,7 @@ class NodeTests(unittest.TestCase):
         self.assertEqual(childNode2.getParent(), node)
         self.assertEqual(len(node.getNormalChilds()), 2)
 
-        childNode3 = TestChildNode()
+        childNode3 = HelperTestChildNode()
         node.append(childNode3)
         self.assertIn(childNode1, node.getNormalChilds())
         self.assertIn(childNode2, node.getNormalChilds())
