@@ -11,7 +11,7 @@ create custom KiCAD footprint. A big bunch of footprints of the KiCad library wa
 [![Code Climate](https://codeclimate.com/github/pointhi/kicad-footprint-generator/badges/gpa.svg)](https://codeclimate.com/github/pointhi/kicad-footprint-generator)
 [![Documentation Status](https://readthedocs.org/projects/kicad-footprint-generator/badge/?version=latest)](http://kicad-footprint-generator.readthedocs.io/en/latest/?badge=latest)
 
-**Supports:** Python 2.7 and 3.3+
+**Supports:** Python 3.6+
 
 ## About
 
