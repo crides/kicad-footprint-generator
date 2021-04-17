@@ -34,7 +34,7 @@ def lispString(string):
     if type(string) is not str:
         string = str(string)
 
-    if len(string) == 0 or re.match(".*\s.*", string):
+    if len(string) == 0 or re.match(r".*\s.*", string):
         return '"{}"'.format(string.replace('"', '\\"'))  # escape text
 
     return string
