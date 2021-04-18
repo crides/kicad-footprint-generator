@@ -5,11 +5,12 @@ import os
 import re
 
 # load parent path of KicadModTree
-sys.path.append(os.path.join(sys.path[0], "..", "..", ".."))
+sys.path.append(os.path.join(sys.path[0], "..", "..", "..", ".."))
 
 lib_name = "Package_DFN_QFN"
 
 from KicadModTree import *
+
 
 def qfn(args):
     footprint_name = args["name"]
@@ -71,7 +72,7 @@ def qfn(args):
 
     padShape = Pad.SHAPE_RECT
 
-    chamfer = min(1.0, 0.25*min(pkgWidth, pkgHeight))
+    chamfer = min(1.0, 0.25 * min(pkgWidth, pkgHeight))
     silkOffset = 0.125
     crtYd = 0.25
     silkClearance = 0.2 + wSilkS / 2
@@ -158,7 +159,7 @@ def qfn(args):
 
     # Pads
     def padStart(n):
-        return (n-1) * pitch / 2
+        return (n - 1) * pitch / 2
 
     padNo = 1
 
@@ -266,9 +267,9 @@ def qfn(args):
                                      layers=["*.Cu"], drill=d))
 
     output_dir = '{lib_name:s}.pretty/'.format(lib_name=lib_name)
-    if not os.path.isdir(output_dir): #returns false if path does not yet exist!! (Does not check path validity)
+    if not os.path.isdir(output_dir):  # returns false if path does not yet exist!! (Does not check path validity)
         os.makedirs(output_dir)
-    filename =  '{outdir:s}{fp_name:s}.kicad_mod'.format(outdir=output_dir, fp_name=footprint_name)
+    filename = '{outdir:s}{fp_name:s}.kicad_mod'.format(outdir=output_dir, fp_name=footprint_name)
 
     file_handler = KicadFileHandler(f)
     file_handler.writeFile(filename)
