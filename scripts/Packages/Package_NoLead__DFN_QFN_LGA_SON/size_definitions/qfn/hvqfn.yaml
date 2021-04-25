@@ -112,6 +112,40 @@ HVQFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm:
   pitch: 0.5
   num_pins_x: 6
   num_pins_y: 6
+  
+HVQFN-24-1EP_4x4mm_P0.5mm_EP2.1x2.1mm:
+  device_type: 'HVQFN'
+  size_source: 'https://www.nxp.com/docs/en/package-information/SOT616-1.pdf'
+  ipc_class: 'qfn' # 'qfn_pull_back'
+  body_size_x:
+    minimum: 3.9
+    nominal: 4.0
+    maximum: 4.1
+  body_size_y:
+    minimum: 3.9
+    nominal: 4.0
+    maximum: 4.1
+  overall_height:
+    maximum: 1
+  lead_width:
+    minimum: 0.18
+    maximum: 0.3
+  lead_len:
+    minimum: 0.3
+    maximum: 0.5
+
+  EP_size_x:
+    minimum: 1.95
+    maximum: 2.25
+  EP_size_y:
+    minimum: 1.95
+    maximum: 2.25
+  EP_num_paste_pads: [3, 3]
+
+  pitch: 0.5
+  num_pins_x: 6
+  num_pins_y: 6
+
 
 HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm:
   device_type: 'HVQFN'
