@@ -592,6 +592,44 @@ TSSOP-28_4.4x9.7mm_P0.65mm:
   num_pins_x: 0
   num_pins_y: 14
 
+TSSOP-28-1EP_4.4x9.7mm_P0.65mm_EP2.85x6.7mm:
+  size_source: 'JEDEC MO-153 Var AET Pkg.Code U28E-4 https://pdfserv.maximintegrated.com/package_dwgs/21-0108.PDF'
+  
+  body_size_x:
+    minimum: 4.30 
+    maximum: 4.50 
+  body_size_y:
+    minimum: 9.60
+    maximum: 9.80
+
+  overall_size_x: 
+    minimum: 6.25
+    maximum: 6.50
+
+  body_height:
+    maximum: 1.10
+
+  lead_width:
+    minimum: 0.19
+    maximum: 0.30
+
+  lead_len: 
+    minimum: 0.50
+    maximum: 0.70
+
+  pitch: 0.65
+
+  num_pins_x: 0
+  num_pins_y: 14
+
+  EP_size_x:
+    minimum: 2.60
+    maximum: 3.10
+  EP_size_y:
+    minimum: 6.50
+    maximum: 6.90
+  EP_num_paste_pads: [2, 3]
+
 ##############################################################################
 # TSSOP Variations - 0.65 PITCH
 # BODY WIDTH (E1) = 6.10 NOM
