@@ -303,3 +303,34 @@ Broadcom_LGA-8_2.0x2.0mm:
   pitch: 0.53
   num_pins_x: 0
   num_pins_y: 4
+
+VLGA-4_2.5x2.0mm:
+  device_type: 'VLGA'
+  size_source: 'https://ww1.microchip.com/downloads/en/DeviceDoc/DSC60XX-Ultra-Small-Ultra-Low-Power-MEMS-Oscillator-DS20005625C.pdf#page=15'
+  library: 'Package_LGA'
+  #manufacturer: 'man'
+  #part_number: 'mpn'
+  ipc_class: 'qfn_pull_back'
+  body_size_x:
+    nominal: 2
+    tolerance: 0
+  body_size_y:
+    nominal: 2.5
+    tolerance: 0
+  overall_height:
+    nominal: 0.84
+    minimum: 0.79
+    maximum: 0.89
+  lead_width:
+    nominal: 0.65
+    minimum: 0.60
+    minimum: 0.70
+  lead_len:
+    nominal: 0.65
+    minimum: 0.60
+    minimum: 0.70
+  lead_center_to_center_x:
+    nominal: 1.25
+  pitch: 1.65
+  num_pins_x: 0
+  num_pins_y: 2
