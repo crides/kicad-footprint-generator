@@ -409,7 +409,9 @@ def generate_one_footprint(pins_per_row, variant, configuration):
 
     model_name = '{model3d_path_prefix:s}{lib_name:s}.3dshapes/{fp_name:s}.wrl'.format(
         model3d_path_prefix=model3d_path_prefix, lib_name=lib_name, fp_name=footprint_name)
-    kicad_mod.append(Model(filename=model_name))
+    # 3D models with option BE (Bottom Entry) are equivalent to the ones without BE option. 
+    # To save disk space the link to the 3D model of footprints with BE option will be set to the 3D model without BE option.
+    kicad_mod.append(Model(filename=model_name.replace ("DV-BE", "DV")))
 
     output_dir = '{lib_name:s}.pretty/'.format(lib_name=lib_name)
     if not os.path.isdir(output_dir): #returns false if path does not yet exist!! (Does not check path validity)
