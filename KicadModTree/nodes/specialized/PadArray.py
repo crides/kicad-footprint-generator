@@ -75,7 +75,7 @@ class PadArray(Node):
         * *end_pads_size_reduction* (``dict with keys x-,x+,y-,y+``) --
           size is reduced on the given side. (size reduced plus center moved.)
         * *tht_pad1_shape* (``Pad.SHAPE_RECT``, ``Pad.SHAPE_ROUNDRECT``, ...) --
-          shape for marking pad 1 for through hole components. (deafult: ``Pad.SHAPE_ROUNDRECT``)
+          shape for marking pad 1 for through hole components. (default: ``Pad.SHAPE_ROUNDRECT``)
         * *tht_pad1_id* (``int, string``) --
           pad number used for "pin 1" (default: 1)
         * *hidden_pins* (``int, Vector1D``) --
@@ -122,7 +122,7 @@ class PadArray(Node):
             elif any([type(i) not in [int] for i in self.exclude_pin_list]):
                 raise ValueError('exclude pin list must be integer value')
 
-    # Where to start the aray
+    # Where to start the array
     def _initStartingPosition(self, **kwargs):
         """
         can use the 'start' argument to start a pad array at a given position

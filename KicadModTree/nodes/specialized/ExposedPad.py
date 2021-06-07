@@ -55,11 +55,11 @@ class ExposedPad(Node):
           How many pads in x and y direction.
           If only a single integer given, x and y direction use the same count.
         * *paste_between_vias* (``int``, ``[int, int]``)
-          Alternative for paste_layout with more controll.
+          Alternative for paste_layout with more control.
           This defines how many pads will be between 4 vias in x and y direction.
           If only a single integer given, x and y direction use the same count.
         * *paste_rings_outside* (``int``, ``[int, int]``)
-          Alternative for paste_layout with more controll.
+          Alternative for paste_layout with more control.
           Defines the number of rings outside of the vias in x and y direction.
           If only a single integer given, x and y direction use the same count.
         * *paste_coverage* (``float``) --
@@ -233,7 +233,7 @@ class ExposedPad(Node):
             default = [cl - 1 for cl in self.via_layout]
             layout = kwargs.get('paste_layout')
             if layout is None:
-                # alows initializing with 'paste_layout=None' to force default value
+                # allows initializing with 'paste_layout=None' to force default value
                 layout = default
             self.paste_layout = toIntArray(layout)
 

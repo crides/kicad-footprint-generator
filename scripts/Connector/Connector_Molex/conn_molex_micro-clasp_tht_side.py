@@ -182,7 +182,7 @@ def generate_one_footprint(pins, variant, configuration):
     else:
         optional_pad_params['tht_pad1_shape'] = Pad.SHAPE_ROUNDRECT
 
-    #draw silkscreen inbetween pads
+    #draw silkscreen in between pads
     for i in range(0,pins-1):
         xa = i * pitch + pad_size[0] / 2 + silk_pad_off
         xb = (i+1) * pitch - pad_size[0] / 2 - silk_pad_off

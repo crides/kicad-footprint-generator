@@ -83,7 +83,7 @@ QFN-24-1EP_3x3mm_P0.4mm_EP1.75x1.6mm:
     nominal: 0.3
     maximum: 0.35
 
-  # Choosen for backwards compatibility
+  # Chosen for backwards compatibility
   EP_size_x:
     minimum: 1.65
     nominal: 1.7
@@ -251,7 +251,7 @@ QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm:
     nominal: 0.4
     maximum: 0.5
 
-  # size choosen for backwards compatibility
+  # size chosen for backwards compatibility
   EP_size_x:
     minimum: 2.4
     nominal: 2.5

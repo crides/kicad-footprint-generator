@@ -32,7 +32,7 @@ class ParserException(Exception):
 class ModArgparser(object):
     r"""A general data loading class, which allows us to specify parts using .yml or .csv files.
 
-    Using this class allows us to seperate between the implementation of a footprint generator, and the data which
+    Using this class allows us to separate between the implementation of a footprint generator, and the data which
     represents a single footprint. To do so, we need to define which parameters are expected in those data-files.
 
     To improve the usablity of this class, it is able to do type checks of provided parameters, as well as defining
@@ -106,7 +106,7 @@ class ModArgparser(object):
         >>> parser.run()  # now run our script which handles the whole part of parsing the files
         """
 
-        parser = argparse.ArgumentParser(description='Parse footprint defintion file(s) and create matching footprints')
+        parser = argparse.ArgumentParser(description='Parse footprint definition file(s) and create matching footprints')
         parser.add_argument('files', metavar='file', type=str, nargs='*', help='.yml or .csv files which contains data')
         parser.add_argument('-v', '--verbose', help='show some additional information', action='store_true')  # TODO
         parser.add_argument('--print_yml', help='print example .yml file', action='store_true')
@@ -209,13 +209,13 @@ class ModArgparser(object):
 
     def _parse_and_execute_csv(self, filepath):
         with open(filepath, 'r') as stream:
-            # dialect = csv.Sniffer().sniff(stream.read(1024))  # check which type of formating the csv file likel has
+            # dialect = csv.Sniffer().sniff(stream.read(1024))  # check which type of formatting the csv file likel has
             # stream.seek(0)
 
             reader = csv.DictReader(stream, dialect=csv.excel)  # parse file
 
             for row in reader:
-                # we wan't to remove spaces before and after the fields
+                # we want to remove spaces before and after the fields
                 kwargs = {}
                 for k, v in row.items():
                     kwargs[k.strip()] = v.strip()

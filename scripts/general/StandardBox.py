@@ -46,7 +46,7 @@ class koaLine:
             self.IsVertical = True
 
         #
-        # Get the line lenght
+        # Get the line length
         #
         x1 = min(self.sx, self.ex)
         x2 = max(self.sx, self.ex)
@@ -73,7 +73,7 @@ class StandardBox(Node):
         * *datasheet* (``str``) --
           The url to the data sheet
         * *at* (``Point``) --
-          Where is upper left corner, in cartesian cordinate system (minus y below x axis)
+          Where is upper left corner, in cartesian coordinate system (minus y below x axis)
         * *size* (``Point``) --
           The width and height of the rectangle
         * *tags* (``str``) --

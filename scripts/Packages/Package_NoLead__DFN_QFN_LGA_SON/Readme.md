@@ -63,8 +63,8 @@ These packages need to select the pull back option for the IPC class (`ipc_class
 
 - Most manufacturers give the lead pull back distance (`lead_to_edge`) {dimension}
    - Alternatively the center position can be given (`lead_center_pos_x` and `lead_center_pos_y`) {dimension}
-   - Another alternative is to give the center to center dimenions for leads. (`lead_center_to_center_x` and `lead_center_to_center_y`) {dimension}
-- Some manufacturers give the body to inner edge dimension instead of the lead length (`body_to_inside_lead_edge`) {dimenions}
+   - Another alternative is to give the center to center dimensions for leads. (`lead_center_to_center_x` and `lead_center_to_center_y`) {dimension}
+- Some manufacturers give the body to inner edge dimension instead of the lead length (`body_to_inside_lead_edge`) {dimensions}
 
 ### Pad Count
 - Pad count (`num_pins_x`, `num_pins_y`) {int}

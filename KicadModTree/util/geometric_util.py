@@ -84,7 +84,7 @@ class geometricLine():
         return abs(la - pa) < tolerance and pl <= ll
 
     def sortPointsRelativeToStart(self, points):
-        r""" sort given points releative to start point
+        r""" sort given points relative to start point
 
         :params:
             * *points* (``[Vector2D]``)
@@ -214,7 +214,7 @@ class geometricCircle():
         return abs(self.radius - rad_p) < tolerance
 
     def sortPointsRelativeToStart(self, points):
-        r""" sort given points releative to start point
+        r""" sort given points relative to start point
 
         :params:
             * *points* (``[Vector2D]``)
@@ -455,7 +455,7 @@ class geometricArc():
         return self._compareAngles(ang_p_s, ang_e_s) == -1 and abs(rad_s - rad_p) < tolerance
 
     def sortPointsRelativeToStart(self, points):
-        r""" sort given points releative to start point
+        r""" sort given points relative to start point
 
         :params:
             * *points* (``[Vector2D]``)

@@ -654,7 +654,7 @@ DFN-8-1EP_4x4mm_P0.8mm_EP2.3x3.24mm:
     nominal: 0.30
     maximum: 0.38
   lead_len:
-    minumum: 0.4
+    minimum: 0.4
     nominal: 0.5
     maximum: 0.6
 

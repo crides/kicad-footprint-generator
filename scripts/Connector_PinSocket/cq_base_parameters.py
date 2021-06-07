@@ -33,7 +33,7 @@
 
 from collections import namedtuple
 
-### use enums (Phyton 3+)
+### use enums (Python 3+)
 
 class CaseType:
     r"""A class for holding constants for part types
@@ -41,7 +41,7 @@ class CaseType:
     .. note:: will be changed to enum when Python version allows it
     """
     THT = 'THT'
-    r"""THT - trough hole part
+    r"""THT - through hole part
     """
     SMD = 'SMD'
     r"""SMD - surface mounted part
@@ -94,9 +94,9 @@ class PartParametersBase:
         'pin_style',
         'type'
     ])
-    """ Basic parameters for parts, if further parameters are required this should be subclassed/overriden 
+    """ Basic parameters for parts, if further parameters are required this should be subclassed/overridden 
 
-    .. note:: The existing parameters should be kept with the same name when overriden as the framework requires them
+    .. note:: The existing parameters should be kept with the same name when overridden as the framework requires them
 
     .. py:attribute:: num_pins
 
@@ -136,7 +136,7 @@ class PartParametersBase:
         If a variant is to be made a namedtuple is made with the index from a call to the model instance makeModelName method
         and the base parameters are copied to this. When copying the base parameters others may be added such as number of pins (num_pins). 
 
-        .. note:: Typically this method is overriden in order to add calculated parameters like number of pins.
+        .. note:: Typically this method is overridden in order to add calculated parameters like number of pins.
                   The model specific parameters are contained in the model class itself.
 
         :param model_classes:
@@ -165,7 +165,7 @@ class PartParametersBase:
         If a variant is to be made a namedtuple is made with the index from a call to the model instance makeModelName method
         and the base parameters are copied to this. When copying the base parameters others may be added such as number of pins (num_pins). 
 
-        .. note:: Typically this method is overriden in order to add calculated parameters like number of pins.
+        .. note:: Typically this method is overridden in order to add calculated parameters like number of pins.
                   The model specific parameters are contained in the model class itself.
 
         :param model_classes:

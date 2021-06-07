@@ -23,17 +23,17 @@ def toNumberArray(value, length=2, min_value=1, member_type=int):
 
     :param value:
         Possible input types:
-          * numnber (int or float) -> returns array filled with copies of value
-          * dict -> arreay created with values for keys 'x', 'y', 'z'.
+          * number (int or float) -> returns array filled with copies of value
+          * dict -> array created with values for keys 'x', 'y', 'z'.
             dict only supported for len 2 and 3
           * list or tuple -> truncated to length
-          * Vector -> truncated to lenght
+          * Vector -> truncated to length
 
     :param length: (``int``) -- default: 2
         Defines the length of the resulting array
 
     :min_value: (``int``) -- default: 1
-        Defines the minimum alowed value (raise value error if too low)
+        Defines the minimum allowed value (raise value error if too low)
         None -> No check
 
     :param mamber_type: (``type``) -- default: <type: int>
@@ -72,17 +72,17 @@ def toIntArray(value, length=2, min_value=1):
 
     :param value:
         Possible input types:
-          * numnber (int or float) -> returns array filled with copies of value
-          * dict -> arreay created with values for keys 'x', 'y', 'z'.
+          * number (int or float) -> returns array filled with copies of value
+          * dict -> array created with values for keys 'x', 'y', 'z'.
             dict only supported for len 2 and 3
           * list or tuple -> truncated to length
-          * Vector -> truncated to lenght
+          * Vector -> truncated to length
 
     :param length: (``int``) -- default: 2
         Defines the length of the resulting array
 
     :min_value: (``int``) -- default: 1
-        Defines the minimum alowed value (raise value error if too low)
+        Defines the minimum allowed value (raise value error if too low)
         None -> No check
     """
     return toNumberArray(value, length, min_value, member_type=int)
@@ -93,17 +93,17 @@ def toFloatArray(value, length=2, min_value=1):
 
     :param value:
         Possible input types:
-          * numnber (int or float) -> returns array filled with copies of value
-          * dict -> arreay created with values for keys 'x', 'y', 'z'.
+          * number (int or float) -> returns array filled with copies of value
+          * dict -> array created with values for keys 'x', 'y', 'z'.
             dict only supported for len 2 and 3
           * list or tuple -> truncated to length
-          * Vector -> truncated to lenght
+          * Vector -> truncated to length
 
     :param length: (``int``) -- default: 2
         Defines the length of the resulting array
 
     :min_value: (``int``) -- default: 1
-        Defines the minimum alowed value (raise value error if too low)
+        Defines the minimum allowed value (raise value error if too low)
         None -> No check
     """
     return toNumberArray(value, length, min_value, member_type=float)
@@ -116,7 +116,7 @@ def isAnyLarger(values, low_limits, must_be_larger=False):
         The values to check.
 
     :param low_limit: (``int``)
-        Defines the minimum alowed value (raise value error if too low)
+        Defines the minimum allowed value (raise value error if too low)
         None -> No check
 
     :param must_be_larger: (``bool``) -- default: True
@@ -142,7 +142,7 @@ def toVectorUseCopyIfNumber(value, length=2, low_limit=None, must_be_larger=True
         Defines the dimension of the resulting vector
 
     :param low_limit: (``int``) -- default: None
-        Defines the minimum alowed value (raise value error if too low)
+        Defines the minimum allowed value (raise value error if too low)
         None -> No check
 
     :param must_be_larger: (``bool``) -- default: True

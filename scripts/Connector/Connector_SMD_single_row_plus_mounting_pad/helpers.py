@@ -32,7 +32,7 @@ def parseAdditionalDrawing(footprint, drawing_definition, configuration, series_
             end = drawing_definition['rectangle']['end']
             end = [ref[0] + end[0], ref[1] + end[1]]
         else:
-            print('rectangle without size size defintion found. Ignored')
+            print('rectangle without size size definition found. Ignored')
             return
     elif 'polygone' in drawing_definition:
         # ToDo: implement

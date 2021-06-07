@@ -399,7 +399,7 @@ class Pad(Node):
         return render_text
 
     def addPrimitive(self, p):
-        r""" add a primitve to a custom pad
+        r""" add a primitive to a custom pad
 
         :param p: the primitive to add
         """
