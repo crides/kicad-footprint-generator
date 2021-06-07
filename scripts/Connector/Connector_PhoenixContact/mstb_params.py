@@ -362,7 +362,7 @@ all_params = {
 #lock_cutout=
 
 def dimensions(params):
-    lenght = (params.num_pins-1)*params.pin_pitch + 2*params.side_to_pin
+    length = (params.num_pins-1)*params.pin_pitch + 2*params.side_to_pin
     width = 12 if params.angled else 8.6
     upper_to_pin = -2 if params.angled else -8.6+3.8
     left_to_pin = -params.side_to_pin
@@ -370,7 +370,7 @@ def dimensions(params):
     mount_hole_left = [-params.mount_hole_to_pin,mount_hole_y]
     mount_hole_right = [(params.num_pins-1)*params.pin_pitch+params.mount_hole_to_pin,mount_hole_y]
     inner_len = params.num_pins*params.pin_pitch-1.6 + (0 if params.pin_pitch>5.08 else 2)
-    return lenght, width, upper_to_pin, left_to_pin,\
+    return length, width, upper_to_pin, left_to_pin,\
         mount_hole_left, mount_hole_right, inner_len
 
 def generate_description(params, mpn):

@@ -293,7 +293,7 @@ class TwoTerminalSMD():
                 silk_pad_offset_default=(silk_line_width / 2 + default_clearance),
                 silk_pad_offset_reduced=(silk_line_width / 2
                                          + self.configuration.get('silk_clearance_small_parts', default_clearance)),
-                min_lenght=configuration.get('silk_line_lenght_min', 0) / 2)
+                min_length=configuration.get('silk_line_length_min', 0) / 2)
 
             if silk_point_top_right:
                 kicad_mod.append(Line(

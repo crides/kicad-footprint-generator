@@ -158,7 +158,7 @@ def generate_one_footprint(idx, pincount, series_definition, configuration, grou
                 {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': side_line_y_pin_side + silk_y_offset_pin_side},
                 {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': pin_edge_outside}
             ]
-            if abs(pin_edge_outside) - abs(side_line_y_pin_side + silk_y_offset_pin_side) < configuration['silk_line_lenght_min']:
+            if abs(pin_edge_outside) - abs(side_line_y_pin_side + silk_y_offset_pin_side) < configuration['silk_line_length_min']:
                 needs_additional_silk_pin1_marker = True
 
             poly_silk_edge_right = [
@@ -176,7 +176,7 @@ def generate_one_footprint(idx, pincount, series_definition, configuration, grou
                 {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': body_edge_pin + silk_y_offset_pin_side},
                 {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': pin_edge_outside}
             ]
-            if abs(pin_edge_outside) - abs(body_edge_pin + silk_y_offset_pin_side) < configuration['silk_line_lenght_min']:
+            if abs(pin_edge_outside) - abs(body_edge_pin + silk_y_offset_pin_side) < configuration['silk_line_length_min']:
                 needs_additional_silk_pin1_marker = True
 
             poly_silk_edge_right = [
@@ -197,7 +197,7 @@ def generate_one_footprint(idx, pincount, series_definition, configuration, grou
             {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': body_edge_pin + silk_y_offset_pin_side},
             {'x': pad_1_x_outside_edge - pad_edge_silk_center_offset, 'y': pin_edge_outside}
         ]
-        if abs(pin_edge_outside) - abs(body_edge_pin + silk_y_offset_pin_side) < configuration['silk_line_lenght_min']:
+        if abs(pin_edge_outside) - abs(body_edge_pin + silk_y_offset_pin_side) < configuration['silk_line_length_min']:
             needs_additional_silk_pin1_marker = True
 
         poly_silk_edge_right = [
@@ -278,7 +278,7 @@ def generate_one_footprint(idx, pincount, series_definition, configuration, grou
         poly_silk_mp_side[0]['x'] = body_edge['left']
         poly_silk_mp_side[len(poly_silk_mp_side)-1]['x'] = body_edge['right']
 
-    if series_definition['rel_body_edge_y'] > pad_edge_silk_center_offset + configuration['silk_line_lenght_min']:
+    if series_definition['rel_body_edge_y'] > pad_edge_silk_center_offset + configuration['silk_line_length_min']:
         poly_silk_mp_side[0]['x'] = body_edge['left'] - configuration['silk_fab_offset']
         poly_silk_mp_side[len(poly_silk_mp_side)-1]['x'] = body_edge['right'] + configuration['silk_fab_offset']
 

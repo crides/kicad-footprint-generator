@@ -169,9 +169,9 @@ def generate_one_footprint(pins_per_row, variant_param, configuration):
 
     x2 = peg_x + peg_to_body_right
     x1 = x2 - width
-    body_lenght = 5.72+first_to_last_pad_y
-    y1 = -(body_lenght - first_to_last_pad_y)/2
-    y2 = y1 + body_lenght
+    body_length = 5.72+first_to_last_pad_y
+    y1 = -(body_length - first_to_last_pad_y)/2
+    y2 = y1 + body_length
 
     #calculate fp dimensions
     body_edge={

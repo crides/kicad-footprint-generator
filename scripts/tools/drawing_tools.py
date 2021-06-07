@@ -754,12 +754,12 @@ def THTQuartzIncomplete(model, x, size, angle, layer, width):
 #   - moving_point: The point that will be moved (toward the fixed point)
 #     if the line intersects the pads clearance area.
 #   - silk_pad_offset: offset between edge of the pad and silk line center.
-#   - min_lenght: minimum silk line length
+#   - min_length: minimum silk line length
 #
 # Returns a new point along the line or None if no valid point could be found
 #
 def nearestSilkPointOnOrthogonalLineSmallClerance(pad_size, pad_position, pad_radius, fixed_point, moving_point,
-        silk_pad_offset_default, silk_pad_offset_reduced, min_lenght):
+        silk_pad_offset_default, silk_pad_offset_reduced, min_length):
     if silk_pad_offset_reduced < silk_pad_offset_default:
         offset = (silk_pad_offset_default, silk_pad_offset_reduced)
     else:
@@ -768,7 +768,7 @@ def nearestSilkPointOnOrthogonalLineSmallClerance(pad_size, pad_position, pad_ra
     for silk_pad_offset in (silk_pad_offset_default, silk_pad_offset_reduced):
         point = nearestSilkPointOnOrthogonalLine(
                 pad_size, pad_position, pad_radius, fixed_point, moving_point,
-                silk_pad_offset, min_lenght)
+                silk_pad_offset, min_length)
         if point is not None:
             return point
     return None
@@ -785,12 +785,12 @@ def nearestSilkPointOnOrthogonalLineSmallClerance(pad_size, pad_position, pad_ra
 #   - moving_point: The point that will be moved (toward the fixed point)
 #     if the line intersects the pads clearance area.
 #   - silk_pad_offset: offset between edge of the pad and silk line center.
-#   - min_lenght: minimum silk line length
+#   - min_length: minimum silk line length
 #
 # Returns a new point along the line or None if no valid point could be found
 #
 def nearestSilkPointOnOrthogonalLine(pad_size, pad_position, pad_radius, fixed_point, moving_point,
-        silk_pad_offset, min_lenght):
+        silk_pad_offset, min_length):
     if fixed_point[0] == moving_point[0]:
         normal_dir_idx = 0
     elif fixed_point[1] == moving_point[1]:
@@ -827,7 +827,7 @@ def nearestSilkPointOnOrthogonalLine(pad_size, pad_position, pad_radius, fixed_p
         ep_new[inline_dir_idx] =  pad_position[inline_dir_idx] -\
             sign*(pad_size[inline_dir_idx]/2 + silk_pad_offset)
 
-    if sign*(ep_new[inline_dir_idx] - fixed_point[inline_dir_idx]) <  min_lenght:
+    if sign*(ep_new[inline_dir_idx] - fixed_point[inline_dir_idx]) <  min_length:
         return None
 
     if abs(ep_new[inline_dir_idx] - fixed_point[inline_dir_idx]) > math.fabs(moving_point[inline_dir_idx] - fixed_point[inline_dir_idx]):
