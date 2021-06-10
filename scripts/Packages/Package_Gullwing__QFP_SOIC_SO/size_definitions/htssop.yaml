@@ -141,10 +141,38 @@ HTSSOP-20-1EP_4.4x6.5mm_P0.65mm_EP2.85x4mm:
 
   EP_size_x:
     minimum: 2.6
-    maximum: 3.1   
+    maximum: 3.1
   EP_size_y:
     minimum: 3.8
     maximum: 4.2
+  EP_num_paste_pads: [1, 2]
+
+HTSSOP-20-1EP_4.4x6.5mm_P0.65mm_EP2.74x3.86mm:
+  size_source: 'https://www.analog.com/media/en/technical-documentation/data-sheets/4011fb.pdf#page=24'
+  body_size_x:
+    minimum: 4.3
+    maximum: 4.5
+  body_size_y:
+    minimum: 6.4
+    maximum: 6.6
+  body_height:
+    maximum: 1.2
+  overall_size_x:
+    nominal: 6.4
+  lead_width:
+    minimum: 0.195
+    maximum: 0.3
+  lead_len:
+    minimum: 0.5
+    maximum: 0.75
+  pitch: 0.65
+  num_pins_x: 0
+  num_pins_y: 10
+
+  EP_size_x:
+    nominal: 2.74
+  EP_size_y:
+    nominal: 3.86
   EP_num_paste_pads: [1, 2]
 
 HTSSOP-24-1EP_4.4x7.8mm_P0.65mm_EP3.2x5mm:
