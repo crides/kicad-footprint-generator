@@ -1,3 +1,36 @@
+QFN-64-1EP_9x9mm_P0.5mm_EP3.4x3.4mm:
+  device_type: 'QFN'
+  size_source: 'www.intel.com/content/www/us/en/ethernet-controllers/i210-ethernet-controller-datasheet.html'
+  ipc_class: 'qfn'
+  body_size_x:
+    nominal: 9.0
+    tolerance: 0
+  body_size_y:
+    nominal: 9.0
+    tolerance: 0.0
+  lead_width:
+    minimum: 0.18
+    nominal: 0.23
+    maximum: 0.30
+  lead_len:
+    minimum: 0.30
+    nominal: 0.40
+    maximum: 0.50
+  EP_size_x:
+    nominal: 3.4
+    tolerance: 0.2
+  EP_size_y:
+    nominal: 3.4
+    tolerance: 0.2
+  EP_num_paste_pads: [3, 3]
+  thermal_vias:
+    count: [3, 3]
+    drill: 0.2
+    paste_via_clearance: 0.1
+  pitch: 0.5
+  num_pins_x: 16
+  num_pins_y: 16
+
 QFN-64-1EP_9x9mm_P0.5mm_EP3.8x3.8xmm:
   device_type: 'QFN'
   #manufacturer: 'man'
