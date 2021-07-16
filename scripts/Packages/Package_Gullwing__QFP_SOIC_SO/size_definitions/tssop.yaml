@@ -7,6 +7,42 @@ FileHeader:
 # BODY WIDTH (E1) = 4.40 NOM
 ##############################################################################
 
+TSSOP-14_4.4x3.6mm_P0.4mm:
+  size_source: 'JEDEC MO-194 Var AA https://www.jedec.org/document_search?search_api_views_fulltext=MO-194'
+  body_size_x: 4.4 +/-0.1
+  body_size_y: 3.6 +/-0.1
+  overall_size_x: 6.4
+  body_height: 1.2
+  lead_width: 0.13 .. 0.23
+  lead_len: 0.6 +/-0.15
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 7
+
+TSSOP-16_4.4x3.6mm_P0.4mm:
+  size_source: 'JEDEC MO-194 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=MO-194'
+  body_size_x: 4.4 +/-0.1
+  body_size_y: 3.6 +/-0.1
+  overall_size_x: 6.4
+  body_height: 1.2
+  lead_width: 0.13 .. 0.23
+  lead_len: 0.6 +/-0.15
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 8
+
+TSSOP-20_4.4x5mm_P0.4mm:
+  size_source: 'JEDEC MO-194 Var AC https://www.jedec.org/document_search?search_api_views_fulltext=MO-194'
+  body_size_x: 4.4 +/-0.1
+  body_size_y: 5.0 +/-0.1
+  overall_size_x: 6.4
+  body_height: 1.2
+  lead_width: 0.13 .. 0.23
+  lead_len: 0.6 +/-0.15
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 10
+
 TSSOP-24_4.4x5mm_P0.4mm:
   size_source: 'JEDEC MO-153 Var CA https://www.jedec.org/document_search?search_api_views_fulltext=MO-153'
   body_size_x: 4.4 +/-0.1
@@ -54,6 +90,18 @@ TSSOP-48_4.4x9.7mm_P0.4mm:
   pitch: 0.4
   num_pins_x: 0
   num_pins_y: 24
+
+TSSOP-56_4.4x11.3mm_P0.4mm:
+  size_source: 'JEDEC MO-194 Var AF https://www.jedec.org/document_search?search_api_views_fulltext=MO-194'
+  body_size_x: 4.4 +/-0.1
+  body_size_y: 11.3 +/-0.1
+  overall_size_x: 6.4
+  body_height: 1.2
+  lead_width: 0.13 .. 0.23
+  lead_len: 0.6 +/-0.15
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 28
 
 ##############################################################################
 # TSSOP Variations - 0.40 PITCH
@@ -131,6 +179,18 @@ TSSOP-80_6.1x17mm_P0.4mm:
   pitch: 0.4
   num_pins_x: 0
   num_pins_y: 40
+
+TSSOP-100_6.1x20.8mm_P0.4mm:
+  size_source: 'JEDEC MO-194 Var BB https://www.jedec.org/document_search?search_api_views_fulltext=MO-194'
+  body_size_x: 6.1 +/-0.1
+  body_size_y: 20.8 +/-0.1
+  overall_size_x: 8.1
+  body_height: 1.2
+  lead_width: 0.13 .. 0.23
+  lead_len: 0.6 +/-0.15
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 50
 
 ##############################################################################
 # TSSOP Variations - 0.40 PITCH
