@@ -130,7 +130,7 @@ def isAnyLarger(values, low_limits, must_be_larger=False):
     return False
 
 
-def toVectorUseCopyIfNumber(value, length=2, low_limit=None, must_be_larger=True):
+def toVectorUseCopyIfNumber(value, length=2, low_limit=None, must_be_larger=False):
     r""" Convert value into an vector of given dimension
 
     :param value:

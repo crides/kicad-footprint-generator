@@ -179,7 +179,7 @@ class PadArray(Node):
             self.spacing = kwargs.get('spacing')
             if type(self.spacing) not in [list, tuple]:
                 raise TypeError('spacing must be specified like "spacing=[0,1]"')
-            elif len(self.spacing) is not 2:
+            elif len(self.spacing) != 2:
                 raise ValueError('spacing must be supplied as x,y pair')
             elif any([type(i) not in [int, float] for i in self.spacing]):
                 raise ValueError('spacing must be numerical value')

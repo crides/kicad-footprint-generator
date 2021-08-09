@@ -44,8 +44,8 @@ class Node(object):
         if not isinstance(node, Node):
             raise TypeError('invalid object, has to be based on Node')
 
-        if node._parent:
-            raise MultipleParentsError('muliple parents are not allowed!')
+        # if node._parent:
+        #     raise MultipleParentsError('muliple parents are not allowed!')
 
         self._childs.append(node)
 
@@ -60,8 +60,8 @@ class Node(object):
             if not isinstance(node, Node):
                 raise TypeError('invalid object, has to be based on Node')
 
-            if node._parent or node in new_nodes:
-                raise MultipleParentsError('muliple parents are not allowed!')
+            # if node._parent or node in new_nodes:
+            #     raise MultipleParentsError('muliple parents are not allowed!')
 
             new_nodes.append(node)
 

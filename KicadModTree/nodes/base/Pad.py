@@ -211,7 +211,7 @@ class Pad(Node):
     LAYERS_THT = ['*.Cu', '*.Mask']
     LAYERS_NPTH = ['*.Cu', '*.Mask']
     LAYERS_CONNECT_FRONT = ['F.Cu', 'F.Mask']
-    LAYERS_CONNECT_BACK = ['B.Cu', 'F.Mask']
+    LAYERS_CONNECT_BACK = ['B.Cu', 'B.Mask']
 
     ANCHOR_CIRCLE = 'circle'
     ANCHOR_RECT = 'rect'
