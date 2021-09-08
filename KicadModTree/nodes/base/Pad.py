@@ -209,7 +209,7 @@ class Pad(Node):
 
     LAYERS_SMT = ['F.Cu', 'F.Mask', 'F.Paste']
     LAYERS_THT = ['*.Cu', '*.Mask']
-    LAYERS_NPTH = ['*.Cu', '*.Mask']
+    LAYERS_NPTH = ['*.Mask']
     LAYERS_CONNECT_FRONT = ['F.Cu', 'F.Mask']
     LAYERS_CONNECT_BACK = ['B.Cu', 'B.Mask']
 
