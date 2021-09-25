@@ -319,10 +319,17 @@ class KicadFileHandler(FileHandler):
         sexpr.append(['size', node.size.x, node.size.y])
 
         if node.type in [Pad.TYPE_THT, Pad.TYPE_NPTH]:
+
             if node.drill.x == node.drill.y:
-                sexpr.append(['drill', node.drill.x])
+                drill_config = ['drill', node.drill.x]
             else:
-                sexpr.append(['drill', 'oval', node.drill.x, node.drill.y])
+                drill_config = ['drill', 'oval', node.drill.x, node.drill.y]
+
+            # append offset only if necessary 
+            if node.offset.x != 0 or node.offset.y != 0:
+                drill_config.append(['offset', node.offset.x,  node.offset.y])
+            
+            sexpr.append(drill_config)
 
         sexpr.append(['layers'] + node.layers)
         if node.shape == Pad.SHAPE_ROUNDRECT:
