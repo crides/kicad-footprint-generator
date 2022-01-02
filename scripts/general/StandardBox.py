@@ -182,7 +182,7 @@ class StandardBox(Node):
                 self.REF_P_w = dd
                 self.REF_P_h = self.REF_P_w
 
-        new_node = Text(type='user', text='%R', at=[self.at.x + (self.size.x / 2.0),
+        new_node = Text(type='user', text='${REFERENCE}', at=[self.at.x + (self.size.x / 2.0),
                         self.at.y + (self.size.y / 2.0)], layer='F.Fab', size=[self.REF_P_w, self.REF_P_h])
         new_node._parent = self
         self.virtual_childs.append(new_node)
