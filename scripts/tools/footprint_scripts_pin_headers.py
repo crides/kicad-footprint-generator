@@ -121,7 +121,7 @@ def makePinHeadStraight(rows, cols, rm, coldist, package_width, overlen_top, ove
             for x in range(0, (cols-1)):
                 kicad_modg.append(Line(start=[x*coldist+body_min_x_round, t_slk + h_slk], end=[(x+1)*coldist-body_min_x_round, t_slk + h_slk], layer='F.SilkS', width=lw_slk))
     #drawin sidelines
-    #calculate top Y positon 
+    #calculate top Y position 
     if rm < body_min_y_square*2:
         shoulder_y_pos = body_min_y_square
         shoulder_y_lines = 2

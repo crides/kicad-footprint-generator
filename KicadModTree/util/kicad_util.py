@@ -19,7 +19,7 @@ import re
 
 def formatFloat(val):
     '''
-    return well formated float
+    return well formatted float
     '''
     result = ('%f' % val).rstrip('0').rstrip('.')
     if result == '-0':
@@ -34,7 +34,7 @@ def lispString(string):
     if type(string) is not str:
         string = str(string)
 
-    if len(string) == 0 or re.match(".*\s.*", string):
+    if len(string) == 0 or re.match(r".*\s.*", string):
         return '"{}"'.format(string.replace('"', '\\"'))  # escape text
 
     return string
@@ -84,7 +84,7 @@ def lispTokenizer(input):
     if in_string:
         raise RuntimeError("missing closing quotation mark")
 
-    # TOOD: remove invalid spaces from quotation (when having brackets inside)
+    # TODO: remove invalid spaces from quotation (when having brackets inside)
 
     return tokens
 
@@ -194,7 +194,7 @@ class SexprSerializer(object):
 
 def parseTimestamp(timestamp):
     raise NotImplemented()
-    return time.time()  # TOOD
+    return time.time()  # TODO
 
 
 def formatTimestamp(timestamp=None):

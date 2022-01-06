@@ -242,7 +242,7 @@ class Vector2D(object):
 
         :params:
             * *radius* (``float``)
-                lenght of the vector
+                length of the vector
             * *angle* (``float``)
                 angle of the vector
             * *origin* (``Vector2D``)

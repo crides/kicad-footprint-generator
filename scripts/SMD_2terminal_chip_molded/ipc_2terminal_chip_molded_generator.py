@@ -32,8 +32,7 @@ def merge_dicts(*dict_args):
         result.update(dictionary)
     return result
 
-
-class TwoTerminalSMDchip():
+class TwoTerminalSMD():
     def __init__(self, command_file, configuration):
         self.configuration = configuration
         with open(command_file, 'r') as command_stream:
@@ -53,7 +52,7 @@ class TwoTerminalSMDchip():
         # Gmin = Smax − 2JH − √(CS^2 + F^2 + P^2)
         # Xmax = Wmin + 2JS + √(CW^2 + F^2 + P^2)
 
-        # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal lenght (T)
+        # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal length (T)
         # Then one can calculate
         # Stol(RMS) = √(Ltol^2 + 2*^2)
         # Smin = Lmin - 2*Tmax
@@ -99,7 +98,7 @@ class TwoTerminalSMDchip():
         elif 'terminal_length_max' in device_size_data and 'terminal_length_min' in device_size_data or 'terminal_length' in device_size_data:
             dimensions['terminal_length'] = TolerancedSize.fromYaml(device_size_data, base_name='terminal_length')
         else:
-            raise KeyError("Either terminator spacing or terminal lenght must be included in the size definition.")
+            raise KeyError("Either terminator spacing or terminal length must be included in the size definition.")
 
         if 'terminal_width_min' in device_size_data and 'terminal_width_max' in device_size_data or 'terminal_width' in device_size_data:
             dimensions['terminal_width'] = TolerancedSize.fromYaml(device_size_data, base_name='terminal_width')
@@ -121,6 +120,7 @@ class TwoTerminalSMDchip():
                         print(exc)
 
             for size_name in package_size_defintions:
+                print(group_name + ': ' + size_name)
                 device_size_data = package_size_defintions[size_name]
                 try:
                     self.generateFootprint(device_size_data,
@@ -134,9 +134,12 @@ class TwoTerminalSMDchip():
         fab_line_width = self.configuration.get('fab_line_width', 0.1)
         silk_line_width = self.configuration.get('silk_line_width', 0.12)
 
-        device_dimensions = TwoTerminalSMDchip.deviceDimensions(device_size_data)
+        device_dimensions = TwoTerminalSMD.deviceDimensions(device_size_data)
 
-        ipc_reference = footprint_group_data['ipc_reference']
+        if 'ipc_reference' in device_size_data:
+            ipc_reference = device_size_data['ipc_reference']
+        else:
+            ipc_reference = footprint_group_data['ipc_reference']
         ipc_density = footprint_group_data['ipc_density']
         ipc_data_set = self.ipc_defintions[ipc_reference][ipc_density]
         ipc_round_base = self.ipc_defintions[ipc_reference]['round_base']
@@ -290,7 +293,7 @@ class TwoTerminalSMDchip():
                 silk_pad_offset_default=(silk_line_width / 2 + default_clearance),
                 silk_pad_offset_reduced=(silk_line_width / 2
                                          + self.configuration.get('silk_clearance_small_parts', default_clearance)),
-                min_lenght=configuration.get('silk_line_lenght_min', 0) / 2)
+                min_length=configuration.get('silk_line_length_min', 0) / 2)
 
             if silk_point_top_right:
                 kicad_mod.append(Line(
@@ -365,5 +368,5 @@ if __name__ == "__main__":
         configuration['round_rect_radius_ratio'] = 0
 
     for filepath in args.files:
-        two_terminal_smd = TwoTerminalSMDchip(filepath, configuration)
+        two_terminal_smd = TwoTerminalSMD(filepath, configuration)
         two_terminal_smd.generateFootprints()

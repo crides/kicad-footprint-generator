@@ -103,8 +103,8 @@ def generate_one_footprint(motel, params, configuration):
         if configuration['with_fab_layer']:
             kicad_mod.append(RectLine(start=body_top_left, end=body_bottom_right, layer='F.Fab', width=configuration['fab_line_width']))
 
-        left = silk_top_left[0] + (seriesParams.flange_lenght if params.flanged else 0)
-        right = silk_bottom_right[0] - (seriesParams.flange_lenght if params.flanged else 0)
+        left = silk_top_left[0] + (seriesParams.flange_length if params.flanged else 0)
+        right = silk_bottom_right[0] - (seriesParams.flange_length if params.flanged else 0)
         scoreline_y = seriesParams.scoreline_from_back+params.back_to_pin
         kicad_mod.append(Line(start=[left, scoreline_y], end=[right, scoreline_y], layer='F.SilkS', width=configuration['silk_line_width']))
         if configuration['inner_details_on_fab']:
@@ -127,10 +127,10 @@ def generate_one_footprint(motel, params, configuration):
                     {'x':silk_top_left[0], 'y':silk_bottom_right[1]},
                     {'x':silk_bottom_right[0], 'y':silk_bottom_right[1]},
                     {'x':silk_bottom_right[0], 'y':silk_top_left[1]+flange_cutout},
-                    {'x':silk_bottom_right[0]-seriesParams.flange_lenght, 'y':silk_top_left[1]+flange_cutout},
-                    {'x':silk_bottom_right[0]-seriesParams.flange_lenght, 'y':silk_top_left[1]},
-                    {'x':silk_top_left[0]+seriesParams.flange_lenght, 'y':silk_top_left[1]},
-                    {'x':silk_top_left[0]+seriesParams.flange_lenght, 'y':silk_top_left[1]+flange_cutout},
+                    {'x':silk_bottom_right[0]-seriesParams.flange_length, 'y':silk_top_left[1]+flange_cutout},
+                    {'x':silk_bottom_right[0]-seriesParams.flange_length, 'y':silk_top_left[1]},
+                    {'x':silk_top_left[0]+seriesParams.flange_length, 'y':silk_top_left[1]},
+                    {'x':silk_top_left[0]+seriesParams.flange_length, 'y':silk_top_left[1]+flange_cutout},
                     {'x':silk_top_left[0], 'y':silk_top_left[1]+flange_cutout},
                     {'x':silk_top_left[0], 'y':silk_bottom_right[1]}
                 ]
@@ -203,7 +203,7 @@ def generate_one_footprint(motel, params, configuration):
     if not params.angled:
         pin1_marker_poly = create_pin1_marker_corner(crtyd_top_left[1],
             body_top_left[0] - configuration['courtyard_offset']['connector'] +
-            (seriesParams.flange_lenght if params.flanged else 0), [2,1.25])
+            (seriesParams.flange_length if params.flanged else 0), [2,1.25])
         kicad_mod.append(PolygoneLine(polygone=pin1_marker_poly, layer='F.SilkS', width=configuration['silk_line_width']))
         if configuration['with_fab_layer']:
             kicad_mod.append(PolygoneLine(polygone=pin1_marker_poly, layer='F.Fab', width=configuration['fab_line_width']))

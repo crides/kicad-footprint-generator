@@ -254,7 +254,7 @@ class ChamferedPadGrid(Node):
         r""" set the chamfer such that the pad avoids a cricle located at near corner.
 
         :param center: (``Vector2D``) --
-           The center of the circle ot avoid
+           The center of the circle to avoid
         :param diameter: (``float``, ``Vector2D``) --
            The diameter of the circle. If Vector2D given only x direction is used.
         :param clearance: (``float``) --

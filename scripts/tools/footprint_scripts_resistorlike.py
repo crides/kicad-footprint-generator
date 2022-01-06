@@ -157,9 +157,9 @@ def makeResistorAxialHorizontal(seriesname, rm, rmdisp, w, d, ddrill, R_POW, typ
             myfile.write("        L = {:0.2f}, # Body Length\n".format(w))
             myfile.write("        D = {:0.2f}, # Body Diameter\n".format(d))
             myfile.write("        d = {:0.2f}, # Lead Diameter\n".format(ddrill-0.3))
-            myfile.write("        F = {:0.2f}, # Lead Seperation\n".format(rm))
+            myfile.write("        F = {:0.2f}, # Lead Separation\n".format(rm))
             myfile.write("        ll = 2.0, # Lead Length\n")
-            myfile.write("        bs = 0.0, # Board Seperation\n")
+            myfile.write("        bs = 0.0, # Board Separation\n")
 
             myfile.write("        modelName = '{0}', # Modelname\n".format(footprint_name))
             myfile.write("        rotation = 0, # Rotation\n")
@@ -826,11 +826,11 @@ def makeResistorRadial(seriesname, rm, w, h, ddrill, R_POW, innerw=0,innerh=0,rm
             myfile.write("        W = {:0.2f}, # Body Width\n".format(innerh))
             myfile.write("        d = {:0.2f}, # Lead Diameter\n".format(ddrill-0.3))
             if secondPitch:
-                myfile.write("        F = {:0.2f}, # Lead Seperation\n".format(rm2))
+                myfile.write("        F = {:0.2f}, # Lead Separation\n".format(rm2))
             else:
-                myfile.write("        F = {:0.2f}, # Lead Seperation\n".format(rm))
+                myfile.write("        F = {:0.2f}, # Lead Separation\n".format(rm))
             myfile.write("        ll = 2.0, # Lead Length\n")
-            myfile.write("        bs = 0.1, # Board Seperation\n")
+            myfile.write("        bs = 0.1, # Board Separation\n")
             if seriesname == "Rect":
                 if len(name_additions) > 0 and name_additions[0] == "MKT":
                     myfile.write("        series = 'MKT', # 'MKS' or 'MKT'\n")

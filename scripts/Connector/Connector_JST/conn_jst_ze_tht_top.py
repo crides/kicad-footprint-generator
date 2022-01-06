@@ -175,7 +175,7 @@ def generate_one_footprint(pincount, variant, configuration):
         kicad_mod.append(Pad(at={'x': -1.65, 'y': -3.8}, type=Pad.TYPE_NPTH, shape=Pad.SHAPE_CIRCLE, layers=Pad.LAYERS_NPTH,
             drill=mh_drill, size=mh_drill))
 
-    #thicknes t of sidewalls
+    #thickness t of sidewalls
     t = 0.8
     xa = xMid - A/2 - 0.25 + out
     xb = xMid + A/2 + 0.25 - out

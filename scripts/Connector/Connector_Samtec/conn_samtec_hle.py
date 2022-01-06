@@ -42,7 +42,7 @@ datasheet_smd = 'http://suddendocs.samtec.com/prints/hle-1xx-02-xxx-dv-xx-xx-xx-
 footprint_tht = 'http://suddendocs.samtec.com/prints/hle-thru.pdf'
 footprint_smd = 'http://suddendocs.samtec.com/prints/hle-dv-footprint.pdf'
 
-# BE = Bottem Enty
+# BE = Bottem Entry
 # TE = Top Entry
 # PE = Pass Through Entry
 

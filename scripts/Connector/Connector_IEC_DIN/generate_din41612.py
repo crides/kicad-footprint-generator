@@ -26,7 +26,7 @@ from drawing_tools import *
 #
 # This library choose to use the prefix "Conn_DIN41612_", because Din 41612 is
 # more common term.
-# METHOD and further are ommited, because the footprint is suited for
+# METHOD and further are omitted, because the footprint is suited for
 # soldering and press fit.
 #
 # It includes half and third sized connectors, that are not part of IEC 60603

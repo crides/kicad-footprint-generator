@@ -7,7 +7,7 @@ class seriesParams():
 
     mount_drill = 2.4
     mount_screw_head_r = 2.1
-    flange_lenght = 4.8
+    flange_length = 4.8
     scoreline_from_back = 6.0
 
     plug_cut_len = 3.0

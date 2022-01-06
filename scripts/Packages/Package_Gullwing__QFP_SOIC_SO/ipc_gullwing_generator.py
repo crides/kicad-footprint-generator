@@ -56,7 +56,7 @@ class Gullwing():
         # Gmin = Smax − 2JH − √(CS^2 + F^2 + P^2)
         # Xmax = Wmin + 2JS + √(CW^2 + F^2 + P^2)
 
-        # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal lenght (T)
+        # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal length (T)
         # Then one can calculate
         # Stol(RMS) = √(Ltol^2 + 2*^2)
         # Smin = Lmin - 2*Tmax
@@ -376,7 +376,7 @@ class Gullwing():
         silk_right = max(silk_right, bottom_pads_silk_right)
         silk_right = min(body_edge['right'] + silk_pad_offset, silk_right)
 
-        min_lenght = configuration.get('silk_line_lenght_min', 0)
+        min_length = configuration.get('silk_line_length_min', 0)
         silk_corner_bottom_right = Vector2D(silk_right, silk_bottom)
 
         silk_point_bottom_inside = nearestSilkPointOnOrthogonalLine(
@@ -386,7 +386,7 @@ class Gullwing():
             fixed_point=silk_corner_bottom_right,
             moving_point=Vector2D(0, silk_bottom),
             silk_pad_offset=silk_pad_offset,
-            min_lenght=min_lenght)
+            min_length=min_length)
 
         if silk_point_bottom_inside is not None and device_params['num_pins_x'] > 0:
             silk_point_bottom_inside = nearestSilkPointOnOrthogonalLine(
@@ -398,7 +398,7 @@ class Gullwing():
                 fixed_point=silk_corner_bottom_right,
                 moving_point=silk_point_bottom_inside,
                 silk_pad_offset=silk_pad_offset,
-                min_lenght=min_lenght)
+                min_length=min_length)
 
         silk_point_right_inside = nearestSilkPointOnOrthogonalLine(
             pad_size=EP_size,
@@ -407,7 +407,7 @@ class Gullwing():
             fixed_point=silk_corner_bottom_right,
             moving_point=Vector2D(silk_right, 0),
             silk_pad_offset=silk_pad_offset,
-            min_lenght=min_lenght)
+            min_length=min_length)
         if silk_point_right_inside is not None and device_params['num_pins_y'] > 0:
             silk_point_right_inside = nearestSilkPointOnOrthogonalLine(
                 pad_size=pad_details['right']['size'],
@@ -418,7 +418,7 @@ class Gullwing():
                 fixed_point=silk_corner_bottom_right,
                 moving_point=silk_point_right_inside,
                 silk_pad_offset=silk_pad_offset,
-                min_lenght=min_lenght)
+                min_length=min_length)
 
         if silk_point_bottom_inside is None and silk_point_right_inside is not None:
             silk_corner_bottom_right['y'] = body_edge['bottom']
@@ -431,7 +431,7 @@ class Gullwing():
                 fixed_point=silk_point_right_inside,
                 moving_point=silk_corner_bottom_right,
                 silk_pad_offset=silk_pad_offset,
-                min_lenght=min_lenght)
+                min_length=min_length)
 
         elif silk_point_right_inside is None and silk_point_bottom_inside is not None:
             silk_corner_bottom_right['x'] = body_edge['right']
@@ -444,7 +444,7 @@ class Gullwing():
                 fixed_point=silk_point_bottom_inside,
                 moving_point=silk_corner_bottom_right,
                 silk_pad_offset=silk_pad_offset,
-                min_lenght=min_lenght)
+                min_length=min_length)
 
         poly_bottom_right = []
         if silk_point_bottom_inside is not None:

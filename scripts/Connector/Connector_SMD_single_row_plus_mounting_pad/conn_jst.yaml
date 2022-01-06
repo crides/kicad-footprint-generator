@@ -208,7 +208,7 @@ device_definition:
                 reference_point: ['center', -0.25] # [x,y]: x = 'left' | 'center' | 'right' | value; y = 'top' | 'center' | 'bottom' | value; named values are relative to body
                 rectangle:
                     size: [0.5, 0.5] # centered around reference_point
-                    # start: [-0.25, -0.25] #releative to reference_point
+                    # start: [-0.25, -0.25] #relative to reference_point
                     # end: [0.25, 0.25] #relative to reference_point
                 # polygone:
                 #     - [-0.25,-0.25]
@@ -275,7 +275,7 @@ device_definition:
                 reference_point: ['center', -2.5] # [x,y]: x = 'left' | 'center' | 'right' | value; y = 'top' | 'center' | 'bottom' | value; named values are relative to body
                 rectangle:
                     size: [0.5, 0.5] # centered around reference_point
-                    # start: [-0.25, -0.25] #releative to reference_point
+                    # start: [-0.25, -0.25] #relative to reference_point
                     # end: [0.25, 0.25] #relative to reference_point
                 # polygone:
                 #     - [-0.25,-0.25]
@@ -420,7 +420,7 @@ device_definition:
                 reference_point: ['center', -1.25] # [x,y]: x = 'left' | 'center' | 'right' | value; y = 'top' | 'center' | 'bottom' | value; named values are relative to body
                 rectangle:
                     size: [0.3, 0.6] # centered around reference_point
-                    # start: [-0.25, -0.25] #releative to reference_point
+                    # start: [-0.25, -0.25] #relative to reference_point
                     # end: [0.25, 0.25] #relative to reference_point
                 # polygone:
                 #     - [-0.25,-0.25]
@@ -565,7 +565,7 @@ device_definition:
                 reference_point: ['center', -0.25] # [x,y]: x = 'left' | 'center' | 'right' | value; y = 'top' | 'center' | 'bottom' | value; named values are relative to body
                 rectangle:
                     size: [0.5, 0.5] # centered around reference_point
-                    # start: [-0.25, -0.25] #releative to reference_point
+                    # start: [-0.25, -0.25] #relative to reference_point
                     # end: [0.25, 0.25] #relative to reference_point
                 repeat:
                     spacing: ['pitch', 0] # x,y= 'pitch' | value

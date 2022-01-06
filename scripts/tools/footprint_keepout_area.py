@@ -1,5 +1,5 @@
 # Kicad currently does not support adding keepout zones directly to footprints
-# For this reason the library maintainance team decided to communicate keepouts as follows:
+# For this reason the library maintenance team decided to communicate keepouts as follows:
 #  - A polygone outlining the keepout area (on layer Dwgs.User)
 #  - Hatching of this area on the same layer
 #  - Text on Cmts.User: KEEPOUT (with additional information if necessary)

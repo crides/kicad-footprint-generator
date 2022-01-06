@@ -7,7 +7,7 @@ AK300:
   W: 12.5               # Package width
   H: 12.5               # Package height
   WD: 6.5               # > Y distance form pin center to package edge
-  A1: 0.1               # package board seperation
+  A1: 0.1               # package board separation
   pin_number: [ 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]  # Which pin configuration
   PE: 2.5               # Distance from edge to pin
   PS: 5.0               # Distance between pins

@@ -4,7 +4,7 @@
 # size: is normally 2 dimensional, creaing a box, in this case 6x6 mm
 #  size: [6.00, 6.00]
 #
-# But it is possible to define how the corners should look like with following optional paramters
+# But it is possible to define how the corners should look like with following optional parameters
 #
 # ULR : Upper left corner with arc
 # ULP: Upper left corner with rectangular cut

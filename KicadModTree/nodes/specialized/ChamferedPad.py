@@ -346,7 +346,7 @@ class ChamferedPad(Node):
         r""" set the chamfer such that the pad avoids a cricle located at near corner.
 
         :param center: (``Vector2D``) --
-           The center of the circle ot avoid
+           The center of the circle to avoid
         :param diameter: (``float``, ``Vector2D``) --
            The diameter of the circle. If Vector2D given only x direction is used.
         :param clearance: (``float``) --
@@ -354,7 +354,7 @@ class ChamferedPad(Node):
         """
 
         relative_center = Vector2D(center) - self.at
-        # pad and circle are symetric so we do not care which corner the
+        # pad and circle are symmetric so we do not care which corner the
         # reference circle is located at.
         #  -> move it to bottom right to get only positive relative coordinates.
         relative_center = Vector2D([abs(v) for v in relative_center])
@@ -362,7 +362,7 @@ class ChamferedPad(Node):
 
         # Where should the chamfer be if the center of the reference circle
         # would be in line with the pad edges
-        # (meaning exactly at the bottome right corner)
+        # (meaning exactly at the bottom right corner)
         reference_point = relative_center - sqrt(2)*(clearance+d/2)
         self.chamfer_size = self.size/2 - reference_point
 

@@ -169,7 +169,7 @@ class TolerancedSize():
             tokens = s.split('..')
             if len(tokens) > 3:
                 raise ValueError(
-                    "Illegal dimension specifier: {}\n\tToo many tokens seperated by '...' (Valid options are min...max or min...nom...max)".format(input))
+                    "Illegal dimension specifier: {}\n\tToo many tokens separated by '...' (Valid options are min...max or min...nom...max)".format(input))
             minimum = float(tokens[0])
             maximum = float(tokens[-1])
             if len(tokens) == 3:
@@ -179,7 +179,7 @@ class TolerancedSize():
                 nominal = float(s)
             except Exception as e:
                 raise ValueError(
-                    "Dimension specifier not recogniced: {}\n\t Valid options are nom, nom+/-tol, nom+tolp-toln, min...max or min...nom...max".format(input)) from e
+                    "Dimension specifier not recognised: {}\n\t Valid options are nom, nom+/-tol, nom+tolp-toln, min...max or min...nom...max".format(input)) from e
 
         return TolerancedSize(
             minimum=minimum,
@@ -233,7 +233,7 @@ def ipc_body_edge_inside_pull_back(ipc_data, ipc_round_base, manf_tol, body_size
     # Gmin = Smax − 2JH − √(CS^2 + F^2 + P^2)
     # Xmax = Wmin + 2JS + √(CW^2 + F^2 + P^2)
 
-    # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal lenght (T)
+    # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal length (T)
     # Then one can calculate
     # Stol(RMS) = √(Ltol^2 + 2*^2)
     # Smin = Lmin - 2*Tmax
@@ -254,7 +254,7 @@ def ipc_body_edge_inside_pull_back(ipc_data, ipc_round_base, manf_tol, body_size
     elif body_to_inside_lead_edge is not None:
         S = body_size - body_to_inside_lead_edge * 2
     else:
-        raise KeyError("either lead inside distance, lead to body edge or lead lenght must be given")
+        raise KeyError("either lead inside distance, lead to body edge or lead length must be given")
 
     Gmin = S.maximum_RMS - 2 * ipc_data['heel'] + 2 * heel_reduction - math.sqrt(S.ipc_tol_RMS**2 + F**2 + P**2)
 
@@ -274,7 +274,7 @@ def ipc_gull_wing(ipc_data, ipc_round_base, manf_tol, lead_width, lead_outside,
     # Gmin = Smax − 2JH − √(CS^2 + F^2 + P^2)
     # Xmax = Wmin + 2JS + √(CW^2 + F^2 + P^2)
 
-    # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal lenght (T)
+    # Some manufacturers do not list the terminal spacing (S) in their datasheet but list the terminal length (T)
     # Then one can calculate
     # Stol(RMS) = √(Ltol^2 + 2*^2)
     # Smin = Lmin - 2*Tmax
@@ -288,7 +288,7 @@ def ipc_gull_wing(ipc_data, ipc_round_base, manf_tol, lead_width, lead_outside,
     elif lead_len is not None:
         S = lead_outside - lead_len * 2
     else:
-        raise KeyError("either lead inside distance or lead lenght must be given")
+        raise KeyError("either lead inside distance or lead length must be given")
 
     Gmin = S.maximum_RMS - 2 * ipc_data['heel'] + 2 * heel_reduction - math.sqrt(S.ipc_tol_RMS**2 + F**2 + P**2)
 

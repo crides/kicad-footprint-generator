@@ -10,7 +10,7 @@
 # given dimensions are the greatest of all common body sizes in the datasheets
 # above. This may result in slightly more paste than if the lead size was
 # specific to one vendor's datasheet dimensions. However, as the lead sizes are
-# already large, lead-to-PCB coplanarity is quite varaible, and the capacitor
+# already large, lead-to-PCB coplanarity is quite variable, and the capacitor
 # body does not sit flush with the PCB, the amount of paste is not extremely
 # critical. Pads a few tenths of a millimeter bigger or smaller than ideal
 # won't affect solderability or reliability.

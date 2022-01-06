@@ -46,7 +46,7 @@ class pack_round:
         self.largepads =False
         self.fpnametags =[]
         self.window_diameter=0 # diameter of an on-top glass window
-        self.used_pins=[] # if filled: the device may have up to self.pins pins, but only the given pin positions (0-based count) are actualy used
+        self.used_pins=[] # if filled: the device may have up to self.pins pins, but only the given pin positions (0-based count) are actually used
         self.more_packnames=[] # additional package names, e.g. "I2PAK" for TO-262
         self.webpage="";
 
@@ -67,7 +67,7 @@ class pack_round:
         self.fpnametags = []
         self.window_diameter=0 # diameter of an on-top glass window
         self.pin_dangle = -90  # angle between two pins (in degrees)
-        self.used_pins = []  # if filled: the device may have up to self.pins pins, but only the given pin positions (0-based count) are actualy used
+        self.used_pins = []  # if filled: the device may have up to self.pins pins, but only the given pin positions (0-based count) are actually used
         self.more_packnames = []  # additional package names, e.g. "I2PAK" for TO-262
         if pins == 2:
             self.pin_dangle = -180
@@ -218,8 +218,8 @@ class pack:
     #  +-------------------+ v
     #
     def __init__(self):
-        self.plastic = [0, 0, 0]  # width,heigth,depth of plastic package, starting at bottom-left
-        self.metal = [0, 0, 0]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+        self.plastic = [0, 0, 0]  # width,height,depth of plastic package, starting at bottom-left
+        self.metal = [0, 0, 0]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
         self. metal_offset_x =0 # offset of metal from left
         self.pins = 0  # number of pins
         self.rm = 0  # pin distance
@@ -240,7 +240,7 @@ class pack:
         self.additional_pin_pad_size = [] # Größe des Zusatz-SMD-Pads
         self.plastic_angled=[]
         self.metal_angled = []
-        self.staggered_type=0 # 0=no staggering, 1=type1-staggering (pin1=fron), 2=type2-staggering (pin1=back)
+        self.staggered_type=0 # 0=no staggering, 1=type1-staggering (pin1=front), 2=type2-staggering (pin1=back)
         self.staggered_rm=[5.08,5.08] # y-distance between pins [vertical, horizontal]
         self.staggered_pin_offset_z = 0 # z-offset of back-pins in staggered mode [vertical, horizontal]
         self.staggered_pin_minlength = 0  # y-offset of back-pins in staggered mode
@@ -269,9 +269,9 @@ class pack:
 
         if (name == "TO-218"):
             self.webpage="https://www.vishay.com/docs/95214/fto218.pdf"
-            self.plastic = [14.94, 12.19, 4.8]  # width,heigth,depth of plastic package, starting at bottom-left
+            self.plastic = [14.94, 12.19, 4.8]  # width,height,depth of plastic package, starting at bottom-left
             self.metal = [self.plastic[0], 12.19+7.79,
-                          1.27]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+                          1.27]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 5.475  # pin distance
             self.pad = [2.5, 3.5]  # width/height of pads
@@ -292,8 +292,8 @@ class pack:
 
         elif (name == "TO-3P"):
             self.webpage="https://toshiba.semicon-storage.com/ap-en/design-support/package/detail.TO-3P(N).html"
-            self.plastic = [15.5, 19.3, 4.5]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [self.plastic[0], 20, 1.5]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [15.5, 19.3, 4.5]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [self.plastic[0], 20, 1.5]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 5.45  # pin distance
             self.pad = [2.5, 4.5]  # width/height of pads
@@ -317,8 +317,8 @@ class pack:
 
         elif (name == "TO-3PB"):
             self.webpage="http://www.onsemi.com/pub/Collateral/340AC.PDF"
-            self.plastic = [15.6, 18.5, 4.8]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [self.plastic[0], 20, 2]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [15.6, 18.5, 4.8]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [self.plastic[0], 20, 2]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 5.45  # pin distance
             self.pad = [2.5, 4.5]  # width/height of pads
@@ -344,9 +344,9 @@ class pack:
             self.webpage="https://www.fairchildsemi.com/package-drawings/TO/TO264A03.pdf"
             if (pins==5):
                 self.webpage="https://www.onsemi.com/pub/Collateral/NJL3281D-D.PDF"
-            self.plastic = [20, 26, 5]  # width,heigth,depth of plastic package, starting at bottom-left
+            self.plastic = [20, 26, 5]  # width,height,depth of plastic package, starting at bottom-left
             self.metal = [self.plastic[0], 0,
-                          2]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+                          2]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 5.45  # pin distance
             self.pad = [2.5, 4.5]  # width/height of pads
@@ -369,9 +369,9 @@ class pack:
             self.webpage="https://toshiba.semicon-storage.com/us/product/mosfet/to-247-4l.html"
             if (pins==5):
                 self.webpage="http://ww1.microchip.com/downloads/en/DeviceDoc/20005685A.pdf"
-            self.plastic = [15.9, 20.95, 5.03]  # width,heigth,depth of plastic package, starting at bottom-left
+            self.plastic = [15.9, 20.95, 5.03]  # width,height,depth of plastic package, starting at bottom-left
             self.metal = [0, 0,
-                          0]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+                          0]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 5.45  # pin distance
             self.pad = [2.5, 4.5]  # width/height of pads
@@ -404,8 +404,8 @@ class pack:
                 self.webpage="http://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-to-220/to-220_5_05-08-1421.pdf?domain=www.linear.com, https://www.diodes.com/assets/Package-Files/TO220-5.pdf"
                 if staggered_type==0:
                     self.webpage="http://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-to-220/to-220_5_05-08-1421_straight_lead.pdf"
-            self.plastic = [10, 9.25, 4.4]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [self.plastic[0], 15.65, 1.27]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [10, 9.25, 4.4]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [self.plastic[0], 15.65, 1.27]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.54  # pin distance
             self.pad = [2,2]  # width/height of pads
@@ -444,8 +444,8 @@ class pack:
                     self.webpage="http://www.st.com/resource/en/datasheet/tda7391lv.pdf"
                 if pins==15:
                     self.webpage="http://www.st.com/resource/en/datasheet/l298.pdf"
-                self.plastic = [20.2, 10.7, 5]  # width,heigth,depth of plastic package, starting at bottom-left
-                self.metal = [self.plastic[0], 17.5,1.6]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+                self.plastic = [20.2, 10.7, 5]  # width,height,depth of plastic package, starting at bottom-left
+                self.metal = [self.plastic[0], 17.5,1.6]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
                 self.metal_angled = [2.25,2.25]
                 self.pins = 15  # number of pins
                 self.rm = 1.3  # pin distance
@@ -476,8 +476,8 @@ class pack:
                 self.webpage="http://www.st.com/resource/en/datasheet/stp20nm60.pdf"
             if pins==4:
                 self.webpage="https://www.njr.com/semicon/PDF/package/TO-220F-4_E.pdf"
-            self.plastic = [10.26, 15.87-6.68, 4.7]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [self.plastic[0], 15.87, 2.52]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [10.26, 15.87-6.68, 4.7]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [self.plastic[0], 15.87, 2.52]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.54  # pin distance
             self.pad = [2, 2]  # width/height of pads
@@ -511,8 +511,8 @@ class pack:
             if pins >9:
                 if pins==11:
                     self.webpage="http://www.ti.com/lit/ds/symlink/lm3886.pdf"
-                self.plastic = [20.02, 10.64, 4.5]  # width,heigth,depth of plastic package, starting at bottom-left
-                self.metal = [self.plastic[0], 19.58,3.3]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+                self.plastic = [20.02, 10.64, 4.5]  # width,height,depth of plastic package, starting at bottom-left
+                self.metal = [self.plastic[0], 19.58,3.3]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
                 self.metal_angled = [2.84,2.84]
                 self.pins = pins  # number of pins
                 self.rm = 1.7  # pin distance
@@ -540,8 +540,8 @@ class pack:
 
 
         elif (name == "Multiwatt"):
-            self.plastic = [20.2, 10.7, 5]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [self.plastic[0], 17.5,1.6]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [20.2, 10.7, 5]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [self.plastic[0], 17.5,1.6]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.metal_angled = [2.25,2.25]
             self.pins = 15  # number of pins
             self.rm = 1.3  # pin distance
@@ -572,8 +572,8 @@ class pack:
 
         elif (name == "TO-126"):
             self.webpage="https://www.diodes.com/assets/Package-Files/TO126.pdf"
-            self.plastic = [8, 11, 3.25]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [0, 0, 0]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [8, 11, 3.25]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [0, 0, 0]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.54  # pin distance
             self.pad = [1.8, 1.8]  # width/height of pads
@@ -594,8 +594,8 @@ class pack:
 
         elif (name == "TO-251"):
             self.webpage="https://www.diodes.com/assets/Package-Files/TO251.pdf"
-            self.plastic = [6.58, 6.1, 2.3]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [5.34, 7, 0.5]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [6.58, 6.1, 2.3]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [5.34, 7, 0.5]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.29  # pin distance
             self.pad = [1.8, 1.8]  # width/height of pads
@@ -621,8 +621,8 @@ class pack:
                 1] / 3]  # Position des Zusatz-SMD-Pads
 
         elif (name == "SIPAK"):
-            self.plastic = [6.6, 6.4, 2.3]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [5.33, 7.12, 0.4]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [6.6, 6.4, 2.3]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [5.33, 7.12, 0.4]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.286  # pin distance
             self.pad = [1.8, 1.8]  # width/height of pads
@@ -652,8 +652,8 @@ class pack:
             self.webpage="http://www.onsemi.com/pub/Collateral/EN8586-D.PDF"
             if pins==5:
                 self.webpage="http://pdf.datasheetcatalog.com/datasheet/irf/iris4011.pdf"
-            self.plastic = [10, 9.2, 4.5]  # width,heigth,depth of plastic package, starting at bottom-left
-            self.metal = [10, 10.4, 1.3]  # width,heigth,thickness of metal plate, starting at metal_offset from bottom-left
+            self.plastic = [10, 9.2, 4.5]  # width,height,depth of plastic package, starting at bottom-left
+            self.metal = [10, 10.4, 1.3]  # width,height,thickness of metal plate, starting at metal_offset from bottom-left
             self.pins = 3  # number of pins
             self.rm = 2.54  # pin distance
             self.pad = [2, 2]  # width/height of pads
