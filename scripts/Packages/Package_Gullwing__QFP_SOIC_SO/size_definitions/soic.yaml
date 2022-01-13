@@ -489,7 +489,7 @@ SOIC-8_7.5x5.85mm_P1.27mm:
 
 SOIC-14_3.9x8.7mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}_{size_x:.2g}x{size_y:.2g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}_{size_x:.2g}x{size_y:.2g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-012AB, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_14.pdf'
   body_size_x: # from JEDEC
     nominal: 3.9
@@ -515,7 +515,7 @@ SOIC-14_3.9x8.7mm_P1.27mm:
   num_pins_y: 7
 
 SOIC-14W_7.5x9.0mm_P1.27mm:
-  custom_name_format: SOIC-{pincount:d}W_{size_x:g}x{size_y:g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:g}x{size_y:g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AF, https://www.analog.com/media/en/package-pcb-resources/package/54614177245586rw_14.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -590,7 +590,7 @@ SOIC-16_4.55x10.3mm_P1.27mm:
   num_pins_y: 8
 
 SOIC-16W_7.5x10.3mm_P1.27mm:
-  custom_name_format: SOIC-{pincount:d}W_{size_x:g}x{size_y:g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:g}x{size_y:g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -618,7 +618,7 @@ SOIC-16W_7.5x10.3mm_P1.27mm:
 
 SOIC-16W_7.5x12.8mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ri_soic_ic/ri_16_1.pdf'
   body_size_x:
     minimum: 7.4
@@ -646,7 +646,7 @@ SOIC-16W_7.5x12.8mm_P1.27mm:
 
 SOIC-18W_7.5x11.6mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AB, https://www.analog.com/media/en/package-pcb-resources/package/33254132129439rw_18.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -674,7 +674,7 @@ SOIC-18W_7.5x11.6mm_P1.27mm:
 
 SOIC-20W_7.5x12.8mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AC, https://www.analog.com/media/en/package-pcb-resources/package/233848rw_20.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -702,7 +702,7 @@ SOIC-20W_7.5x12.8mm_P1.27mm:
 
 SOIC-24W_7.5x15.4mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AD, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/RW_24.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -730,7 +730,7 @@ SOIC-24W_7.5x15.4mm_P1.27mm:
 
 SOIC-28W_7.5x17.9mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'JEDEC MS-013AE, https://www.analog.com/media/en/package-pcb-resources/package/35833120341221rw_28.pdf'
   body_size_x: # from JEDEC (agrees with linked datasheet)
     nominal: 7.5
@@ -758,7 +758,7 @@ SOIC-28W_7.5x17.9mm_P1.27mm:
 
 SOIC-28W_7.5x18.7mm_P1.27mm:
   #round to two significant digits to comply with old name
-  custom_name_format: SOIC-{pincount:d}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
   size_source: 'https://www.akm.com/akm/en/file/datasheet/AK5394AVS.pdf#page=23'
   body_size_x:
     nominal: 7.5
