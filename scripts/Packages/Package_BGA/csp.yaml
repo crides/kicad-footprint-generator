@@ -465,6 +465,15 @@ WLCSP-16_1.409x1.409mm_P0.35mm:
   pad_diameter: 0.2
   layout_x: 4
   layout_y: 4
+WLCSP-16_2.225x2.17mm_P0.5mm:
+  description: "WLCSP-16 2.225x2.17mm"
+  size_source: 'https://ww1.microchip.com/downloads/en/DeviceDoc/16B_WLCSP_CS_C04-06036c.pdf'
+  body_size_x: 2.225
+  body_size_y: 2.170
+  pitch: 0.50
+  pad_diameter: 0.327
+  layout_x: 4
+  layout_y: 4
 WLCSP-8_1.551x2.284mm_P0.5mm:
   description: "WLCSP-8"
   size_source: "https://www.adestotech.com/wp-content/uploads/AT25SL321_112.pdf#page=75"
