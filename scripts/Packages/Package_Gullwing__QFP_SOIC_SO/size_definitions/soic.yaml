@@ -700,6 +700,34 @@ SOIC-20W_7.5x12.8mm_P1.27mm:
   num_pins_x: 0
   num_pins_y: 10
 
+SOIC-20W_7.5x15.4mm_P1.27mm:
+  #round to two significant digits to comply with old name
+  custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
+  size_source: 'JEDEC MS-013AD, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/RI_20_1.pdf'
+  body_size_x: 
+    minimum: 7.39
+    maximum: 7.59
+  body_size_y:
+    minimum: 15.27
+    maximum: 15.54
+  overall_height:
+    minimum: 2.36
+    maximum: 2.64
+
+  overall_size_x: # from JEDEC
+    nominal: 10.3
+    tolerance: 0.24
+  lead_len:
+    minimum: 0.4
+    maximum: 1.27
+  lead_width: 
+    minimum: 0.36
+    maximum: 0.48
+
+  pitch: 1.27
+  num_pins_x: 0
+  num_pins_y: 10
+
 SOIC-24W_7.5x15.4mm_P1.27mm:
   #round to two significant digits to comply with old name
   custom_name_format: SOIC-{pincount}W_{size_x:.2g}x{size_y:.3g}mm_P{pitch:g}mm
