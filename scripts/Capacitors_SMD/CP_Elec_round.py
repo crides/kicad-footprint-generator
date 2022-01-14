@@ -20,12 +20,16 @@ def create_footprint(name, configuration, **kwargs):
     datasheet = ""
     if 'datasheet' in kwargs:
         datasheet = kwargs['datasheet']
-    kicad_mod.setDescription(kwargs['description'] + " " + datasheet)
+    kicad_mod.setDescription("SMD capacitor, aluminum electrolytic, " + kwargs['extra_description'] + " " + datasheet)
     kicad_mod.setTags('Capacitor Electrolytic')
     kicad_mod.setAttribute('smd')
 
+    body_width = kwargs['body_width']['nominal']
+    body_length = kwargs['body_length']['nominal']
+    body_diameter = kwargs['body_diameter']['nominal']
+
     # set general values
-    text_offset_y = kwargs['width'] / 2. + configuration['courtyard_offset']['default'] + 0.8
+    text_offset_y = body_width / 2. + configuration['courtyard_offset']['default'] + 0.8
 
     # silkscreen REF**
     silk_text_size = configuration['references'][0]['size']
@@ -38,7 +42,7 @@ def create_footprint(name, configuration, **kwargs):
     kicad_mod.append(Text(type='value', text=name, at=[0, text_offset_y], layer='F.Fab', size=[
                      fab_text_size[0], fab_text_size[1]], thickness=fab_text_thickness))
     # fab REF**
-    fab_text_size = kwargs['diameter'] / 5.
+    fab_text_size = body_diameter / 5.
     fab_text_size = min(fab_text_size, configuration['references'][1]['size_max'][0])
     fab_text_size = max(fab_text_size, configuration['references'][1]['size_min'][0])
     fab_text_thickness = fab_text_size * configuration['references'][1]['thickness_factor']
@@ -46,8 +50,8 @@ def create_footprint(name, configuration, **kwargs):
                      fab_text_size, fab_text_size], thickness=fab_text_thickness))
 
     # create fabrication layer
-    fab_x = kwargs['length'] / 2.
-    fab_y = kwargs['width'] / 2.
+    fab_x = body_length / 2.
+    fab_y = body_width / 2.
 
     if kwargs['pin1_chamfer'] == 'auto':
         fab_edge = min(fab_x / 2, fab_y / 2, configuration['fab_pin1_marker_length'])
@@ -68,13 +72,13 @@ def create_footprint(name, configuration, **kwargs):
                               layer='F.Fab', width=configuration['fab_line_width']))
     kicad_mod.append(Line(start=[-fab_x, fab_y_edge], end=[-fab_x_edge, fab_y],
                           layer='F.Fab', width=configuration['fab_line_width']))
-    kicad_mod.append(Circle(center=[0, 0], radius=kwargs['diameter'] / 2.,
+    kicad_mod.append(Circle(center=[0, 0], radius=body_diameter / 2.,
                             layer='F.Fab', width=configuration['fab_line_width']))
 
     # fab polarity marker
-    fab_pol_size = kwargs['diameter'] / 10.
+    fab_pol_size = body_diameter / 10.
     fab_pol_wing = fab_pol_size / 2.
-    fab_pol_distance = kwargs['diameter'] / 2. - fab_pol_wing - configuration['fab_line_width']
+    fab_pol_distance = body_diameter / 2. - fab_pol_wing - configuration['fab_line_width']
     fab_pol_pos_y = fab_text_size / 2 + configuration['silk_pad_clearance'] + fab_pol_size
     fab_pol_pos_x = math.sqrt(fab_pol_distance * fab_pol_distance - fab_pol_pos_y * fab_pol_pos_y)
     fab_pol_pos_x = -fab_pol_pos_x
@@ -86,8 +90,8 @@ def create_footprint(name, configuration, **kwargs):
 
     # create silkscreen
     fab_to_silk_offset = configuration['silk_fab_offset']
-    silk_x = kwargs['length'] / 2. + fab_to_silk_offset
-    silk_y = kwargs['width'] / 2. + fab_to_silk_offset
+    silk_x = body_length / 2. + fab_to_silk_offset
+    silk_y = body_width / 2. + fab_to_silk_offset
     silk_y_start = kwargs['pad_width'] / 2. + \
         configuration['silk_pad_clearance'] + configuration['silk_line_width'] / 2.
     silk_45deg_offset = fab_to_silk_offset * math.tan(math.radians(22.5))
@@ -124,7 +128,7 @@ def create_footprint(name, configuration, **kwargs):
                                                                          silk_y], layer='F.SilkS', width=configuration['silk_line_width']))
 
     # silk polarity marker
-    silk_pol_size = kwargs['diameter'] / 8.
+    silk_pol_size = body_diameter / 8.
     silk_pol_wing = silk_pol_size / 2.
     silk_pol_pos_y = silk_y_start + silk_pol_size
     silk_pol_pos_x = silk_x + silk_pol_wing + configuration['silk_line_width'] * 2
@@ -137,8 +141,8 @@ def create_footprint(name, configuration, **kwargs):
 
     # create courtyard
     courtyard_offset = configuration['courtyard_offset']['default']
-    courtyard_x = kwargs['length'] / 2. + courtyard_offset
-    courtyard_y = kwargs['width'] / 2. + courtyard_offset
+    courtyard_x = body_length / 2. + courtyard_offset
+    courtyard_y = body_width / 2. + courtyard_offset
     courtyard_pad_x = kwargs['pad_spacing'] / 2. + kwargs['pad_length'] + courtyard_offset
     courtyard_pad_y = kwargs['pad_width'] / 2. + courtyard_offset
     courtyard_45deg_offset = courtyard_offset * math.tan(math.radians(22.5))
