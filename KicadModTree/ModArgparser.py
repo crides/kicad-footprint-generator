@@ -250,6 +250,8 @@ class ModArgparser(object):
                         parsed_args[k] = type(v.get('default', 0.0))
                     elif type is str:
                         parsed_args[k] = type(v.get('default', ''))
+                    elif type is list:
+                        parsed_args[k] = type(v.get('default', []))
                     else:
                         parsed_args[k] = type(v.get('default'))
             except (ValueError, ParserException) as e:
