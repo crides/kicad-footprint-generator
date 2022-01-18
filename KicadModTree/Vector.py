@@ -72,11 +72,13 @@ class Vector2D(object):
 
         >>> from KicadModTree import *
         >>> Vector2D(0.1234, 0.5678).round_to(0.01)
+        >>> # or
+        >>> Vector3D0.123, 0.456, 0.789).round_to(0.01)
         """
         if base == 0 or base is None:
             return self.__copy__()
 
-        return Vector2D([round(v / base) * base for v in self])
+        return self.__class__([round(v / base) * base for v in self])
 
     def distance_to(self, value):
         r"""Distance between this and another point
@@ -334,20 +336,6 @@ class Vector3D(Vector2D):
 
         else:
             raise TypeError('dict or list type required')
-
-    def round_to(self, base):
-        r"""Round to a specific base (like it's required for a grid)
-
-        :param base: base we want to round to
-        :return: rounded point
-
-        >>> from KicadModTree import *
-        >>> Vector3D(0.123, 0.456, 0.789).round_to(0.01)
-        """
-        if base == 0 or base is None:
-            return self.__copy__()
-
-        return Vector3D([round(v / base) * base for v in self])
 
     def cross_product(self, other):
         other = Vector3D.__arithmetic_parse(other)
