@@ -73,7 +73,7 @@ class Vector2D(object):
         >>> from KicadModTree import *
         >>> Vector2D(0.1234, 0.5678).round_to(0.01)
         >>> # or
-        >>> Vector3D0.123, 0.456, 0.789).round_to(0.01)
+        >>> Vector3D(0.123, 0.456, 0.789).round_to(0.01)
         """
         if base == 0 or base is None:
             return self.__copy__()
