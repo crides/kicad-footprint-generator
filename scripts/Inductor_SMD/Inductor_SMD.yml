@@ -138,3 +138,15 @@ L_TDK_SLF12575:
   size: [12.5, 12.5]
   smd_tht: "smd"
   pins: [["smd", "1", -5.55, 0, 2.6, 3.2, 0.0], ["smd", "2", 5.55, 0, 2.6, 3.2, 0.0]]
+
+L_AVX_LMLP07A7:
+  description: "Inductor, AVX Kyocera, LMLP Series, style D, 6.6mmx7.3mm, 3.0mm height."
+  datasheet: "https://datasheets.avx.com/LMLPD.pdf"
+  tags: "Inductor LMLP"
+  at: [-3.65, 3.3]
+  size: [7.3, 6.6]
+  smd_tht: "smd"
+  pins: [
+    ["smd", "1",  -2.775, 0, 1.85, 3.5, 0],
+    ["smd", "2",  +2.775, 0, 1.85, 3.5, 0],
+  ]
