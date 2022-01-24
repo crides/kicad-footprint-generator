@@ -89,3 +89,63 @@ HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.3x2.3mm_ThermalVias:
     # grid: [1.5, 1.5]
     # bottom_pad_size:
     paste_avoid_via: False
+
+HSOP-32-1EP_7.5x11.0mm_P0.65mm_EP4.7x4.7mm:
+  size_source: 'https://www.nxp.com/docs/en/package-information/SOT1746-3.pdf'
+  body_size_x:
+    minimum: 7.4
+    maximum: 7.6
+  body_size_y:
+    minimum: 10.9
+    maximum: 11.1
+  overall_size_x:
+    nominal: 10.3
+    tolerance: 0
+  lead_width:
+    minimum: 0.22
+    maximum: 0.38
+  lead_len:
+    minimum: 0.5
+    maximum: 0.9
+  pitch: 0.65
+  num_pins_x: 0
+  num_pins_y: 16
+
+
+  EP_size_x:
+    nominal: 4.7
+    tolerance: 0
+  EP_size_y:
+    nominal: 4.7
+    tolerance: 0
+  EP_num_paste_pads: [2, 2]
+
+HSOP-54-1EP_7.5x17.9mm_P0.65mm_EP4.6x4.6mm:
+  size_source: 'https://www.nxp.com/docs/en/package-information/98ASA10506D.pdf'
+  body_size_x:
+    minimum: 7.4
+    maximum: 7.6
+  body_size_y:
+    minimum: 17.8
+    maximum: 18.0
+  overall_size_x:
+    nominal: 10.3
+    tolerance: 0
+  lead_width:
+    minimum: 0.22
+    maximum: 0.38
+  lead_len:
+    minimum: 0.5
+    maximum: 0.9
+  pitch: 0.65
+  num_pins_x: 0
+  num_pins_y: 27
+
+
+  EP_size_x:
+    minimum: 3.9
+    maximum: 5.3
+  EP_size_y:
+    minimum: 3.9
+    maximum: 5.3
+  EP_num_paste_pads: [2, 2]
