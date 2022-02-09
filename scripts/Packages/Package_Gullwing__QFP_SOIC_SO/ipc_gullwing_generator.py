@@ -163,7 +163,10 @@ class Gullwing():
         fab_line_width = self.configuration.get('fab_line_width', 0.1)
         silk_line_width = self.configuration.get('silk_line_width', 0.12)
 
-        lib_name = self.configuration['lib_name_format_string'].format(category=header['library_Suffix'])
+        if 'override_lib_name' in header:
+            lib_name = header['override_lib_name']
+        else:
+            lib_name = self.configuration['lib_name_format_string'].format(category=header['library_Suffix'])
 
         size_x = dimensions['body_size_x'].nominal
         size_y = dimensions['body_size_y'].nominal
@@ -280,7 +283,7 @@ class Gullwing():
                           .format(
             man=device_params.get('manufacturer', ''),
             package=header['device_type'],
-            category=header['library_Suffix']
+            category=header['override_lib_name'] if 'override_lib_name' in header else header['library_Suffix']
         ).lstrip())
         kicad_mod.setAttribute('smd')
 
