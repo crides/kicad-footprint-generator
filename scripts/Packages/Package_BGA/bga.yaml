@@ -31,6 +31,72 @@ LFBGA-144_10x10mm_Layout12x12_P0.8mm:
   paste_margin: 0.000001
   layout_x: 12
   layout_y: 12
+Micron_FBGA-78_7.5x10.6mm_Layout9x13_P0.8mm:
+  description: "FBGA-78"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=24"
+  body_size_x: 7.5
+  body_size_y: 10.6
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.45
+  layout_x: 9
+  layout_y: 13
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
+Micron_FBGA-78_8x10.5mm_Layout9x13_P0.8mm:
+  description: "FBGA-78"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=25"
+  body_size_x: 8.0
+  body_size_y: 10.5
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.45
+  layout_x: 9
+  layout_y: 13
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
+Micron_FBGA-78_9x10.5mm_Layout9x13_P0.8mm:
+  description: "FBGA-78"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=23"
+  body_size_x: 9.0
+  body_size_y: 10.5
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.5
+  layout_x: 9
+  layout_y: 13
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
+Micron_FBGA-96_7.5x13.5mm_Layout9x16_P0.8mm:
+  description: "FBGA-96"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=27"
+  body_size_x: 7.5
+  body_size_y: 13.5
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.45
+  layout_x: 9
+  layout_y: 16
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
+Micron_FBGA-96_8x14mm_Layout9x16_P0.8mm:
+  description: "FBGA-96"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=28"
+  body_size_x: 8.0
+  body_size_y: 14.0
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.45
+  layout_x: 9
+  layout_y: 16
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
+Micron_FBGA-96_9x14mm_Layout9x16_P0.8mm:
+  description: "FBGA-96"
+  size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=26"
+  body_size_x: 9.0
+  body_size_y: 14.0
+  pitch: 0.8
+  ball_type: 'collapsible'
+  ball_diameter: 0.45
+  layout_x: 9
+  layout_y: 16
+  row_skips: [[4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6], [4, 5, 6]]
 Texas_DSBGA-28_1.9x3.0mm_Layout4x7_P0.4mm:
   description: "Texas Instruments, DSBGA, area grid"
   size_source: "http://www.ti.com/lit/ds/symlink/bq51050b.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf"
