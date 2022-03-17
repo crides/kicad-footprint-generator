@@ -91,3 +91,25 @@ Halo_N6_SO-16-1:
   pitch: 0.99
   num_pins_x: 0
   num_pins_y: 8
+
+YDS_30F-51NL_SO-24:
+  size_source: 'https://datasheet.lcsc.com/lcsc/1811051610_Shanghai-YDS-Tech-30F-51NL_C123168.pdf'
+  manufacturer: YDS
+  part_number: 30F-51NL
+  custom_name_format: 'Transformer_Ethernet_{man}_{mpn:s}_SO-{pincount}_{size_x:g}x{size_y:g}mm{vias:s}'
+
+  body_size_x: 7.10 +/-0.25
+  body_size_y: 15.1 +/-0.25
+  overall_height: 4.0 +/-0.25
+
+  overall_size_x: 10 +/-0.25
+  lead_width: 0.38 +/-0.05
+  lead_len: 0.6 # Missing from datasheet
+
+  pitch: 0.99
+  num_pins_x: 0
+  num_pins_y: 12
+
+  pad_to_pad_min_x_overwrite: 7.4
+  pad_to_pad_max_x_overwrite: 11.4
+  pad_size_y_overwrite: 0.78
