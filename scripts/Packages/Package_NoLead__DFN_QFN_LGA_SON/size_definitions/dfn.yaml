@@ -1057,6 +1057,37 @@ WDFN-8-1EP_4x3mm_P0.65mm_EP2.4x1.8mm:
   #suffix: '_Pad{pad_x:.2f}x{pad_y:.2f}mm_HandSolder'
   #include_suffix_in_3dpath: 'False'
 
+DFN-12-1EP_3x3mm_P0.5mm_EP1.6x2.5mm:
+  device_type: 'DFN'
+  #manufacturer: 'man'
+  #part_number: 'mpn'
+  size_source: 'https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MIC2207-2MHz-3A-PWM-Buck-Regulator-DS20006470A.pdf#page=22'
+  # ipc_class: 'qfn' # 'qfn_pull_back'
+  # ipc_density: 'least' #overwrite global value for this device.
+  body_size_x: 3 +/-0.05
+  body_size_y: 3 +/-0.05
+  overall_height: 0.85 +/-0.05
+
+  lead_width: 0.23 +/-0.05
+  lead_len: 0.4 +/-0.5
+
+  EP_size_x: 1.7
+  EP_size_x_overwrite: 1.6
+  EP_size_y: 2.4
+  EP_size_y_overwrite: 2.5
+  # EP_paste_coverage: 0.65
+  EP_num_paste_pads: [2, 2]
+  thermal_vias:
+    count: [2, 3]
+    drill: 0.3
+    paste_via_clearance: 0.1
+    EP_num_paste_pads: [2, 2]
+    paste_avoid_via: False
+
+  pitch: 0.5
+  num_pins_x: 0
+  num_pins_y: 6
+
 WDFN-12-1EP_3x3mm_P0.45mm_EP1.7x2.5mm:
   device_type: 'WDFN'
   #manufacturer: 'man'
