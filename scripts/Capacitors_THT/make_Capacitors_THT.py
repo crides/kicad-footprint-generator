@@ -534,13 +534,13 @@ if __name__ == '__main__':
     #            d          h,          rm                     p3,   ddrill               name_additions                specialtags                  add_description
     caps = [
 
-        [       22,         40,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       24,         40,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       25,         45,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       26,         45,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       30,         45,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       35,         50,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
-        [       40,         50,         10,     [2,10-3.3,-4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       22,         40,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       24,         40,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       25,         45,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       26,         45,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       30,         45,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       35,         50,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
+        [       40,         50,         10,     [2,10-3.3,4.75,2.5],        2, ["3pin", "SnapIn"], [], ", http://www.vishay.com/docs/28342/058059pll-si.pdf"],
 
     ]
     scriptcprad3p = "CQ_params_CP_Radial_3Pin.py"
