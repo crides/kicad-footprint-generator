@@ -250,7 +250,7 @@ def generate_one_footprint(weld, pol, pcb_thickness, n, configuration):
     # output kicad model
     #print(kicad_mod
     # kicad_mod.append(Text(type='reference', text='REF**', at=[0,3.81], layer='F.SilkS'))
-    # kicad_mod.append(Text(type='user', text='%R', at=[0,0], layer='F.Fab'))
+    # kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0,0], layer='F.Fab'))
     # kicad_mod.append(Text(type='value', text=fp_name, at=[0,-3.81], layer='F.Fab'))
     addTextFields(kicad_mod=kicad_mod, configuration=configuration, body_edges=body_edge,
         courtyard={'top':cy1, 'bottom':cy2}, fp_name=fp_name, text_y_inside_position='center')

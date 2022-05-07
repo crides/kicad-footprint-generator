@@ -90,7 +90,7 @@ def makePinHeadStraight(rows, cols, rm, coldist, package_width, overlen_top, ove
     kicad_modg.append(
         Text(type='reference', text='REF**', at=[coldist * (cols - 1) / 2, t_slk - txt_offset], layer='F.SilkS'))
     kicad_modg.append(
-        Text(type='user', text='%R', at=[rm/2*(cols-1), t_crt + offset[1] + (h_crt/2)], rotation=90, layer='F.Fab', size=text_size ,thickness=text_t))
+        Text(type='user', text='${REFERENCE}', at=[rm/2*(cols-1), t_crt + offset[1] + (h_crt/2)], rotation=90, layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(
         Text(type='value', text=footprint_name, at=[coldist * (cols - 1) / 2, t_slk + h_slk + txt_offset], layer='F.Fab'))
     
@@ -365,7 +365,7 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[center_fp[0], t_crt - text_size[1] / 2], layer='F.SilkS'))
-    kicad_modg.append(Text(type='user', text='%R', at=[center_fab[0], center_fab[1]], rotation=90, layer='F.Fab', size=text_size, thickness=text_t))
+    kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[center_fab[0], center_fab[1]], rotation=90, layer='F.Fab', size=text_size, thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[center_fp[0], t_crt + h_crt + text_size[1] / 2], layer='F.Fab'))
     
     # for shrouded headers, fab and silk layers have very similar geometry
@@ -590,7 +590,7 @@ def makePinHeadAngled(rows, cols, rm, coldist, pack_width, pack_offset, pin_leng
     kicad_modg.append(
         Text(type='reference', text='REF**', at=[l_crt + w_crt / 2, t_crt + crt_offset - txt_offset], layer='F.SilkS'))
     kicad_modg.append(
-        Text(type='user', text='%R', at=[l_fabb + (w_fabb/2), t_crt + offset[1] + (h_crt/2)], rotation=90, layer='F.Fab', size=text_size ,thickness=text_t))
+        Text(type='user', text='${REFERENCE}', at=[l_fabb + (w_fabb/2), t_crt + offset[1] + (h_crt/2)], rotation=90, layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(
         Text(type='value', text=footprint_name, at=[l_crt + w_crt / 2, t_crt + h_crt - crt_offset + txt_offset],
              layer='F.Fab'))
@@ -862,7 +862,7 @@ def makeSocketStripAngled(rows, cols, rm, coldist, pack_width, pack_offset, pin_
     kicad_modg.append(
         Text(type='reference', text='REF**', at=[l_crt + w_crt / 2, t_crt + crt_offset - txt_offset], layer='F.SilkS'))
     kicad_modg.append(
-        Text(type='user', text='%R', at=[l_crt + w_crt / 2, t_crt + crt_offset - txt_offset], layer='F.Fab'))
+        Text(type='user', text='${REFERENCE}', at=[l_crt + w_crt / 2, t_crt + crt_offset - txt_offset], layer='F.Fab'))
     kicad_modg.append(
         Text(type='value', text=footprint_name, at=[l_crt + w_crt / 2, t_crt + h_crt - crt_offset + txt_offset],
              layer='F.Fab'))
@@ -1031,7 +1031,7 @@ def makePinHeadStraightSMD(rows, cols, rm, coldist, rmx_pad_offset,rmx_pin_lengt
     kicad_modg.append(
         Text(type='reference', text='REF**', at=[coldist * (cols - 1) / 2, t_slk - txt_offset], layer='F.SilkS'))
     kicad_modg.append(
-        Text(type='user', text='%R', at=[rm/2*(cols-1),(rows-1)*rm/2.0], rotation=90, layer='F.Fab'))
+        Text(type='user', text='${REFERENCE}', at=[rm/2*(cols-1),(rows-1)*rm/2.0], rotation=90, layer='F.Fab'))
     kicad_modg.append(
         Text(type='value', text=footprint_name, at=[coldist * (cols - 1) / 2, t_slk + h_slk + txt_offset], layer='F.Fab'))
 

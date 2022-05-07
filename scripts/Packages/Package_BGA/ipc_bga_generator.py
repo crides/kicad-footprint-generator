@@ -156,7 +156,7 @@ def __createFootprintVariant(config, fpParams, fpId):
                   layer="F.SilkS", size=s1, thickness=t1))
     f.append(Text(type="value", text=fpId, at=[xCenter, yValue],
                   layer="F.Fab", size=s1, thickness=t1))
-    f.append(Text(type="user", text="%R", at=[xCenter, yCenter],
+    f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
                   layer="F.Fab", size=s2, thickness=t2))
 
     # Fab

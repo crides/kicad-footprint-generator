@@ -99,7 +99,7 @@ class CapacitorTrimmer(object):
     def _add_labels(self, m, variant, dim):
         m.append(Text(type='reference', text='REF**', size=dim.silk_text_size, thickness=dim.silk_text_thickness, at=[dim.label_centre_x_mm, -dim.label_centre_y_mm],
                       layer='F.SilkS'))
-        m.append(Text(type='user', text='%R', size=dim.fab_reference_text_size, thickness=dim.fab_reference_text_thickness, at=[0, 0], layer='F.Fab'))
+        m.append(Text(type='user', text='${REFERENCE}', size=dim.fab_reference_text_size, thickness=dim.fab_reference_text_thickness, at=[0, 0], layer='F.Fab'))
         m.append(Text(type='value', text=dim.name, size=dim.fab_text_size, thickness=dim.fab_text_thickness, at=[dim.label_centre_x_mm, dim.label_centre_y_mm], layer='F.Fab'))
         return m
 

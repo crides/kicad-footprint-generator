@@ -119,7 +119,7 @@ def textool(args):
                   layer="F.SilkS", size=s2, thickness=t2))
     f.append(Text(type="value", text=footprint_name, at=[xMiddle, yValue],
                   layer="F.Fab", size=s1, thickness=t1))
-    f.append(Text(type="user", text="%R", at=[xMiddle, yFabRef],
+    f.append(Text(type="user", text='${REFERENCE}', at=[xMiddle, yFabRef],
                   layer="F.Fab", size=s2, thickness=t2))
 
     # Courtyard

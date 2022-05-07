@@ -21,7 +21,7 @@ def buzzer_round_tht(args):
 
     # set general values
     kicad_mod.append(Text(type='reference', text='REF**', at=[buzzer_center, -buzzer_radius - 1], layer='F.SilkS'))
-    kicad_mod.append(Text(type='user', text='%R', at=[buzzer_center, -buzzer_radius - 1], layer='F.Fab'))
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[buzzer_center, -buzzer_radius - 1], layer='F.Fab'))
     kicad_mod.append(Text(type='value', text=args['name'], at=[buzzer_center, buzzer_radius + 1], layer='F.Fab'))
 
     # create silkscreen

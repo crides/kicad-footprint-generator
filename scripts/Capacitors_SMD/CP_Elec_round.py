@@ -46,7 +46,7 @@ def create_footprint(name, configuration, **kwargs):
     fab_text_size = min(fab_text_size, configuration['references'][1]['size_max'][0])
     fab_text_size = max(fab_text_size, configuration['references'][1]['size_min'][0])
     fab_text_thickness = fab_text_size * configuration['references'][1]['thickness_factor']
-    kicad_mod.append(Text(type='user', text='%R', at=[0, 0], layer='F.Fab', size=[
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0, 0], layer='F.Fab', size=[
                      fab_text_size, fab_text_size], thickness=fab_text_thickness))
 
     # create fabrication layer

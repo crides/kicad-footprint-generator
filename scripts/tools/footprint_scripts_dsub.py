@@ -139,7 +139,7 @@ def makeDSubStraight(pins, isMale, HighDensity, rmx, rmy, pindrill, pad, mountin
     
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.SilkS'))
-    kicad_modg.append(Text(type='user', text='%R', at=[0,0], layer='F.Fab', size=text_size ,thickness=text_t))
+    kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[0,0], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[l_fab+w_fab/2, t_slk + h_slk + txt_offset], layer='F.Fab'))
     
     
@@ -332,7 +332,7 @@ def makeDSubEdge(pins, isMale, rmx, pad, mountingdrill, mountingdistance, shield
     
     # set general values
     kicad_mod.append(Text(type='reference', text='REF**', at=[x10-topoffset-pad[0]/2-text_size[0]*3, 0], layer='F.SilkS'))
-    kicad_mod.append(Text(type='user', text='%R', at=[0,ypcb_edge+smaller_backcan_height/2], layer='F.Fab', size=text_size ,thickness=text_t))
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0,ypcb_edge+smaller_backcan_height/2], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_mod.append(Text(type='value', text=footprint_name, at=[0, ypcb_edge+smaller_backcan_height+backcan_height+shieldthickness+can_height+text_size[0]], layer='F.Fab'))
     
     
@@ -561,7 +561,7 @@ def makeDSubAngled(pins, isMale, HighDensity, rmx, rmy, pindrill, pad, pin_pcb_d
     
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[0, ypcb_edge-back_height-text_size[0]], layer='F.SilkS'))
-    kicad_modg.append(Text(type='user', text='%R', at=[0,ypcb_edge+shield_thickness+can_height/2], layer='F.Fab', size=text_size ,thickness=text_t))
+    kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[0,ypcb_edge+shield_thickness+can_height/2], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[0, ypcb_edge+shield_thickness+can_height+text_size[0]*1.5], layer='F.Fab'))
     
     

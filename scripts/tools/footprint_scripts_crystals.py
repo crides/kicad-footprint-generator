@@ -143,7 +143,7 @@ def makeSMDCrystal(footprint_name, addSizeFootprintName, pins, pad_sep_x, pad_se
     kicad_modg.append(
         Text(type='reference', text='REF**', at=[0, min(t_slk, -overpad_height / 2, -pack_height / 2) - txt_offset],
              layer='F.SilkS'))
-    # kicad_modg.append(Text(type='user', text='%R', at=[0, min(t_slk,-overpad_height/2,-pack_height/2)-txt_offset], layer='F.Fab'))
+    # kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[0, min(t_slk,-overpad_height/2,-pack_height/2)-txt_offset], layer='F.Fab'))
     kicad_modg.append(
         Text(type='value', text=fpname, at=[0, max(t_slk + h_slk, overpad_height / 2, pack_height / 2) + txt_offset],
              layer='F.Fab'))

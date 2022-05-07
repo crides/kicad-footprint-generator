@@ -163,7 +163,7 @@ for converter in converters:
     #
     cx = (L / 2.0) + (0 - ((L - (pin2x - pin1x)) / 2.0) - myLayerD)
     cy = (pin3y - pin1y) / 2.0
-    fp.append(Text(type='user', text="%R",         at=[round(cx, 2), round(cy, 2)], layer='F.Fab'))
+    fp.append(Text(type='user', text='${REFERENCE}', at=[round(cx, 2), round(cy, 2)], layer='F.Fab'))
     
     #
     # Add 3D model

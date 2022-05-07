@@ -123,7 +123,7 @@ def qfn(args):
                   layer="F.SilkS", size=s2, thickness=t2))
     f.append(Text(type="value", text=footprint_name, at=[xCenter, yValue],
                   layer="F.Fab", size=s2, thickness=t2))
-    f.append(Text(type="user", text="%R", at=[xCenter, yCenter],
+    f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
                   layer="F.Fab", size=s1, thickness=t1))
 
     # Fab

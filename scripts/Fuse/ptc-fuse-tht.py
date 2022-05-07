@@ -85,7 +85,7 @@ def ptc_fuse_tht(args):
                   layer="F.SilkS", size=s, thickness=t))
     f.append(Text(type="value", text=footprint_name, at=[xCenter, yValue],
                   layer="F.Fab", size=s, thickness=t))
-    f.append(Text(type="user", text="%R", at=[xCenter, yCenter],
+    f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
                   layer="F.Fab", size=s, thickness=t))
 
     # Fab outline

@@ -797,9 +797,9 @@ for inductor in inductors:
     #
     # Set general values
     #
-    fp.append(Text(type='reference', text='REF**', at=[RefX1, RefY1], layer='F.SilkS'))
-    fp.append(Text(type='value', text=fp_name,     at=[round((A / 2), 2), round(((W - B) / 2) + B + 1.5,   2)], layer='F.Fab'))
-    fp.append(Text(type='user', text="%R",         at=[round((A / 2), 2), round((B / 2), 2)], layer='F.Fab'))
+    fp.append(Text(type='reference', text='REF**',   at=[RefX1, RefY1], layer='F.SilkS'))
+    fp.append(Text(type='value', text=fp_name,       at=[round((A / 2), 2), round(((W - B) / 2) + B + 1.5,   2)], layer='F.Fab'))
+    fp.append(Text(type='user', text='${REFERENCE}', at=[round((A / 2), 2), round((B / 2), 2)], layer='F.Fab'))
     
     #
     # Add 3D model

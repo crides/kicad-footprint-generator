@@ -292,7 +292,7 @@ def makePotentiometerHorizontal(class_name="", wbody=0, hbody=0, dscrew=0, style
     # create FAB-layer
     # horizontal pot: place refdes on F.Fab in center of body and shrink size if body is small
     text_size = min(1, abs(round(wbody_fab / 4.5, 2)))
-    kicad_modg.append(Text(type='user', text='%R', at=[lbody_fab+wbody_fab/2.0, tbody_fab+hbody_fab/2.0], size=[text_size, text_size], layer='F.Fab'))
+    kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[lbody_fab+wbody_fab/2.0, tbody_fab+hbody_fab/2.0], size=[text_size, text_size], layer='F.Fab'))
     
     kicad_modg.append(RectLine(start=[lbody_fab, tbody_fab], end=[lbody_fab + wbody_fab, tbody_fab + hbody_fab], layer='F.Fab',width=lw_fab))
     if wscrew_fab * hscrew_fab != 0:
@@ -650,7 +650,7 @@ def makePotentiometerVertical(class_name, wbody, hbody, screwstyle="none", style
                 # vertical trimmer with circular body: place refdes on F.Fab inside
                 # calculate text size (also used for offset distance inside outer circle)
                 text_size = min(1, round((cdbody_fab - dscrew) / 4.0, 2))
-                kicad_modg.append(Text(type='user', text='%R', at=[clbody_fab - cdbody_fab / 2.0 + text_size * 1.2, ctbody_fab],
+                kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[clbody_fab - cdbody_fab / 2.0 + text_size * 1.2, ctbody_fab],
                                  size=[text_size, text_size], layer='F.Fab', rotation = 90))
                 
                 if drawbody:
@@ -667,7 +667,7 @@ def makePotentiometerVertical(class_name, wbody, hbody, screwstyle="none", style
                 dx = math.sqrt(cdbody_fab * cdbody_fab / 4 - dy * dy)
                 
                 # vertical pot with circular body: place refdes on F.Fab inside left edge of body
-                kicad_modg.append(Text(type='user', text='%R', at=[lbody_fab + 1, ctbody_fab], layer='F.Fab', rotation = 90))
+                kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[lbody_fab + 1, ctbody_fab], layer='F.Fab', rotation = 90))
                 
                 kicad_modg.append(PolygoneLine(polygone=[[clbody_fab - dx, ctbody_fab - dy],[lbody_fab, ctbody_fab - dy],
                              [lbody_fab, ctbody_fab + dy],[clbody_fab - dx, ctbody_fab + dy]], layer='F.Fab', width=lw_fab))
@@ -676,7 +676,7 @@ def makePotentiometerVertical(class_name, wbody, hbody, screwstyle="none", style
                              layer='F.Fab', width=lw_fab))
     elif drawbody:
         # vertical pot with square body: place refdes on F.Fab inside left edge of body
-        kicad_modg.append(Text(type='user', text='%R', at=[lbody_fab + 1, ctbody_fab], layer='F.Fab', rotation = 90))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[lbody_fab + 1, ctbody_fab], layer='F.Fab', rotation = 90))
         
         kicad_modg.append(RectLine(start=[lbody_fab, tbody_fab], end=[lbody_fab + wbody_fab, tbody_fab + hbody_fab],
                                    layer='F.Fab', width=lw_fab))
@@ -976,7 +976,7 @@ def makeSpindleTrimmer(class_name, wbody, hbody, pinxoffset, pinyoffset, rmx2, r
         
         # trimmer pot with rectangular body: place refdes on F.Fab centered in body
         text_size = round(min(1, lbody_fab + wbody_fab, tbody_fab + hbody_fab), 2)
-        kicad_modg.append(Text(type='user', text='%R', at=[lbody_fab+wbody_fab/2.0, tbody_fab+hbody_fab/2.0], size=[text_size, text_size], layer='F.Fab'))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[lbody_fab+wbody_fab/2.0, tbody_fab+hbody_fab/2.0], size=[text_size, text_size], layer='F.Fab'))
     elif style == "screwtop":
         # screw graphics are inside body somewhere, so determine where to place F.Fab ref des text
         if (hbody_fab / 2.0 == tscrew_fab):
@@ -995,7 +995,7 @@ def makeSpindleTrimmer(class_name, wbody, hbody, pinxoffset, pinyoffset, rmx2, r
                 text_size = round(min(1, lscrew_fab / 6.0), 2)
 
         # trimmer pot top-mount with rectangular body: place refdes on F.Fab at location found above        
-        kicad_modg.append(Text(type='user', text='%R', at=[text_x, text_y], size=[text_size, text_size], layer='F.Fab'))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[text_x, text_y], size=[text_size, text_size], layer='F.Fab'))
         
         if shaft_hole == False:
             if screwstyle=="slit":

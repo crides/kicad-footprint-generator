@@ -169,7 +169,7 @@ def BFemale(size, pin_cb, more_description):
 		layer='F.Fab'))
 	# Very small Reference Designator to fit between the pins.
 	kicad_mod.append(Text(
-		type='user', text='%R',
+		type='user', text='${REFERENCE}',
 		at=[mid_x, mid_y],
 		size=[0.6, 0.6], thickness=0.07,
 		layer='F.Fab'))
@@ -334,7 +334,7 @@ def BMale(size, pin_cb, more_description):
 		at=[mid_x, npth_y + jack_to_npth - 1.3],
 		layer='F.Fab'))
 	kicad_mod.append(Text(
-		type='user', text='%R',
+		type='user', text='${REFERENCE}',
 		at=[mid_x, npth_y],
 		size=[1, 1], thickness=0.15,
 		layer='F.Fab'))

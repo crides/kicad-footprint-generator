@@ -112,7 +112,7 @@ def slide_pot(args):
     # Text
     f.append(Text(type="reference", text="REF**", at=[xCenter, yRef], layer="F.SilkS", size=s, thickness=t))
     f.append(Text(type="value", text=footprint_name, at=[xCenter, yValue], layer="F.Fab", size=s, thickness=t))
-    f.append(Text(type="user", text="%R", at=[xCenter, yFabRef], layer="F.Fab", size=s, thickness=t))
+    f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yFabRef], layer="F.Fab", size=s, thickness=t))
 
     # Fab
     f.append(PolygoneLine(polygone=[[xLeftFab + 1, yTopFab],

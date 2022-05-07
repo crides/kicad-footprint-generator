@@ -275,7 +275,7 @@ def generate_one_footprint(pol, n, configuration):
     #print(kicad_mod.getCompleteRenderTree())
 
     # kicad_mod.append(Text(type='reference', text='REF**', at=[0,-6.35], layer='F.SilkS'))
-    # kicad_mod.append(Text(type='user', text='%R', at=[0,-2.54], layer='F.Fab'))
+    # kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0,-2.54], layer='F.Fab'))
     # kicad_mod.append(Text(type='value', text=fp_name, at=[0,-3.81], layer='F.Fab'))
     ######################### Text Fields ###############################
     addTextFields(kicad_mod=kicad_mod, configuration=configuration, body_edges=body_edge,

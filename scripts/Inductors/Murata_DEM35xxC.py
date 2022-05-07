@@ -67,7 +67,7 @@ f.append(Text(type="reference", text="REF**", at=[xCenter, yRef],
               layer="F.SilkS", size=textSize, thickness=thickness2))
 f.append(Text(type="value", text=footprint_name, at=[xCenter, yValue],
               layer="F.Fab", size=textSize, thickness=thickness2))
-f.append(Text(type="user", text="%R", at=[xCenter, yCenter],
+f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
               layer="F.Fab", size=fabRefTextSize, thickness=thickness1))
 
 f.append(RectLine(start=[xLeftCrtYd, yTopCrtYd],

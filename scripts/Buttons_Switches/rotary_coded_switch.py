@@ -78,7 +78,7 @@ def rotary_coded_switch(args):
                   layer="F.SilkS", size=s, thickness=t))
     f.append(Text(type="value", text=footprint_name, at=[xCenter, yValue],
                   layer="F.Fab", size=s, thickness=t))
-    f.append(Text(type="user", text="%R", at=[xCenter, yCenter],
+    f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
                   layer="F.Fab", size=s, thickness=t))
 
     # Fab

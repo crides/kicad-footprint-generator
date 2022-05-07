@@ -125,7 +125,7 @@ for itr in range (1, 20 + 1):
 
     #CREATE FABRICATION
     #name
-    kicad_mod.append(Text(type = 'user', text = '%R', at = [(pin_count - 1) * (pad_span / 2), -2], layer = 'F.Fab'))
+    kicad_mod.append(Text(type = 'user', text = '${REFERENCE}', at = [(pin_count - 1) * (pad_span / 2), -2], layer = 'F.Fab'))
     kicad_mod.append(Text(type = 'value', text = footprint_name, at = [(pin_count - 1) * (pad_span / 2), silks_outline_y + 2], layer = 'F.Fab'))
     #top
     kicad_mod.append(Line(start = [-fab_outline_x + fab_arc_r, -fab_outline_y],

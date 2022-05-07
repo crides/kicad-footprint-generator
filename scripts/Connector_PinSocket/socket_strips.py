@@ -152,7 +152,7 @@ class pinSocketVerticalTHT (object):
            .goto(c_ofs, h_fab / 2.0 + t_fab)\
            .setTextDefaults(max_size=1.0)\
            .setTextSize(0.6 * (h_fab if param.num_pins == 1 and param.num_pin_rows <= 2 else w_fab))\
-           .text('user', '%R', rotation=0 if param.num_pins == 1 and param.num_pin_rows <= 2 else 90)\
+           .text('user', '${REFERENCE}', rotation=0 if param.num_pins == 1 and param.num_pin_rows <= 2 else 90)\
            .setOrigin(-w_fab / 2.0 + c_ofs, t_fab)\
            .rect(w_fab, h_fab, bevel=(0.0 if isSocket else bevel, bevel if isSocket else 0.0, 0.0, 0.0), origin="topLeft")
 
@@ -314,7 +314,7 @@ class pinSocketHorizontalTHT (object):
         bevel = min(Layer.getBevel(h_fab, abs(w_fab)), -t_fab - param.pin_width / 2.0)
 
         fab.goto(l_fab + w_fab / 2.0, (h_fab - param.pin_pitch) / 2.0)\
-           .text('user', '%R', rotation=(90 if h_fab >= -w_fab else 0))\
+           .text('user', '${REFERENCE}', rotation=(90 if h_fab >= -w_fab else 0))\
            .rect(-w_fab, h_fab, bevel=(0.0, bevel, 0.0, 0.0))\
            .goto(l_crt + w_crt / 2.0, h_crt + t_crt + fab.txt_offset)\
            .text('value', footprint_name)
@@ -496,7 +496,7 @@ class pinSocketVerticalSMD (object):
            .goHome()\
            .setTextDefaults(max_size=1.0)\
            .setTextSize(0.6 * (h_fab if param.num_pins == 1 and param.num_pin_rows <= 2 else w_fab))\
-           .text('user', '%R', rotation=(90 if h_fab >= w_fab else 0))\
+           .text('user', '${REFERENCE}', rotation=(90 if h_fab >= w_fab else 0))\
            .rect(w_fab, h_fab, bevel=(0.0 if param.pin1start_right else bevel, bevel if param.pin1start_right else 0.0, 0.0, 0.0))\
            .setOrigin(-w_fab / 2.0, -h_fab / 2.0)
 

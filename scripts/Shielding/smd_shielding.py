@@ -61,7 +61,7 @@ def create_smd_shielding(name, **kwargs):
     # set general values
     kicad_mod.append(Text(type='reference', text='REF**', at=[0, y_pad_min - kwargs['courtjard'] - 0.75], layer='F.SilkS'))
     kicad_mod.append(Text(type='value', text=name, at=[0, y_pad_max + kwargs['courtjard'] + 0.75], layer='F.Fab'))
-    kicad_mod.append(Text(type='user', text='%R', at=[0, 0], layer='F.Fab'))
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0, 0], layer='F.Fab'))
 
     # create courtyard
     x_courtjard_min = round_to(x_pad_min - kwargs['courtjard'], 0.05)

@@ -63,7 +63,7 @@ def makeSIPVertical(pins, rm, ddrill, pad, package_size, left_offset, top_offset
                 keepout=keepout+addKeepoutRound((x - 1) * rm,0,pad[0]+2*min_pad_distance+2*lw_slk, pad[1]+2*min_pad_distance+2*lw_slk)
     # set general values
     kicad_mod.append(Text(type='reference', text='REF**', at=[(pins-1) / 2 * rm, min(-pady/2,t_slk) - txt_offset], layer='F.SilkS'))
-    kicad_mod.append(Text(type='user', text='%R', at=[(pins-1) / 2 * rm, t_fab +h_fab/2], layer='F.Fab'))
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[(pins-1) / 2 * rm, t_fab +h_fab/2], layer='F.Fab'))
     kicad_mod.append(Text(type='value', text=footprint_name, at=[(pins-1) / 2 * rm, t_fab+h_fab + txt_offset], layer='F.Fab'))
     
     # create FAB-layer
@@ -157,7 +157,7 @@ def makeSIPHorizontal(pins, rm, ddrill, pad, package_size, left_offset, pin_bott
                 keepout=keepout+addKeepoutRound((x - 1) * rm,0,pad[0]+2*min_pad_distance+2*lw_slk, pad[1]+2*min_pad_distance+2*lw_slk)
     # set general values
     kicad_mod.append(Text(type='reference', text='REF**', at=[(pins-1) / 2 * rm, min(-pady/2,t_slk) - txt_offset], layer='F.SilkS'))
-    kicad_mod.append(Text(type='user', text='%R', at=[(pins-1) / 2 * rm, t_fab +h_fab/2], layer='F.Fab'))
+    kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[(pins-1) / 2 * rm, t_fab +h_fab/2], layer='F.Fab'))
     kicad_mod.append(Text(type='value', text=footprint_name, at=[(pins-1) / 2 * rm, pady/2 + txt_offset], layer='F.Fab'))
     
     # create FAB-layer

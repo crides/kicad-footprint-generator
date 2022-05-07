@@ -96,9 +96,9 @@ def makeTerminalBlockStd(footprint_name, pins, rm, package_height, leftbottom_of
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.SilkS'))
     if (type(fabref_offset) in (tuple, list)):
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
     else:
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[l_fab+w_fab/2, t_slk + h_slk + txt_offset], layer='F.Fab'))
 
 
@@ -317,9 +317,9 @@ def makeTerminalBlockVertical(footprint_name, pins, rm, package_height, leftbott
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.SilkS'))
     if (type(fabref_offset) in (tuple, list)):
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
     else:
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[l_fab+w_fab/2, t_slk + h_slk + txt_offset], layer='F.Fab'))
 
 
@@ -540,9 +540,9 @@ def makeTerminalBlock45Degree(footprint_name, pins, rm, package_height, leftbott
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.SilkS'))
     if (type(fabref_offset) in (tuple, list)):
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2+fabref_offset[0], t_fab+h_fab/2+fabref_offset[1]], layer='F.Fab', size=text_size ,thickness=text_t))
     else:
-        kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
+        kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2,  t_slk - txt_offset], layer='F.Fab', size=text_size ,thickness=text_t))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[l_fab+w_fab/2, t_slk + h_slk + txt_offset], layer='F.Fab'))
 
 
@@ -771,7 +771,7 @@ def makeScrewTerminalSingleStd(footprint_name, block_size, block_offset, pins, d
 
     # set general values
     kicad_modg.append(Text(type='reference', text='REF**', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.SilkS'))
-    kicad_modg.append(Text(type='user', text='%R', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.Fab'))
+    kicad_modg.append(Text(type='user', text='${REFERENCE}', at=[l_fab+w_fab/2, t_slk - txt_offset], layer='F.Fab'))
     kicad_modg.append(Text(type='value', text=footprint_name, at=[l_fab+w_fab/2, t_slk + h_slk + txt_offset], layer='F.Fab'))
 
 
