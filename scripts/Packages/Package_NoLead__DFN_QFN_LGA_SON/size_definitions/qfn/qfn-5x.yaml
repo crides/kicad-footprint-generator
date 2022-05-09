@@ -55,6 +55,47 @@ QFN-52-1EP_7x8mm_P0.5mm_EP5.41x6.45mm:
   #suffix: '_Pad{pad_x:.2f}x{pad_y:.2f}mm_HandSolder'
   #include_suffix_in_3dpath: 'False'
 
+QFN-56-1EP_7x7mm_P0.4mm_EP3.2x3.2mm:
+  device_type: 'QFN'
+  size_source: 'https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=634'
+  ipc_class: 'qfn'
+
+  body_size_x:
+    nominal: 7
+    tolerance: 0.1
+  body_size_y:
+    nominal: 7
+    tolerance: 0.1
+  overall_height:
+    nominal: 0.9
+    tolerance: 0.08
+
+  lead_width:
+    nominal: 0.18
+    tolerance: 0.05
+  lead_len:
+    nominal: 0.4
+    tolerance: 0.1
+
+  EP_size_x:
+    nominal: 3.2
+    tolerance: 0.1
+  EP_size_y:
+    nominal: 3.2
+    tolerance: 0.1
+
+  EP_num_paste_pads: [2, 2]
+
+  thermal_vias:
+    count: [2, 2]
+    drill: 0.2
+    paste_via_clearance: 0.1
+    EP_paste_coverage: 0.6
+
+  pitch: 0.4
+  num_pins_x: 14
+  num_pins_y: 14
+
 QFN-56-1EP_7x7mm_P0.4mm_EP5.6x5.6mm:
   device_type: 'QFN'
   #manufacturer: 'man'
