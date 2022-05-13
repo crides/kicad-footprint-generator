@@ -44,6 +44,15 @@ ST_WLCSP-25_Die457:
   paste_margin: 0.0125
   layout_x: 5
   layout_y: 5
+Maxim_WLCSP-32_3.0x2.17mm_Layout7x5_P0.4mm_Ball0.27mm_Pad0.25mm:
+  description: "WLCSP-32"
+  size_source: "https://pdfserv.maximintegrated.com/package_dwgs/21-100489.PDF"
+  body_size_x: 2.998
+  body_size_y: 2.168
+  pitch: 0.4
+  pad_diameter: 0.25
+  layout_x: 7
+  layout_y: 5
 ST_WLCSP-36_Die417:
   description: "WLCSP-36"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l052t8.pdf#page=123"
