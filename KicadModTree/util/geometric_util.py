@@ -286,7 +286,7 @@ class geometricArc():
             else:
                 raise KeyError('Arcs defined with center point must define either an angle or endpoint')
         else:
-            raise NotImplementedError('3 point arcs are not implemented, center is always required.')
+            self._initFrom3PointArc(**kwargs)
 
     @staticmethod
     def normalizeAngle(angle):
@@ -342,6 +342,61 @@ class geometricArc():
                     self.angle = -180
         else:
             raise KeyError('Arcs defined with center and endpoint must define the start point.')
+
+    def _initFrom3PointArc(self, **kwargs):
+
+        if not all(arg in kwargs for arg in ['start', 'midpoint', 'end']):
+            raise KeyError('Arcs defined by 3 points must define start, midpoint, and end points')
+
+        p1 = kwargs['start']
+        p2 = kwargs['midpoint']
+        p3 = kwargs['end']
+
+        # prevent divide by zero
+        if (p2[0] - p1[0]) == 0:
+            # rotate points
+            p_temp = p1
+            p1 = p2
+            p2 = p3
+            p3 = p_temp
+
+            kwargs['start'] = p2
+            kwargs['end'] = p3
+
+            # Or this, but I don't think the direction is import to maintain here.
+            # probably would be preferable to not rely on `_initFromCenterAndEnd`
+            # and handle the entire creation for this case here.
+            # kwargs['start'] = p3
+            # kwargs['end'] = p2
+            # kwargs['long_way'] = True
+
+        elif (p3[0] - p2[0]) == 0:
+            # rotate point other direction
+            p_temp = p3
+            p3 = p2
+            p2 = p1
+            p1 = p_temp
+
+            kwargs['start'] = p2
+            kwargs['end'] = p1
+
+        ma = (p2[1] - p1[1]) / (p2[0] - p1[0])
+        mb = (p3[1] - p2[1]) / (p3[0] - p2[0])
+
+        if (mb - ma) == 0:
+            raise RuntimeError("this is not an arc")
+
+        center_x = ((ma*mb*(p1[1] - p3[1]) + mb*(p1[0] + p2[0]) - ma * (p2[0] + p3[0])) / (2*(mb - ma)))
+
+        # prevent divide by zero
+        if ma == 0:
+            center_y = ((-1 / mb) * (center_x - (p2[0] + p3[0]) / 2) + (p2[1] + p3[1]) / 2)
+        else:
+            center_y = ((-1 / ma) * (center_x - (p1[0] + p2[0]) / 2) + (p1[1] + p2[1]) / 2)
+
+        kwargs['center'] = (center_x, center_y)
+
+        self._initFromCenterAndEnd(**kwargs)
 
     def rotate(self, angle, origin=(0, 0), use_degrees=True):
         r""" Rotate around given origin
