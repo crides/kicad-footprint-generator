@@ -51,7 +51,20 @@ class Gullwing():
             except yaml.YAMLError as exc:
                 print(exc)
 
-    def calcPadDetails(self, device_dimensions, EP_size, ipc_data, ipc_round_base):
+    def calcPadDetails(self, device_dimensions, overrides, ipc_data, ipc_round_base):
+        # Z - Length (overall) of the land pattern
+        # G - Inside length distance between lands of the pattern
+        # L - Component Length (edge to edge of the gullwings)
+        # S - Distance between the inside edges of the gullwings
+        # JT - Solder fillet at toe
+        # JH - Solder fillet at heel
+        # JS - Solder fillet at side
+        # CL - Component Length tolerance
+        # F - Fabrication tolerance
+        # P - Placement tolerance
+        # X - Width (overall) of the land pattern
+        # W - Width of a lead
+
         # Zmax = Lmin + 2JT + √(CL^2 + F^2 + P^2)
         # Gmin = Smax − 2JH − √(CS^2 + F^2 + P^2)
         # Xmax = Wmin + 2JS + √(CW^2 + F^2 + P^2)
@@ -87,21 +100,32 @@ class Gullwing():
 
         heel_reduction_max = 0
 
-        if Gmin_x - 2 * min_ep_to_pad_clearance < EP_size['x']:
-            heel_reduction_max = ((EP_size['x'] + 2 * min_ep_to_pad_clearance - Gmin_x) / 2)
-            #print('{}, {}, {}'.format(Gmin_x, EP_size['x'], min_ep_to_pad_clearance))
-            Gmin_x = EP_size['x'] + 2 * min_ep_to_pad_clearance
-        if Gmin_y - 2 * min_ep_to_pad_clearance < EP_size['y']:
-            heel_reduction = ((EP_size['y'] + 2 * min_ep_to_pad_clearance - Gmin_y) / 2)
+        if Gmin_x - 2 * min_ep_to_pad_clearance < overrides['EP_x']:
+            heel_reduction_max = ((overrides['EP_x'] + 2 * min_ep_to_pad_clearance - Gmin_x) / 2)
+            #print('{}, {}, {}'.format(Gmin_x, overrides['EP_x'], min_ep_to_pad_clearance))
+            Gmin_x = overrides['EP_x'] + 2 * min_ep_to_pad_clearance
+        if Gmin_y - 2 * min_ep_to_pad_clearance < overrides['EP_y']:
+            heel_reduction = ((overrides['EP_y'] + 2 * min_ep_to_pad_clearance - Gmin_y) / 2)
             if heel_reduction > heel_reduction_max:
                 heel_reduction_max = heel_reduction
-            Gmin_y = EP_size['y'] + 2 * min_ep_to_pad_clearance
+            Gmin_y = overrides['EP_y'] + 2 * min_ep_to_pad_clearance
+
+        if overrides['pad_to_pad_min_x'] > 0:
+            Gmin_x = overrides['pad_to_pad_min_x']
+            Zmax_x = overrides['pad_to_pad_max_x']
+
+        if overrides['pad_to_pad_min_y'] > 0:
+            Gmin_y = overrides['pad_to_pad_min_y']
+            Zmax_y = overrides['pad_to_pad_max_y']
+        
+        if overrides['pad_size_y'] > 0:
+            Xmax = overrides['pad_size_y']
 
         Pad = {}
-        Pad['left'] = {'center': [-(Zmax_x + Gmin_x) / 4, 0], 'size': [(Zmax_x - Gmin_x) / 2, Xmax]}
-        Pad['right'] = {'center': [(Zmax_x + Gmin_x) / 4, 0], 'size': [(Zmax_x - Gmin_x) / 2, Xmax]}
-        Pad['top'] = {'center': [0, -(Zmax_y + Gmin_y) / 4], 'size': [Xmax, (Zmax_y - Gmin_y) / 2]}
-        Pad['bottom'] = {'center': [0, (Zmax_y + Gmin_y) / 4], 'size': [Xmax, (Zmax_y - Gmin_y) / 2]}
+        Pad['left'] = {'center': [-(Zmax_x + Gmin_x) / 4.0, 0], 'size': [(Zmax_x - Gmin_x) / 2.0, Xmax]}
+        Pad['right'] = {'center': [(Zmax_x + Gmin_x) / 4.0, 0], 'size': [(Zmax_x - Gmin_x) / 2.0, Xmax]}
+        Pad['top'] = {'center': [0, -(Zmax_y + Gmin_y) / 4.0], 'size': [Xmax, (Zmax_y - Gmin_y) / 2.0]}
+        Pad['bottom'] = {'center': [0, (Zmax_y + Gmin_y) / 4.0], 'size': [Xmax, (Zmax_y - Gmin_y) / 2.0]}
 
         return Pad
 
@@ -212,9 +236,34 @@ class Gullwing():
             if 'EP_mask_x' in dimensions:
                 name_format = self.configuration['fp_name_EP_custom_mask_format_string_no_trailing_zero_pincount_text']
                 EP_mask_size = {'x': dimensions['EP_mask_x'].nominal, 'y': dimensions['EP_mask_y'].nominal}
+
+        overrides = {
+            'EP_x' : 0,
+            'EP_y' : 0,
+            'pad_to_pad_min_x' : 0,
+            'pad_to_pad_max_x' : 0,
+            'pad_to_pad_min_y' : 0,
+            'pad_to_pad_max_y' : 0,
+            'pad_size_y' : 0
+        }
+
+        if 'pad_size_y_overwrite' in device_params:
+            overrides['pad_size_y'] = device_params['pad_size_y_overwrite']
+
+        if 'pad_to_pad_min_x_overwrite' in device_params:
+            overrides['pad_to_pad_min_x'] = device_params['pad_to_pad_min_x_overwrite']
+            overrides['pad_to_pad_max_x'] = device_params['pad_to_pad_max_x_overwrite']
+
+        if 'pad_to_pad_min_y_overwrite' in device_params:
+            overrides['pad_to_pad_min_y'] = device_params['pad_to_pad_min_y_overwrite']
+            overrides['pad_to_pad_max_y'] = device_params['pad_to_pad_max_y_overwrite']
+        
+        overrides['EP_x'] = EP_size['x']
+        overrides['EP_y'] = EP_size['y']
+
         EP_size = Vector2D(EP_size)
 
-        pad_details = self.calcPadDetails(dimensions, EP_size, ipc_data_set, ipc_round_base)
+        pad_details = self.calcPadDetails(dimensions, overrides, ipc_data_set, ipc_round_base)
 
         if 'custom_name_format' in device_params:
             name_format = device_params['custom_name_format']

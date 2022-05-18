@@ -86,6 +86,15 @@ _Note: Contributions intended for the official library shall not include the man
 - Paste is split into a regular grid with (`EP_num_paste_pads`) {[int (x), int (y)]}
   - The optional paste coverage multiplier determines how much of the exposed copper area is covered by paste. (`EP_paste_coverage`) {float (0..1), default=0.65}
 
+### Forcing pad sizing
+- Non-IPC compliant footprints may force their datasheet pad sizes
+  - Pad width (size in the direction of the adjacent pad) is forced using `pad_size_y_overwrite`
+  - Pad length and spacing is forced using the `pad_to_pad_min_x_overwrite` and `pad_to_pad_max_x_overwrite` parameters
+    - The minimum parameter is the heel-to-heel size between opposite rows of pads
+    - The maximum parameter is the toe-to-toe size between opposite rows of pads
+  - `pad_to_pad_min_y_overwrite` and `pad_to_pad_max_y_overwrite` are provided for top and bottom rows
+  - N.B. using this or other overwrite parameters may yield invalid footprints if not checked after generation
+  
 ### Rounding of exposed pad features
 IPC excludes exposed pads from the requirement for rounding its corners. By default the exposed pad does therefore not use rounded corners. Some datasheets do however suggest the use of rounded corners either specified to a specific value or they appear to be equal to the normal pads.
 
