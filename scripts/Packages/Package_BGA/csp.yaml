@@ -51,6 +51,7 @@ Maxim_WLCSP-32_3.0x2.17mm_Layout7x5_P0.4mm_Ball0.27mm_Pad0.25mm:
   body_size_y: 2.168
   pitch: 0.4
   pad_diameter: 0.25
+  mask_margin: 0.02
   layout_x: 7
   layout_y: 5
 ST_WLCSP-36_Die417:
