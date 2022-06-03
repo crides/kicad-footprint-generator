@@ -492,6 +492,15 @@ WLCSP-8_1.551x2.284mm_P0.5mm:
   pad_diameter: 0.2
   layout_x: 2
   layout_y: 4
+WLCSP-4_0.64x0.64mm_P0.35mm:
+  description: "WLCSP-4"
+  size_source: 'https://www.onsemi.com/pdf/datasheet/ncp163-d.pdf#page=23'
+  body_size_x: 0.64
+  body_size_y: 0.64
+  pitch: 0.35
+  pad_diameter: 0.21
+  layout_x: 2
+  layout_y: 2
 WLCSP-4-X1-WLB0909-4_0.89x0.89mm_P0.5mm:
   description: "X1-WLB0909"
   size_source: 'https://www.diodes.com/assets/Datasheets/AP22913.pdf'
