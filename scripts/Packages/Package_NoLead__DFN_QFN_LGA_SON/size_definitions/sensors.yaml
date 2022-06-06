@@ -1,0 +1,24 @@
+Winson_GM-402B_5x5mm_P1.27mm:
+  device_type: 'QFN'
+  manufacturer: 'Winson'
+  part_number: 'GM-402B'
+  size_source: 'https://www.winsen-sensor.com/d/files/me2/mems--gm-402b--manual-v1_1.pdf'
+  ipc_class: 'qfn' # 'qfn_pull_back'
+  library: 'Sensor'
+  custom_name_format: '{man:s}_{mpn:s}_{size_x:g}x{size_y:g}mm_P{pitch:g}mm{suffix:s}'
+
+  body_size_x:
+    nominal: 5
+  body_size_y:
+    nominal: 5
+  overall_height:
+    nominal: 1.55
+
+  lead_width:
+    nominal: 0.6
+  lead_len:
+    nominal: 1.2
+
+  pitch: 1.27
+  num_pins_x: 1
+  num_pins_y: 3
