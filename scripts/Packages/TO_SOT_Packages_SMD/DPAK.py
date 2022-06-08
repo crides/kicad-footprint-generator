@@ -105,12 +105,13 @@ class DPAK(object):
 
 
     def draw_tab(self, m, dim):
-        right_x = dim.device_offset_x_mm
-        left_x = right_x - dim.tab_project_x_mm
-        top_y = -dim.tab_offset_y_mm
-        bottom_y = -top_y
-        tab_outline = [[left_x, top_y], [right_x, top_y], [right_x, bottom_y], [left_x, bottom_y]]
-        m.append(PolygoneLine(polygone=tab_outline, layer='F.Fab', width=dim.fab_line_width_mm))
+        if dim.tab_project_x_mm != 0:
+            right_x = dim.device_offset_x_mm
+            left_x = right_x - dim.tab_project_x_mm
+            top_y = -dim.tab_offset_y_mm
+            bottom_y = -top_y
+            tab_outline = [[left_x, top_y], [right_x, top_y], [right_x, bottom_y], [left_x, bottom_y]]
+            m.append(PolygoneLine(polygone=tab_outline, layer='F.Fab', width=dim.fab_line_width_mm))
         return m
 
 

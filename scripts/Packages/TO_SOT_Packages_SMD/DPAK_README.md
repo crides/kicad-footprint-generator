@@ -96,6 +96,7 @@ tab:
 ```
 
 These define the size of the body and tab. Tab `x_mm` includes the part of the tab under the body. `project_x_mm` is the part of the tab that projects outside the body.
+If `project_x_mm` is zero, no tab will be drawn.
 
 ```
 marker:
