@@ -128,6 +128,54 @@ variants:
       keywords: 'D2PAK-7 TO-263-7 SOT-427'
       datasheet: http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-7-1/
 ---
+# Texas Instruments NDW SMD packages
+base:
+    series: Texas_NDW
+    description: 'NDW0007A SMD package'
+    keywords: 'NDW'
+    footprint:
+        x_mm: 13.105
+        tab:
+            x_mm: 8.54
+            y_mm: 5.35
+        split_paste: 'on'
+        paste_gutter_mm: 0.3
+    device:
+        x_mm: 13.77
+        body:
+            x_mm: 9.85
+            y_mm: 10.16
+            z_mm: 4.57
+            waist_z_mm: 0.6
+            marker_offset_x_mm: 0.0
+            colour: 'black body'
+        tab:
+            x_mm: 8.54
+            y_mm: 6.4
+            z_mm: 0.8635 # Average pin thickness plus distance to bottom side
+            project_x_mm: 0
+            colour: 'metal grey pins'
+        marker:
+            x_mm: 2.5
+            z_mm: 0.1
+        pins:
+            colour: 'metal grey pins'
+    3d_prefix: '${KICAD6_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes'
+variants:
+    - pins: 7
+      pitch_mm: 1.27
+      pad:
+          x_mm: 3.06
+          y_mm: 0.89
+      pin:
+          x_mm: 3.92
+          y_mm: 0.69
+          z_mm: 0.2635 # average thickness
+
+      centre_pin: ['uncut']
+      keywords: 'NDW'
+      datasheet: http://www.ti.com/lit/ml/mmsf024/mmsf024.pdf
+---
 # TO-268/D3PAK SMD packages
 base:
     series: TO-268                                                   

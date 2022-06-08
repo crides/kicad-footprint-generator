@@ -283,3 +283,10 @@ class ATPAK(DPAK):
     def __init__(self, config_file):
         self.SERIES = 'ATPAK'
         self.config = self.load_config(config_file)
+
+
+class Texas_NDW(DPAK):
+
+    def __init__(self, config_file):
+        self.SERIES = 'Texas_NDW'
+        self.config = self.load_config(config_file)
