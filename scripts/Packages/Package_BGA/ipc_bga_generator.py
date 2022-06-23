@@ -54,7 +54,8 @@ def __createFootprintVariant(config, fpParams, fpId):
     pkgY = fpParams["body_size_y"]
     layoutX = fpParams["layout_x"]
     layoutY = fpParams["layout_y"]
-    
+    fFabRefRot = 0
+
     if "additional_tags" in fpParams:
         additionalTag = " " + fpParams["additional_tags"]
     else:
@@ -93,7 +94,11 @@ def __createFootprintVariant(config, fpParams, fpId):
     if "paste_ratio" in fpParams: f.setPasteMarginRatio(fpParams["paste_ratio"])
 
     s1 = [1.0, 1.0]
-    s2 = [min(1.0, round(pkgX / 4.3, 2))] * 2
+    if pkgX < 4.3 and pkgY > pkgX:
+      s2 = [min(1.0, round(pkgY / 4.3, 2))] * 2 # Y size is greater, so rotate F.Fab reference
+      fFabRefRot = -90
+    else:
+      s2 = [min(1.0, round(pkgX / 4.3, 2))] * 2
 
     t1 = 0.15 * s1[0]
     t2 = 0.15 * s2[0]
@@ -140,16 +145,24 @@ def __createFootprintVariant(config, fpParams, fpId):
     yRef = yTopFab - 1.0
     yValue = yBottomFab + 1.0
 
-    xLeftSilk = xLeftFab - silkOffset
-    xRightSilk = xRightFab + silkOffset
-    xChamferSilk = xLeftSilk + chamfer
-    yTopSilk = yTopFab - silkOffset
-    yBottomSilk = yBottomFab + silkOffset
-    yChamferSilk = yTopSilk + chamfer
-
     wFab = configuration['fab_line_width']
     wCrtYd = configuration['courtyard_line_width']
     wSilkS = configuration['silk_line_width']
+
+    # silkOffset should comply with pad clearance as well
+    xSilkOffset = max(silkOffset,
+                     xLeftFab + config['silk_pad_clearance'] + wSilkS / 2.0 -(xPadLeft - fpParams["pad_size"][0] / 2.0 ))
+    ySilkOffset = max(silkOffset,
+                     yTopFab + config['silk_pad_clearance'] + wSilkS / 2.0 -(yPadTop - fpParams["pad_size"][1] / 2.0 ))
+
+    silkChamfer = min(config['fab_bevel_size_absolute'], min(pkgX+2*(xSilkOffset-silkOffset), pkgY+2*(ySilkOffset-silkOffset)) * config['fab_bevel_size_relative'])
+
+    xLeftSilk = xLeftFab - xSilkOffset
+    xRightSilk = xRightFab + xSilkOffset
+    xChamferSilk = xLeftSilk + silkChamfer
+    yTopSilk = yTopFab - ySilkOffset
+    yBottomSilk = yBottomFab + ySilkOffset
+    yChamferSilk = yTopSilk + silkChamfer
 
     # Text
     f.append(Text(type="reference", text="REF**", at=[xCenter, yRef],
@@ -157,7 +170,7 @@ def __createFootprintVariant(config, fpParams, fpId):
     f.append(Text(type="value", text=fpId, at=[xCenter, yValue],
                   layer="F.Fab", size=s1, thickness=t1))
     f.append(Text(type="user", text='${REFERENCE}', at=[xCenter, yCenter],
-                  layer="F.Fab", size=s2, thickness=t2))
+                  layer="F.Fab", size=s2, thickness=t2, rotation=fFabRefRot))
 
     # Fab
     f.append(PolygoneLine(polygone=[[xRightFab, yBottomFab],
