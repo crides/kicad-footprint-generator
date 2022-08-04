@@ -264,7 +264,7 @@ class ChamferedPad(Node):
             self.chamfer_size = toVectorUseCopyIfNumber(
                 kwargs.get('chamfer_size'), low_limit=0, must_be_larger=False)
 
-        if('round_radius_handler' in kwargs):
+        if 'round_radius_handler' in kwargs:
             self.round_radius_handler = kwargs['round_radius_handler']
         else:
             # default radius ration 0 for backwards compatibility

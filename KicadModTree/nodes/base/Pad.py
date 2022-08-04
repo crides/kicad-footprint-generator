@@ -328,7 +328,7 @@ class Pad(Node):
         self.layers = kwargs.get('layers')
 
     def _initRadiusRatio(self, **kwargs):
-        if('round_radius_handler' in kwargs):
+        if 'round_radius_handler' in kwargs:
             self.round_radius_handler = kwargs['round_radius_handler']
         else:
             self.round_radius_handler = RoundRadiusHandler(**kwargs)
