@@ -483,6 +483,94 @@ ST_WLCSP-180_Die451:
   layout_x: 13
   layout_y: 14
   row_skips: [[], [], [], [], [], [], [7], [7], [], [], [], [], [], []]
+ST_WLCSP-100-Die471:
+  description: "WLCSP-100"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32l4p5ve.pdf"
+  body_size_x: 4.437
+  body_size_y: 4.456
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 10
+  layout_y: 10
+ST_WLCSP-132-Die480:
+  description: "WLCSP-132"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32h7a3ai.pdf"
+  body_size_x: 4.57
+  body_size_y: 4.37
+  pitch: 0.35
+  pad_diameter: 0.200
+  mask_margin: 0.000001
+  paste_margin: 0.000001
+  layout_x: 12
+  layout_y: 11
+ST_WLCSP-156-Die450:
+  description: "WLCSP-156"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32h747xi.pdf"
+  body_size_x: 4.96
+  body_size_y: 4.64
+  pitch: 0.35
+  pad_diameter: 0.210
+  mask_margin: 0.325
+  paste_margin: 0.000001
+  layout_x: 13
+  layout_y: 12
+ST_WLCSP-25-Die460:
+  description: "WLCSP-25"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32l496wg.pdf"
+  body_size_x: 2.30
+  body_size_y: 2.48
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 5
+  layout_y: 5
+ST_WLCSP-36-Die464:
+  description: "WLCSP-36"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32l412t8.pdf"
+  body_size_x: 2.58
+  body_size_y: 3.07
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 6
+  layout_y: 6
+ST_WLCSP-49-Die468:
+  description: "WLCSP-49"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g431c6.pdf"
+  body_size_x: 3.15
+  body_size_y: 3.13
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 7
+  layout_y: 7
+ST_WLCSP-64-Die479:
+  description: "WLCSP-64"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g491re.pdf"
+  body_size_x: 3.56
+  body_size_y: 3.52
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 8
+  layout_y: 8
+ST_WLCSP-81-Die472:
+  description: "WLCSP-81"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32l562ce.pdf"
+  body_size_x: 4.36
+  body_size_y: 4.07
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 9
+  layout_y: 9
 WLCSP-16_1.409x1.409mm_P0.35mm:
   description: "WLCSP-16"
   size_source: 'http://www.latticesemi.com/view_document?document_id=213'
