@@ -312,6 +312,18 @@ UCBGA-49_3x3mm_Layout7x7_P0.4mm:
   paste_margin: 0.000001
   layout_x: 7
   layout_y: 7
+UFBGA-73_5x5mm_Layout9x9_P0.5mm:
+  description: "UFBGA-73"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32wl54jc.pdf"
+  body_size_x: 5.0
+  body_size_y: 5.0
+  pitch: 0.5
+  pad_diameter: 0.230
+  mask_margin:  0.050
+  paste_margin: 0.000001
+  layout_x: 9
+  layout_y: 9
+  pad_skips: [j4,j7,g1,f9,d1,c9,a3,a6]
 UCBGA-81_4x4mm_Layout9x9_P0.4mm:
   description: "UCBGA-81"
   size_source: "https://www.latticesemi.com/view_document?document_id=213"
