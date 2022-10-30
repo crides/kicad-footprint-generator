@@ -426,6 +426,19 @@ ST_WLCSP-100_Die461:
   paste_margin: 0.000001
   layout_x: 10
   layout_y: 10
+ST_WLCSP-100_Die495:
+  description: "WLCSP-100"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32wb55vc.pdf"
+  body_size_x: 4.40
+  body_size_y: 4.38
+  pitch: 0.4
+  pad_diameter: 0.250
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 10
+  layout_y: 10
+  offset_x: -0.08
+  offset_y: -0.08
 ST_WLCSP-104_Die437:
   description: "WLCSP-104"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l152ze.pdf#page=127"
