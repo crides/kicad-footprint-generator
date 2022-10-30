@@ -464,6 +464,19 @@ ST_WLCSP-115_Die461:
   layout_x: 21
   layout_y: 11
   checkerboard_skip: A1
+ST_WLCSP-115_Die483:
+  description: "WLCSP-115"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32h725vg.pdf"
+  body_size_x: 3.73
+  body_size_y: 4.15
+  pitch_x: 0.3031088913245535
+  pitch_y: 0.175 # halve Y pitch for checkerboard pattern
+  pad_diameter: 0.225
+  mask_margin: 0.0125
+  paste_margin: 0.000001
+  layout_x: 11
+  layout_y: 21
+  checkerboard_skip: A1
 ST_WLCSP-143_Die419:
   description: "WLCSP-143"
   size_source: "http://www.st.com/resource/en/datasheet/stm32f429ng.pdf#page=203"
