@@ -31,6 +31,38 @@ LFBGA-144_10x10mm_Layout12x12_P0.8mm:
   paste_margin: 0.000001
   layout_x: 12
   layout_y: 12
+LFBGA-354_16x16mm_Layout19x19_P0.8mm:
+  description: "LFBGA-354"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
+  body_size_x: 16.0
+  body_size_y: 16.0
+  pitch: 0.8
+  pad_diameter: 0.32
+  mask_margin: 0.050
+  paste_margin: 0.000001
+  layout_x: 19
+  layout_y: 19
+  row_skips: [
+    [], # 1
+    [],
+    [],
+    [],
+    [19], # 5
+    [16],
+    [],
+    [16],
+    [],
+    [16], # 10
+    [],
+    [16],
+    [],
+    [16],
+    [19], # 15
+    [],
+    [],
+    [],
+    [], # 19
+  ]
 Micron_FBGA-78_7.5x10.6mm_Layout9x13_P0.8mm:
   description: "FBGA-78"
   size_source: "https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=24"
