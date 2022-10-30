@@ -28,6 +28,19 @@ WLCSP-12_1.403x1.555mm_P0.4mm_Stagger:
   layout_x: 6
   layout_y: 4
   row_skips: [[2, 4, 6], [1, 3, 5], [2, 4, 6], [1, 3, 5]]
+ST_WLCSP-18_Die466:
+  description: "WLCSP-18"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g031y8.pdf"
+  body_size_x: 1.86
+  body_size_y: 2.14
+  pitch_x: 0.2 # halve X pitch for checkerboard pattern
+  pitch_y: 0.34641016151377546
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 7
+  layout_y: 5
+  checkerboard_skip: B1
 ST_WLCSP-25_Die425:
   description: "WLCSP-25"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l031f6.pdf#page=112"
