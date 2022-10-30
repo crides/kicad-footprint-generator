@@ -360,6 +360,17 @@ ST_WLCSP-81_Die463:
   paste_margin: 0.0125
   layout_x: 9
   layout_y: 9
+ST_WLCSP-81_Die469:
+  description: "WLCSP-81"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g483me.pdf"
+  body_size_x: 4.02
+  body_size_y: 4.27
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.0125
+  layout_x: 9
+  layout_y: 9
 ST_WLCSP-90_Die413:
   description: "WLCSP-90"
   size_source: "http://www.st.com/resource/en/datasheet/stm32f405og.pdf#page=164"
