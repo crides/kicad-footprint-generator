@@ -218,7 +218,8 @@ def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
 
         for row_num, row in enumerate(rowNames):
             for col in range(layoutX):
-                if (row_num + col) % 2 == 0:
+                is_even = (row_num + col) % 2 == 0
+                if is_even == skip_even:
                     padSkips.add(f'{row}{col+1}')
 
     pitchX = lParams.get('pitch_x', lParams.get('pitch'))
