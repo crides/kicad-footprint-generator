@@ -314,6 +314,31 @@ TFBGA-257_10x10mm_Layout19x19_P0.5mmP0.65mm:
       layout_y: 9
       row_names: [1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1J]
 
+TFBGA-361_12x12mm_Layout23x23_P0.5mmP0.65mm:
+  description: "TFBGA-361"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
+  body_size_x: 12.0
+  body_size_y: 12.0
+  pitch: 0.5
+  pad_diameter: 0.230
+  mask_margin: 0.050
+  layout_x: 23
+  layout_y: 23
+  pad_skips: [
+    a6,a9,a12,a15,a18,
+    f1,j1,m1,r1,v1,
+    f23,j23,m23,r23,v23,
+    ac6,ac9,ac12,ac15,ac18
+  ]
+  area_skips:
+    - [e,5,w,19]
+  secondary_layouts:
+    - pitch: 0.65
+      layout_x: 9
+      layout_y: 9
+      row_names: [1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1J]
+      pad_skips: [1a1, 1a9, 1j1, 1j9]
+
 TFBGA-265_14x14mm_Layout17x17_P0.8mm:
   description: "TFBGA-265"
   size_source: "http://www.st.com/resource/en/datasheet/DM00387108.pdf#page=223"
