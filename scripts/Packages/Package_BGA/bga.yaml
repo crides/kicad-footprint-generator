@@ -346,6 +346,17 @@ UFBGA-100_7x7mm_Layout12x12_P0.5mm:
   layout_x: 12
   layout_y: 12
   row_skips: [[], [], [6, 7], [[4, 10]], [[4, 10]], [[3, 11]], [[3, 11]], [[4, 10]], [[4, 10]], [6, 7], [], []]
+UFBGA-121_6x6mm_Layout11x11_P0.5mm:
+  description: "UFBGA-121"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g473pb.pdf"
+  body_size_x: 6.0
+  body_size_y: 6.0
+  pitch: 0.5
+  pad_diameter: 0.225
+  mask_margin:  0.0325
+  paste_margin: 0.000001
+  layout_x: 11
+  layout_y: 11
 XBGA-121_10x10mm_Layout11x11_P0.8mm:
   description: "XBGA-121"
   size_source: "http://ww1.microchip.com/downloads/en/DeviceDoc/39969b.pdf"
