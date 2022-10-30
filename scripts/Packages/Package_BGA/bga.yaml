@@ -278,6 +278,17 @@ TFBGA-216_13x13mm_Layout15x15_P0.8mm:
   layout_x: 15
   layout_y: 15
   row_skips: [[], [], [], [], [], [], [[7, 10]], [[7, 10]], [[7, 10]], [], [], [], [], [], []]
+TFBGA-225_13x13mm_Layout15x15_P0.8mm:
+  description: "TFBGA-225"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32h7b3ri.pdf"
+  body_size_x: 13.0
+  body_size_y: 13.0
+  pitch: 0.8
+  pad_diameter: 0.400
+  mask_margin: 0.035
+  paste_ratio: 0.0125
+  layout_x: 15
+  layout_y: 15
 TFBGA-265_14x14mm_Layout17x17_P0.8mm:
   description: "TFBGA-265"
   size_source: "http://www.st.com/resource/en/datasheet/DM00387108.pdf#page=223"
