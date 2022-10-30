@@ -61,15 +61,9 @@ def __createFootprintVariant(config, fpParams, fpId):
     else:
         additionalTag = ""
     
-    if "row_names" in fpParams:
-        rowNames = fpParams["row_names"]
-    else:
-        rowNames = config['row_names']
-    
-    if "row_skips" in fpParams:
-        rowSkips = fpParams["row_skips"]
-    else:
-        rowSkips = []
+    rowNames = fpParams.get('row_names', config['row_names'])[:layoutY]
+    rowSkips = fpParams.get('row_skips', [])
+    padSkips = set(fpParams.get('pad_skips', []))
 
     # must be given pitch (equal in X and Y) or a unique pitch in both X and Y
     if "pitch" in fpParams:
@@ -200,9 +194,10 @@ def __createFootprintVariant(config, fpParams, fpId):
     if rowSkips == []:
         for _ in range(layoutY):
             rowSkips.append([])
-    for rowNum, row in zip(range(layoutY), rowNames):
-        rowSet = set(range(1, layoutX + 1))
-        for item in rowSkips[rowNum]:
+
+    for rowNum, (row, skips) in enumerate(zip(rowNames, rowSkips)):
+        rowSet = {col for col in range(1, layoutX+1) if f'{row}{col}' not in padSkips}
+        for item in skips:
             try:
                 # If item is a range, remove that range
                 rowSet -= set(range(*item))
