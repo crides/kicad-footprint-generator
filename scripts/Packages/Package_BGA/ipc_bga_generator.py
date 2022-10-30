@@ -5,6 +5,7 @@ import os
 import sys
 import argparse
 import yaml
+import itertools
 
 # load parent path of KicadModTree
 sys.path.append(os.path.join(sys.path[0], "..", "..", ".."))
@@ -14,7 +15,6 @@ from KicadModTree.nodes.base.Pad import Pad  # NOQA
 sys.path.append(os.path.join(sys.path[0], "..", "..", "tools"))  # load parent path of tools
 
 from KicadModTree import *
-import itertools
 from string import ascii_uppercase
 
 def generateFootprint(config, fpParams, fpId):
@@ -61,31 +61,14 @@ def __createFootprintVariant(config, fpParams, fpId):
     else:
         additionalTag = ""
     
-    rowNames = fpParams.get('row_names', config['row_names'])[:layoutY]
-    rowSkips = fpParams.get('row_skips', [])
-    padSkips = {skip.upper() for skip in fpParams.get('pad_skips', [])}
-
-    # must be given pitch (equal in X and Y) or a unique pitch in both X and Y
-    if "pitch" in fpParams:
-        if "pitch_x" and "pitch_y" in fpParams:
-            raise KeyError('{}: Either pitch or both pitch_x and pitch_y must be given.'.format(fpId))
-        else:
-            pitchString = str(fpParams["pitch"])
-            pitchX = fpParams["pitch"]
-            pitchY = fpParams["pitch"]
-    else:
-        if "pitch_x" and "pitch_y" in fpParams:
-            pitchString = str(fpParams["pitch_x"]) + "x" + str(fpParams["pitch_y"])
-            pitchX = fpParams["pitch_x"]
-            pitchY = fpParams["pitch_y"]
-        else:
-            raise KeyError('{}: Either pitch or both pitch_x and pitch_y must be given.'.format(fpId))
-
     f = Footprint(fpId)
     f.setAttribute("smd")
-    if "mask_margin" in fpParams: f.setMaskMargin(fpParams["mask_margin"])
-    if "paste_margin" in fpParams: f.setPasteMargin(fpParams["paste_margin"])
-    if "paste_ratio" in fpParams: f.setPasteMarginRatio(fpParams["paste_ratio"])
+    if "mask_margin" in fpParams:
+        f.setMaskMargin(fpParams["mask_margin"])
+    if "paste_margin" in fpParams:
+        f.setPasteMargin(fpParams["paste_margin"])
+    if "paste_ratio" in fpParams:
+        f.setPasteMarginRatio(fpParams["paste_ratio"])
 
     s1 = [1.0, 1.0]
     if pkgX < 4.3 and pkgY > pkgX:
@@ -96,13 +79,6 @@ def __createFootprintVariant(config, fpParams, fpId):
 
     t1 = 0.15 * s1[0]
     t2 = 0.15 * s2[0]
-
-    padShape = Pad.SHAPE_CIRCLE
-    if "pad_shape" in fpParams:
-        if fpParams["pad_shape"] == "rect":
-            padShape = Pad.SHAPE_RECT
-        if fpParams["pad_shape"] == "roundrect":
-            padShape = Pad.SHAPE_ROUNDRECT
 
     chamfer = min(config['fab_bevel_size_absolute'], min(pkgX, pkgY) * config['fab_bevel_size_relative'])
     
@@ -119,12 +95,17 @@ def __createFootprintVariant(config, fpParams, fpId):
             x = -x
         return x
 
+    pitchX = fpParams.get('pitch_x', fpParams.get('pitch'))
+    pitchY = fpParams.get('pitch_y', fpParams.get('pitch'))
+    if not (pitchX and pitchY):
+        raise KeyError('{}: Either pitch or both pitch_x and pitch_y must be given.'.format(fpId))
+    pitchString = str(pitchX) if pitchX == pitchY else f'{pitchX}x{pitchY}'
+
     xCenter = 0.0
     xLeftFab = xCenter - pkgX / 2.0
     xRightFab = xCenter + pkgX / 2.0
     xChamferFab = xLeftFab + chamfer
     xPadLeft = xCenter - pitchX * ((layoutX - 1) / 2.0)
-    xPadRight = xCenter + pitchX * ((layoutX - 1) / 2.0)
     xLeftCrtYd = crtYdRound(xCenter - (pkgX / 2.0 + crtYdOffset))
     xRightCrtYd = crtYdRound(xCenter + (pkgX / 2.0 + crtYdOffset))
 
@@ -133,7 +114,6 @@ def __createFootprintVariant(config, fpParams, fpId):
     yBottomFab = yCenter + pkgY / 2.0
     yChamferFab = yTopFab + chamfer
     yPadTop = yCenter - pitchY * ((layoutY - 1) / 2.0)
-    yPadBottom = yCenter + pitchY * ((layoutY - 1) / 2.0)
     yTopCrtYd = crtYdRound(yCenter - (pkgY / 2.0 + crtYdOffset))
     yBottomCrtYd = crtYdRound(yCenter + (pkgY / 2.0 + crtYdOffset))
     yRef = yTopFab - 1.0
@@ -189,31 +169,11 @@ def __createFootprintVariant(config, fpParams, fpId):
                           layer="F.SilkS", width=wSilkS))
 
     # Pads
-    balls = layoutX * layoutY
+    balls = makePadGrid(f, fpParams, config, xCenter=xCenter, yCenter=yCenter)
+
+    for layout in fpParams.get('secondary_layouts', []):
+        balls += makePadGrid(f, layout, config, fpParams, xCenter=xCenter, yCenter=yCenter)
     
-    if rowSkips == []:
-        for _ in range(layoutY):
-            rowSkips.append([])
-
-    for rowNum, (row, skips) in enumerate(zip(rowNames, rowSkips)):
-        rowSet = {col for col in range(1, layoutX+1) if f'{row}{col}' not in padSkips}
-        for item in skips:
-            try:
-                # If item is a range, remove that range
-                rowSet -= set(range(*item))
-                balls -= item[1] - item[0]
-            except TypeError:
-                # If item is an int, remove that int
-                rowSet -= {item}
-                balls -= 1
-        for col in rowSet:
-            f.append(Pad(number="{}{}".format(row, col), type=Pad.TYPE_SMT,
-                         shape=padShape,
-                         at=[xPadLeft + (col-1) * pitchX, yPadTop + rowNum * pitchY],
-                         size=fpParams["pad_size"],
-                         layers=Pad.LAYERS_SMT, 
-                         radius_ratio=config['round_rect_radius_ratio']))
-
     # If this looks like a CSP footprint, use the CSP 3dshapes library
     packageType = 'CSP' if 'BGA' not in fpId and 'CSP' in fpId else 'BGA'
 
@@ -231,9 +191,55 @@ def __createFootprintVariant(config, fpParams, fpId):
     file_handler = KicadFileHandler(f)
     file_handler.writeFile(filename)
 
+def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
+    layoutX = lParams["layout_x"]
+    layoutY = lParams["layout_y"]
+    rowNames = lParams.get('row_names', fpParams.get('row_names', config['row_names']))[:layoutY]
+    rowSkips = lParams.get('row_skips', [])
+    areaSkips = lParams.get('area_skips', [])
+    padSkips = {skip.upper() for skip in lParams.get('pad_skips', [])}
+
+    for row_start, col_start, row_end, col_end in areaSkips:
+        rows = rowNames[rowNames.index(row_start.upper()):rowNames.index(row_end.upper())+1]
+        cols = range(col_start, col_end+1)
+        padSkips |= {f'{a}{b}' for a, b in itertools.product(rows, cols)}
+
+    for row, skips in zip(rowNames, rowSkips):
+        for skip in skips:
+            if isinstance(skip, int):
+                padSkips.add(f'{row}{skip}')
+            else:
+                padSkips |= {f'{row}{skip}' for skip in range(*skip)}
+
+    pitchX = lParams.get('pitch_x', lParams.get('pitch'))
+    pitchY = lParams.get('pitch_y', lParams.get('pitch'))
+
+    padShape = {
+            'circle': Pad.SHAPE_CIRCLE,
+            'rect': Pad.SHAPE_RECT,
+            'roundrect': Pad.SHAPE_ROUNDRECT,
+            }[lParams.get('pad_shape', fpParams.get('pad_shape', 'circle'))]
+
+    xOffset = lParams.get('offset_x', 0.0)
+    yOffset = lParams.get('offset_y', 0.0)
+    xPadLeft = xCenter - pitchX * ((layoutX - 1) / 2.0) + xOffset
+    yPadTop = yCenter - pitchY * ((layoutY - 1) / 2.0) + yOffset
+
+    for rowNum, row in enumerate(rowNames):
+        rowSet = {col for col in range(1, layoutX+1) if f'{row}{col}' not in padSkips}
+        for col in rowSet:
+            f.append(Pad(number="{}{}".format(row, col), type=Pad.TYPE_SMT,
+                         shape=padShape,
+                         at=[xPadLeft + (col-1) * pitchX, yPadTop + rowNum * pitchY],
+                         size=lParams.get('pad_size') or fpParams['pad_size'],
+                         layers=Pad.LAYERS_SMT, 
+                         radius_ratio=config['round_rect_radius_ratio']))
+
+    return layoutX * layoutY - len(padSkips)
+
 def rowNameGenerator(seq):
     for n in itertools.count(1):
-        for s in itertools.product(seq, repeat = n):
+        for s in itertools.product(seq, repeat=n):
             yield ''.join(s)
 
 if __name__ == '__main__':
@@ -268,7 +274,7 @@ if __name__ == '__main__':
             print(exc)
 
     # generate dict of A, B .. Y, Z, AA, AB .. CY less easily-confused letters
-    rowNamesList = [x for x in ascii_uppercase if x not in ["I", "O", "Q", "S", "X", "Z"]]
+    rowNamesList = [x for x in ascii_uppercase if x not in 'IOQSXZ']
     configuration.update({'row_names': list(itertools.islice(rowNameGenerator(rowNamesList), 80))})
 
     for filepath in args.files:
