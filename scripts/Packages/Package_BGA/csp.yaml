@@ -451,6 +451,19 @@ ST_WLCSP-104_Die437:
   layout_x: 9
   layout_y: 12
   row_skips: [[], [], [], [], [5], [5], [5], [5], [], [], [], []]
+ST_WLCSP-115_Die461:
+  description: "WLCSP-115"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32l496wg.pdf"
+  body_size_x: 4.63
+  body_size_y: 4.15
+  pitch_x: 0.2 # halve X pitch for checkerboard pattern
+  pitch_y: 0.34641016151377546
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.000001
+  layout_x: 21
+  layout_y: 11
+  checkerboard_skip: A1
 ST_WLCSP-143_Die419:
   description: "WLCSP-143"
   size_source: "http://www.st.com/resource/en/datasheet/stm32f429ng.pdf#page=203"
