@@ -211,6 +211,16 @@ def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
             else:
                 padSkips |= {f'{row}{skip}' for skip in range(*skip)}
 
+    if (cskip := lParams.get('checkerboard_skip')):
+        if cskip not in ('A1', 'B1', 'A2'):
+            raise ValueError('checkerboard_skip must be "A1" or "A2".')
+        skip_even = cskip == 'A1'
+
+        for row_num, row in enumerate(rowNames):
+            for col in range(layoutX):
+                if (row_num + col) % 2 == 0:
+                    padSkips.add(f'{row}{col+1}')
+
     pitchX = lParams.get('pitch_x', lParams.get('pitch'))
     pitchY = lParams.get('pitch_y', lParams.get('pitch'))
 
