@@ -368,6 +368,29 @@ XBGA-121_10x10mm_Layout11x11_P0.8mm:
   paste_margin: 0.0001
   layout_x: 11
   layout_y: 11
+UFBGA-129_7x7mm_Layout13x13_P0.5mm:
+  description: "UFBGA-129"
+    # Caution: the datasheet shows the BGA 90 deg rotated!
+  size_source: "https://www.st.com/resource/en/datasheet/stm32wb55vc.pdf"
+  body_size_x: 7.0
+  body_size_y: 7.0
+  pitch: 0.5
+  pad_diameter: 0.275
+  mask_margin:  0.0625
+  paste_margin: 0.000001
+  layout_x: 13
+  layout_y: 13
+  pad_skips: [
+    a4,a5,a9,a10,
+    d1,d5,d7,d9,d13,
+    e1,e4,e6,e8,e10,e13,
+    f5,f7,f9,
+    g4,g6,g8,g10,
+    h5,h7,h9,
+    j1,j4,j6,j8,j10,j13,
+    k1,k5,k7,k9,k13,
+    n4,n5,n9,n10
+  ]
 UFBGA-132_7x7mm_Layout12x12_P0.5mm:
   description: "UFBGA-132"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l152zc.pdf#page=123"

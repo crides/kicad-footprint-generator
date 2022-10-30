@@ -63,7 +63,7 @@ def __createFootprintVariant(config, fpParams, fpId):
     
     rowNames = fpParams.get('row_names', config['row_names'])[:layoutY]
     rowSkips = fpParams.get('row_skips', [])
-    padSkips = set(fpParams.get('pad_skips', []))
+    padSkips = {skip.upper() for skip in fpParams.get('pad_skips', [])}
 
     # must be given pitch (equal in X and Y) or a unique pitch in both X and Y
     if "pitch" in fpParams:
