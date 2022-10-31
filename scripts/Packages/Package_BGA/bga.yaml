@@ -31,8 +31,9 @@ LFBGA-144_10x10mm_Layout12x12_P0.8mm:
   paste_margin: 0.000001
   layout_x: 12
   layout_y: 12
-LFBGA-354_16x16mm_Layout19x19_P0.8mm:
-  description: "LFBGA-354"
+
+ST_LFBGA-354_16x16mm_Layout19x19_P0.8mm:
+  description: "ST LFBGA-354"
   size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
   body_size_x: 16.0
   body_size_y: 16.0
@@ -64,8 +65,8 @@ LFBGA-354_16x16mm_Layout19x19_P0.8mm:
     [], # 19
   ]
 
-LFBGA-448_18x18mm_Layout22x22_P0.8mm:
-  description: "LFBGA-448"
+ST_LFBGA-448_18x18mm_Layout22x22_P0.8mm:
+  description: "ST LFBGA-448"
   size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
   body_size_x: 18.0
   body_size_y: 18.0
@@ -278,8 +279,8 @@ TFBGA-216_13x13mm_Layout15x15_P0.8mm:
   layout_x: 15
   layout_y: 15
   row_skips: [[], [], [], [], [], [], [[7, 10]], [[7, 10]], [[7, 10]], [], [], [], [], [], []]
-TFBGA-225_13x13mm_Layout15x15_P0.8mm:
-  description: "TFBGA-225"
+ST_TFBGA-225_13x13mm_Layout15x15_P0.8mm:
+  description: "ST TFBGA-225"
   size_source: "https://www.st.com/resource/en/datasheet/stm32h7b3ri.pdf"
   body_size_x: 13.0
   body_size_y: 13.0
@@ -290,8 +291,8 @@ TFBGA-225_13x13mm_Layout15x15_P0.8mm:
   layout_x: 15
   layout_y: 15
 
-TFBGA-257_10x10mm_Layout19x19_P0.5mmP0.65mm:
-  description: "TFBGA-257"
+ST_TFBGA-257_10x10mm_Layout19x19_P0.5mmP0.65mm:
+  description: "ST TFBGA-257"
   size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
   body_size_x: 10.0
   body_size_y: 10.0
@@ -314,8 +315,8 @@ TFBGA-257_10x10mm_Layout19x19_P0.5mmP0.65mm:
       layout_y: 9
       row_names: [1A, 1B, 1C, 1D, 1E, 1F, 1G, 1H, 1J]
 
-TFBGA-361_12x12mm_Layout23x23_P0.5mmP0.65mm:
-  description: "TFBGA-361"
+ST_TFBGA-361_12x12mm_Layout23x23_P0.5mmP0.65mm:
+  description: "ST TFBGA-361"
   size_source: "https://www.st.com/resource/en/datasheet/stm32mp151a.pdf"
   body_size_x: 12.0
   body_size_y: 12.0
@@ -373,8 +374,9 @@ UCBGA-49_3x3mm_Layout7x7_P0.4mm:
   paste_margin: 0.000001
   layout_x: 7
   layout_y: 7
-UFBGA-73_5x5mm_Layout9x9_P0.5mm:
-  description: "UFBGA-73"
+
+ST_UFBGA-73_5x5mm_Layout9x9_P0.5mm:
+  description: "ST UFBGA-73"
   size_source: "https://www.st.com/resource/en/datasheet/stm32wl54jc.pdf"
   body_size_x: 5.0
   body_size_y: 5.0
@@ -385,6 +387,7 @@ UFBGA-73_5x5mm_Layout9x9_P0.5mm:
   layout_x: 9
   layout_y: 9
   pad_skips: [j4,j7,g1,f9,d1,c9,a3,a6]
+
 UCBGA-81_4x4mm_Layout9x9_P0.4mm:
   description: "UCBGA-81"
   size_source: "https://www.latticesemi.com/view_document?document_id=213"
@@ -419,8 +422,9 @@ UFBGA-100_7x7mm_Layout12x12_P0.5mm:
   layout_x: 12
   layout_y: 12
   row_skips: [[], [], [6, 7], [[4, 10]], [[4, 10]], [[3, 11]], [[3, 11]], [[4, 10]], [[4, 10]], [6, 7], [], []]
-UFBGA-121_6x6mm_Layout11x11_P0.5mm:
-  description: "UFBGA-121"
+
+ST_UFBGA-121_6x6mm_Layout11x11_P0.5mm:
+  description: "ST UFBGA-121"
   size_source: "https://www.st.com/resource/en/datasheet/stm32g473pb.pdf"
   body_size_x: 6.0
   body_size_y: 6.0
@@ -430,6 +434,7 @@ UFBGA-121_6x6mm_Layout11x11_P0.5mm:
   paste_margin: 0.000001
   layout_x: 11
   layout_y: 11
+
 XBGA-121_10x10mm_Layout11x11_P0.8mm:
   description: "XBGA-121"
   size_source: "http://ww1.microchip.com/downloads/en/DeviceDoc/39969b.pdf"
@@ -441,8 +446,9 @@ XBGA-121_10x10mm_Layout11x11_P0.8mm:
   paste_margin: 0.0001
   layout_x: 11
   layout_y: 11
-UFBGA-129_7x7mm_Layout13x13_P0.5mm:
-  description: "UFBGA-129"
+
+ST_UFBGA-129_7x7mm_Layout13x13_P0.5mm:
+  description: "ST UFBGA-129"
     # Caution: the datasheet shows the BGA 90 deg rotated!
   size_source: "https://www.st.com/resource/en/datasheet/stm32wb55vc.pdf"
   body_size_x: 7.0
@@ -464,6 +470,7 @@ UFBGA-129_7x7mm_Layout13x13_P0.5mm:
     k1,k5,k7,k9,k13,
     n4,n5,n9,n10
   ]
+
 UFBGA-132_7x7mm_Layout12x12_P0.5mm:
   description: "UFBGA-132"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l152zc.pdf#page=123"
