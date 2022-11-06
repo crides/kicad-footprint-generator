@@ -522,7 +522,7 @@ class NoLead():
         # ######################### Text Fields ###############################
 
         addTextFields(kicad_mod=kicad_mod, configuration=configuration, body_edges=body_edge,
-                      courtyard={'top': cy1, 'bottom': -cy1}, fp_name=fp_name, text_y_inside_position='center')
+                      courtyard={'top': cy1, 'bottom': -cy1}, fp_name=fp_name, text_y_inside_position='center', allow_rotation=True)
 
         ##################### Output and 3d model ############################
 
