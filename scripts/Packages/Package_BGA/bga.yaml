@@ -422,6 +422,17 @@ Analog_BGA-28_4.0x6.25mm_Layout4x7_P0.8mm_Ball0.45mm_Pad0.4:
    mask_margin: 0.05
    layout_x: 4
    layout_y: 7
+Analog_BGA-49_6.25x6.25mm_Layout7x7_P0.8mm_Ball0.5mm_Pad0.4mm:
+   description: "Analog BGA-49"
+   size_source: "https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-bga/05081600_0_bga49.pdf https://www.analog.com/media/en/technical-documentation/product-information/assembly-considerations-for-umodule-bga-lga-package.pdf"
+   body_size_x: 6.25
+   body_size_y: 6.25
+   pitch: 0.8
+   pad_diameter: 0.4
+   mask_margin: 0.025
+   paste_margin: -0.01
+   layout_x: 7
+   layout_y: 7
 ST_uTFBGA-36_3.6x3.6mm_Layout6x6_P0.5mm:
    description: "ST uTFBGA-36, 0.25mm pad"
    size_source: "https://www.st.com/resource/en/datasheet/stulpi01a.pdf"
