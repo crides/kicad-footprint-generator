@@ -443,6 +443,17 @@ WLP-9_1.448x1.468mm_Layout3x3_P0.4mm_Ball0.27mm_Pad0.25mm:
   paste_margin: 0.000001
   layout_x: 3
   layout_y: 3
+NXP_VFBGA-42_2.6x3mm_Layout6x7_P0.4mm_Ball0.25mm_Pad0.24mm:
+  description: "NXP VFBGA-42"
+  size_source: "https://www.nxp.com/docs/en/package-information/SOT1963-1.pdf"
+  body_size_x: 2.6
+  body_size_y: 3.0
+  pitch: 0.4
+  pad_diameter: 0.24
+  mask_margin: 0.04
+  paste_margin: 0.0175
+  layout_x: 6
+  layout_y: 7
 VFBGA-86_6x6mm_Layout10x10_P0.55mm_Ball0.25mm_Pad0.2mm:
   description: "VFBGA-86"
   size_source: "https://www.dialog-semiconductor.com/sites/default/files/da1469x_datasheet_3v1.pdf#page=740"
