@@ -1,0 +1,30 @@
+WDFN-10-1EP_3x3mm_P0.5mm_EP1.8x2.5mm:
+  device_type: 'WDFN'
+  size_source: 'https://www.onsemi.com/pdf/datasheet/nis5420-d.pdf'
+  ipc_class: 'qfn'
+  body_size_x:
+    nominal: 3.0
+    tolerance: 0
+  body_size_y:
+    nominal: 3.0
+    tolerance: 0
+  lead_width_min: 0.18
+  lead_width_max: 0.30
+  lead_len_min: 0.35
+  lead_len_max: 0.45
+  EP_size_x:
+    minimum: 1.75
+    maximum: 1.85
+  EP_size_y:
+    minimum: 2.45
+    maximum: 2.55
+  EP_num_paste_pads: [2, 2]
+  pitch: 0.5
+  num_pins_x: 0
+  num_pins_y: 5
+  thermal_vias:
+    count: [2, 3]
+    drill: 0.2
+    paste_via_clearance: 0.1
+    EP_num_paste_pads: [2, 2]
+    paste_avoid_via: False
