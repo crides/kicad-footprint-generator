@@ -70,6 +70,55 @@ LFCSP-8-1EP_3x3mm_P0.5mm_EP1.74x1.45mm:
   num_pins_x: 0
   num_pins_y: 4
 
+LFCSP-8-1EP_3x3mm_P0.5mm_EP1.60x2.34mm:
+  device_type: 'LFCSP'
+  library: Package_CSP
+  size_source: 'https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/CP_8_11.pdf'
+  ipc_class: 'qfn'
+  body_size_x:
+    minimum: 2.9
+    nominal: 3
+    maximum: 3.1
+  body_size_y:
+    minimum: 2.9
+    nominal: 3
+    maximum: 3.1
+  body_height:
+    minimum: 0.7
+    nominal: 0.75
+    maximum: 0.8
+
+  lead_width:
+    maximum: 0.30
+    nominal: 0.25
+    minimum: 0.20
+  lead_len:
+    minimum: 0.3
+    nominal: 0.4
+    maximum: 0.5
+
+  EP_size_x:
+    maximum: 1.70
+    nominal: 1.60
+    minimum: 1.50
+  EP_size_y:
+    maximum: 2.44
+    nominal: 2.34
+    minimum: 2.24
+  EP_num_paste_pads: [2, 2]
+
+  thermal_vias:
+    count: [2, 3]
+    drill: 0.3
+    paste_via_clearance: 0.1
+    EP_num_paste_pads: [2, 2]
+    EP_paste_coverage: 0.75
+    paste_avoid_via: False
+
+  pitch: 0.5
+  num_pins_x: 0
+  num_pins_y: 4
+
 LFCSP-WD-8-1EP_3x3mm_P0.65mm_EP1.6x2.44mm:
   device_type: 'LFCSP-WD'
   library: Package_CSP
