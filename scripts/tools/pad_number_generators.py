@@ -23,23 +23,16 @@ To use a generator add the following to the device config:
 
 
 def increment(pincount, init=1, **kwargs):
-    i = init
-    j = init # pad number for deleted pins
+    pad_num = init # pad number
 
-    if kwargs.get("deleted_pins"):
-        skip_pins = kwargs["deleted_pins"]
+    deleted_pins = kwargs.get("deleted_pins", [])
 
-    while i <= pincount:
-        if kwargs.get("deleted_pins"):
-            if i in skip_pins:
-                yield None
-            else:
-                yield j
-                j += 1
-            i += 1 # i acts like pin location for deleted pins
+    for i in range(init, pincount + 1):
+        if i in deleted_pins:
+            yield None
         else:
-            yield i
-            i += 1
+            yield pad_num
+            pad_num += 1
 
 
 def _get_pin_cw(pincount, loc):
