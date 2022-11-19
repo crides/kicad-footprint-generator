@@ -49,6 +49,56 @@ LQFP-48_7x7mm_P0.5mm_deleted:
   num_pins_y: 12
   deleted_pins: [1,15,24,30,31,44]
 
+# test add_quad_pad_border() in quad_dual_pad_border.py
+LQFP-16_3x3mm_P0.5mm_rot1:
+  size_source: '~'
+  body_size_x: 3
+  body_size_y: 3
+  overall_size_x: 5
+  overall_size_y: 5
+  lead_width: 0.17 .. 0.27
+  lead_len: 0.45 .. 0.75
+  pitch: 0.5
+  num_pins_x: 4
+  num_pins_y: 4
+  pad_numbers:
+    generator: 'increment'
+    offset: 1
+
+# test add_quad_pad_border() in quad_dual_pad_border.py with hidden pins
+LQFP-16_3x3mm_P0.5mm_rot1_hidden:
+  size_source: '~'
+  body_size_x: 3
+  body_size_y: 3
+  overall_size_x: 5
+  overall_size_y: 5
+  lead_width: 0.17 .. 0.27
+  lead_len: 0.45 .. 0.75
+  pitch: 0.5
+  num_pins_x: 4
+  num_pins_y: 4
+  hidden_pins: [1,6,8,11,14,15]
+  pad_numbers:
+    #generator: 'increment'
+    offset: 1
+
+# test add_quad_pad_border() in quad_dual_pad_border.py with deleted pins
+LQFP-16_3x3mm_P0.5mm_rot1_deleted:
+  size_source: '~'
+  body_size_x: 3
+  body_size_y: 3
+  overall_size_x: 5
+  overall_size_y: 5
+  lead_width: 0.17 .. 0.27
+  lead_len: 0.45 .. 0.75
+  pitch: 0.5
+  num_pins_x: 4
+  num_pins_y: 4
+  deleted_pins: [1,6,8,11,14,15]
+  pad_numbers:
+    generator: 'increment'
+    offset: 1
+
 # test add_dual_pad_border_y() in quad_dual_pad_border.py
 SOT-23-6:
   size_source: '~'
