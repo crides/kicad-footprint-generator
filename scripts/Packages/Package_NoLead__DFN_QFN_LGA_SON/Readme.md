@@ -71,6 +71,28 @@ These packages need to select the pull back option for the IPC class (`ipc_class
   - `num_pins_x`=0 is used for generating DFN-like packages.
   - `num_pins_y`=0 is used to generate DFN-like package footprints but with inverted pin numbering. (Mirrored numbering scheme. Some manufactures use this style in their datasheets. Make sure you are not looking at the bottom view before using this. Not supported for QFN and similar.)
 
+### Non-standard Pad Numbering
+
+The `pad_numbers` property can be used to realize non-standard pin numberings. Standard (if pad_numbers is not specified) is equal to
+~~~ yaml
+pad_numbers:
+  generator: 'increment' # 'increment' (default), 'ccw_dual', 'cw_dual'
+  init: 1                # may be omitted, 1 is the default
+~~~
+This creates standard pad numbers starting from 1, incrementing by 1 up to the total number of pins, as shown below:<br>
+![standard numbering example](./documentation/std-numbering.png)
+
+The following excerpt creates a non-standard numbering where the pin numbers are offset by 1 resulting in a rotation of the
+pins by 1 against the pin numbering direction
+~~~ yaml
+pad_numbers:
+  generator: 'increment' # may be omitted, 'increment' is the default
+  offset: 1 # offset pin numbers by 1 to achieve a rotation
+~~~
+![non-standard numbering example](./documentation/non-std-numbering.png)
+
+**TODO:** describe the currently available pin numbering options in more detail  
+
 ### Exposed pad Handling:
 ![exposed pad example](../documentation/ep_handling.svg)
 - Size of package exposed pad or slug (`EP_size_x`, `EP_size_y`) {dimension}

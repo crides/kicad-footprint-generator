@@ -19,19 +19,39 @@ To use a generator add the following to the device config:
     generator: 'ccw_dual'
     axis: 'x'
 
+To achieve a non-standard pin numbering of 2, 3, ..., N, 1 (instead of 1, 2, ... N) use:
+
+  pad_numbers:
+    generator: 'increment'
+    offset: 1
 """
 
 
-def increment(pincount, init=1, **kwargs):
+def increment(pincount, init=1, offset=0, **kwargs):
+    """Standard increment iterator.
+
+    Args:
+        pincount: Total number of pins
+        init: Initial starting count (default: 1)
+        offset: add an offset to the pin numbers to achieve a non-standard pin numbering
+            Examples:
+                offset=1 results in [2, 3, ..., pincount, 1] instead of [1, 2, ..., pincount]
+                offset=-1 results in [pincount, 1, 2, ..., pincount - 1]
+        **kwargs: Other keyword arguments
+
+    Returns:
+        Iterator
+    """
     pad_num = init # pad number
 
     deleted_pins = kwargs.get("deleted_pins", [])
+    num_deleted_pins = len(deleted_pins)
 
     for i in range(init, pincount + 1):
         if i in deleted_pins:
             yield None
         else:
-            yield pad_num
+            yield 1 + (pad_num - 1 + offset) % (pincount - num_deleted_pins)
             pad_num += 1
 
 
