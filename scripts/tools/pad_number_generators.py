@@ -171,5 +171,5 @@ def get_generator(device_params):
         gens = ", ".join(generators.keys())
         raise KeyError("{}: Use one of [{}]".format(pad_generator, gens))
 
-    iterator = gen(pincount, **pad_nums)
+    iterator = gen(pincount, deleted_pins=device_params.get("deleted_pins", []), **pad_nums)
     return iterator
