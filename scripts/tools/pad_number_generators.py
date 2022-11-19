@@ -162,7 +162,8 @@ def get_generator(device_params):
     if not pad_nums:
         return generators["increment"](pincount, **device_params)
 
-    init = pad_nums.get("init", 1)
+    if ("init" not in pad_nums):
+        pad_nums["init"] = 1
 
     gen = generators.get(pad_nums.get("generator"))
     if not gen:
@@ -170,5 +171,5 @@ def get_generator(device_params):
         pad_generator = pad_nums.get("generator")
         raise KeyError("{}: Use one of [{}]".format(pad_generator, gens))
 
-    iterator = gen(pincount, init, **pad_nums)
+    iterator = gen(pincount, **pad_nums)
     return iterator
