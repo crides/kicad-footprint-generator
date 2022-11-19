@@ -254,7 +254,7 @@ class PadArray(Node):
                 if type(self.initialPin) == 'int':
                     includePad = (self.initialPin + i) not in self.exclude_pin_list
                 else:
-                    includePad = number not in self.exclude_pin_list
+                    includePad = number is not None and number not in self.exclude_pin_list
 
             if includePad:
                 current_pad_pos = Vector2D(
