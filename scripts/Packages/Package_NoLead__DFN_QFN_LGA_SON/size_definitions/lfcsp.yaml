@@ -833,6 +833,33 @@ LFCSP-32-1EP_5x5mm_P0.5mm_EP3.6x3.6mm:
   #suffix: '_Pad{pad_x:.2f}x{pad_y:.2f}mm_HandSolder'
   #include_suffix_in_3dpath: 'False'
 
+LFCSP-40-1EP_6x6mm_P0.5mm_EP3.9x3.9mm:
+  device_type: 'LFCSP'
+  library: Package_CSP
+  size_source: 'https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_40_14.pdf'
+  ipc_class: 'qfn'
+  body_size_x: 5.9 .. 6 .. 6.1
+  body_size_y: 5.9 .. 6 .. 6.1
+  overall_height: 0.7 .. 0.75 .. 0.8
+  lead_width: 0.18 .. 0.25 .. 0.3
+  lead_len: 0.35 .. 0.4 .. 0.45
+
+  pitch: 0.5
+  num_pins_x: 10
+  num_pins_y: 10
+
+  EP_size_x: 3.75 .. 3.9 .. 4.05
+  EP_size_y: 3.75 .. 3.9 .. 4.05
+  EP_num_paste_pads: [2, 2]
+
+  thermal_vias:
+    count: [3, 3]
+    drill: 0.3
+    paste_via_clearance: 0.1
+    EP_num_paste_pads: [2, 2]
+    EP_paste_coverage: 0.70
+    paste_avoid_via: True
+
 LFCSP-64-1EP_9x9mm_P0.5mm_EP5.21x5.21mm:
   device_type: 'LFCSP'
   library: Package_CSP
