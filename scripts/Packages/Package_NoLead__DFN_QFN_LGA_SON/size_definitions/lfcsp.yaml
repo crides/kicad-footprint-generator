@@ -184,10 +184,10 @@ LFCSP-WD-8-1EP_3x3mm_P0.65mm_EP1.6x2.44mm:
   #suffix: '_Pad{pad_x:.2f}x{pad_y:.2f}mm_HandSolder'
   #include_suffix_in_3dpath: 'False'
 
-LFCSP-UQ-10_1.3x1.6mm_P0.4mm:
+Analog_LFCSP-UQ-10_1.3x1.6mm_P0.4mm:
   device_type: 'LFCSP-UQ'
   library: Package_CSP
-  #manufacturer: 'Analog'
+  manufacturer: 'Analog'
   #part_number: 'CP-10-10'
   size_source: 'https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_10_10.pdf'
   ipc_class: 'qfn' # 'qfn_pull_back'
@@ -214,6 +214,9 @@ LFCSP-UQ-10_1.3x1.6mm_P0.4mm:
   pitch: 0.4
   num_pins_x: 3
   num_pins_y: 2
+  pad_numbers: 
+    generator: 'increment'
+    offset: 1 # non-standard numbering 2, 3, ..., 10, 1
 
 LFCSP-WD-10-1EP_3x3mm_P0.5mm_EP1.64x2.38mm:
   device_type: 'LFCSP-WD'
