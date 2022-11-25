@@ -213,6 +213,40 @@ HTSSOP-24-1EP_4.4x7.8mm_P0.65mm_EP3.2x5mm:
     maximum: 5.2
   EP_num_paste_pads: [2, 3]
 
+Texas_PWP0024P:
+  size_source: 'https://www.ti.com/lit/ds/symlink/tlc5949.pdf#page=49'
+  custom_name_format: 'HTSSOP-{pincount}-1EP_{size_x:g}x{size_y:g}mm_P{pitch}mm_EP{ep_size_x:g}x{ep_size_y:g}mm_Mask{mask_size_x:g}x{mask_size_y:g}mm{vias:s}'
+  body_size_x:
+    minimum: 4.3
+    maximum: 4.5
+  body_size_y:
+    minimum: 7.7
+    maximum: 7.9
+  overall_size_x:
+    minimum: 6.2
+    maximum: 6.6
+  body_height: 1.2
+  lead_width: 0.19 .. 0.30
+  lead_len: 0.5 .. 0.75
+  pitch: 0.65
+  num_pins_x: 0
+  num_pins_y: 12
+  EP_size_x:
+    minimum: 1.5
+    maximum: 2.4
+  EP_size_y:
+    minimum: 2.08
+    maximum: 2.98
+  EP_size_x_overwrite: 3.4
+  EP_size_y_overwrite: 7.8
+  EP_mask_x: 2.4
+  EP_mask_y: 2.98
+  EP_num_paste_pads: [1, 1]
+  thermal_vias:
+    count: [3, 7]
+    drill: 0.2
+    paste_avoid_via: false
+    EP_num_paste_pads: [1, 1]
 
 HTSSOP-24-1EP_4.4x7.8mm_P0.65mm_EP3.4x7.8mm_Mask2.4x4.68mm_ThermalVias:
   size_source: 'http://www.ti.com/lit/ds/symlink/tps703.pdf'
