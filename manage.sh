@@ -35,12 +35,12 @@ flake8_check() {
 unit_tests() {
     echo ''
     echo '[!] Running unit tests'
-    python "$KICADMODTREE_DIR/tests/test.py"
+    python3 "$KICADMODTREE_DIR/tests/test.py"
 }
 
 py_test_coverage() {
     echo '[!] Running python test coverage'
-    PYTHONPATH=`pwd` python -m nose2 -C --coverage "$KICADMODTREE_DIR" --coverage-report term-missing -s "$KICADMODTREE_DIR/tests"
+    PYTHONPATH=`pwd` python3 -m nose2 -C --coverage "$KICADMODTREE_DIR" --coverage-report term-missing -s "$KICADMODTREE_DIR/tests"
 }
 
 tests() {
