@@ -7,9 +7,7 @@ create custom KiCAD footprint. A big bunch of footprints of the KiCad library wa
 
 **Maintainer:** Thomas Pointhuber
 
-[![Build Status](https://travis-ci.org/pointhi/kicad-footprint-generator.svg?branch=master)](https://travis-ci.org/pointhi/kicad-footprint-generator)
-[![Code Climate](https://codeclimate.com/github/pointhi/kicad-footprint-generator/badges/gpa.svg)](https://codeclimate.com/github/pointhi/kicad-footprint-generator)
-[![Documentation Status](https://readthedocs.org/projects/kicad-footprint-generator/badge/?version=latest)](http://kicad-footprint-generator.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/kicad-footprint-generator/badge/?version=latest)](https://kicad-footprint-generator.readthedocs.io/en/latest/?badge=latest)
 
 **Supports:** Python 3.6+
 
@@ -37,7 +35,7 @@ When you serialize your footprint, the serialize command only has to handle base
 upon the base nodes. This allows us to write specialized nodes without worrying about the FileHandlers or other core systems.
 You simply create your special node, and the framework knows how to handle it seamlessly.
 
-Please look into the **[Documentation](http://kicad-footprint-generator.readthedocs.io/en/latest/)** for further details
+Please look into the **[Documentation](https://kicad-footprint-generator.readthedocs.io/en/latest/)** for further details
 
 ```
 KicadModTree        - The KicadModTree framework which is used for footprint generation

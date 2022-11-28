@@ -2,7 +2,7 @@
 # http://ohm.bu.edu/~pbohn/__Engineering_Reference/pcb_layout/pcbmatrix/IPC-7x51%20&%20PCBM%20Land%20Pattern%20Naming%20Convention.pdf
 # hidden pins remove a pin location and pin number (for example, going from pad 1 to pad 3 with pin 2 missing from the package)
 # deleted pins remove a pin location but not pin number (for example, pin 2 is missing from the package but the footprint has pad 2)
-# deleted pins do not support custom numbering schemes https://github.com/pointhi/kicad-footprint-generator/pull/371
+# deleted pins do not support custom numbering schemes https://gitlab.com/kicad/libraries/kicad-footprint-generator/-/merge_requests/371
 
 FileHeader:
   library_Suffix: 'TO_SOT_SMD'
@@ -113,7 +113,7 @@ SOT-23-6:
   num_pins_y: 3
 
 # test add_dual_pad_border_y() in quad_dual_pad_border.py with hidden pins
-# manually-made footprint merged at https://github.com/KiCad/kicad-footprints/pull/2298
+# manually-made footprint merged at https://gitlab.com/kicad/libraries/kicad-footprints/-/merge_requests/2298
 SOIC-14-16_3.9x9.9mm_P1.27mm:
   size_source: '~'
   body_size_x: 3.8 .. 4.0

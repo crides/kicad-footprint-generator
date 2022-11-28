@@ -5,7 +5,8 @@
 # Parts script module for socket strip footprints for KicCad
 #
 # This module is built on top of the kicad-footprint-generator framework
-# by Thomas Pointhuber, https://github.com/pointhi/kicad-footprint-generator
+# by Thomas Pointhuber,
+# https://gitlab.com/kicad/libraries/kicad-footprint-generator
 #
 # This module is free software: you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as published by

@@ -14,7 +14,7 @@ setup(
     version='1.1.2',
     author='Thomas Pointhuber',
     author_email='thomas.pointhuber@gmx.at',
-    url='https://github.com/pointhi/kicad-footprint-generator',
+    url='https://gitlab.com/kicad/libraries/kicad-footprint-generator',
     description="creating kicad footprints using python scripts",
     long_description=long_description,
     long_description_content_type='text/markdown',

@@ -20,7 +20,7 @@ from footprint_scripts_terminal_blocks import *
 
 if __name__ == '__main__':
 
-    script_generated_note="script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_RND";
+    script_generated_note="script-generated using https://gitlab.com/kicad/libraries/kicad-footprint-generator/-/tree/master/scripts/TerminalBlock_RND";
     classname="TerminalBlock_RND"
 
     pins=range(2,12+1)

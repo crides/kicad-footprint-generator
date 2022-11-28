@@ -1,6 +1,6 @@
 # DPAK footprint generator
 
-Program to generate KiCad footprints using KicadModTree from https://github.com/pointhi/kicad-footprint-generator
+Program to generate KiCad footprints using KicadModTree from https://gitlab.com/kicad/libraries/kicad-footprint-generator
 
 Devices included:
 - TO252 / DPAK
@@ -10,7 +10,7 @@ Devices included:
 
 ## Usage
 
-Download `kicad-footprint-generator` from https://github.com/pointhi/kicad-footprint-generator
+Download `kicad-footprint-generator` from https://gitlab.com/kicad/libraries/kicad-footprint-generator
 
 Install the following files in the folder `.../kicad-footprint-generator/scripts/<category>/`.
 
