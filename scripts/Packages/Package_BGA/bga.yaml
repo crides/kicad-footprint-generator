@@ -517,3 +517,15 @@ Infineon_LFBGA-292_17x17mm_Layout20x20_P0.8mm_Ball0.5mm_Pad0.35:
     [],
     []
   ]
+BGA-324_15.0x15.0mm_Layout18x18_P0.8mm_Ball0.45mm_Pad0.4mm_NSMD:
+  description: "BGA-324"
+  size_source: "https://colognechip.com/docs/ds1001-gatemate1-datasheet-2022-05.pdf#page=92"
+  additional_tags: "GateMate FPGA"
+  body_size_x: 15
+  body_size_y: 15
+  overall_height: 1.19
+  pitch: 0.8
+  ball_type: "collapsible"
+  ball_diameter: 0.45
+  layout_x: 18
+  layout_y: 18
