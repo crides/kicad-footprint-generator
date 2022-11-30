@@ -168,12 +168,17 @@ class TwoTerminalSMD():
             else:
                 name_format = self.configuration['fp_name_non_metric_format_string']
 
-        fp_name = name_format.format(prefix=prefix,
-                                     code_imperial=code_imperial, code_metric=code_metric,
-                                     code_letter=code_letter, suffix=suffix)
-        fp_name_2 = name_format.format(prefix=prefix,
-                                       code_imperial=code_imperial, code_letter=code_letter,
-                                       code_metric=code_metric, suffix=suffix_3d)
+        if 'custom_name' in device_size_data:
+            fp_name = device_size_data['custom_name']
+            fp_name_2 = device_size_data['custom_name']
+        else:
+          fp_name = name_format.format(prefix=prefix,
+                                       code_imperial=code_imperial, code_metric=code_metric,
+                                       code_letter=code_letter, suffix=suffix)
+          fp_name_2 = name_format.format(prefix=prefix,
+                                         code_imperial=code_imperial, code_letter=code_letter,
+                                         code_metric=code_metric, suffix=suffix_3d)
+
         model_name = '{model3d_path_prefix:s}{lib_name:s}.3dshapes/{fp_name:s}.wrl'.format(
             model3d_path_prefix=model3d_path_prefix, lib_name=footprint_group_data['fp_lib_name'], fp_name=fp_name_2)
         # print(fp_name)
@@ -182,9 +187,12 @@ class TwoTerminalSMD():
         kicad_mod = Footprint(fp_name)
 
         # init kicad footprint
-        kicad_mod.setDescription(footprint_group_data['description'].format(code_imperial=code_imperial,
-                                                                            code_metric=code_metric, code_letter=code_letter,
-                                                                            size_info=device_size_data.get('size_info')))
+        if 'custom_name' in device_size_data:
+          kicad_mod.setDescription(device_size_data['description'])
+        else:
+          kicad_mod.setDescription(footprint_group_data['description'].format(code_imperial=code_imperial,
+                                                                              code_metric=code_metric, code_letter=code_letter,
+                                                                              size_info=device_size_data.get('size_info')))
         kicad_mod.setTags(footprint_group_data['keywords'])
         kicad_mod.setAttribute('smd')
 
