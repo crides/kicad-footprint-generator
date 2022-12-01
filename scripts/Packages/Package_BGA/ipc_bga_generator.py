@@ -5,6 +5,7 @@ import os
 import sys
 import argparse
 import yaml
+from pathlib import Path
 import itertools
 
 # load parent path of KicadModTree
@@ -48,6 +49,29 @@ def generateFootprint(config, fpParams, fpId):
 
     if createFp:
         __createFootprintVariant(config, fpParams, fpId)
+
+
+def compute_stagger(lParams):
+    staggered = lParams.get('staggered')
+    pitch = lParams.get('pitch')
+
+    if staggered and pitch is not None:
+        height = pitch * math.sin(math.radians(60))
+        if staggered.lower() == 'x':
+            return pitch/2, height, 'x'
+        elif staggered.lower() == 'y':
+            return height, pitch/2, 'y'
+        else:
+            raise ValueError('staggered must be either "x" or "y"')
+
+    pitchX = lParams.get('pitch_x', pitch)
+    pitchY = lParams.get('pitch_y', pitch)
+
+    if not (pitchX and pitchY):
+        raise KeyError('{}: Either pitch or both pitch_x and pitch_y must be given.'.format(fpId))
+
+    return pitchX, pitchY, None
+
 
 def __createFootprintVariant(config, fpParams, fpId):
     pkgX = fpParams["body_size_x"]
@@ -95,11 +119,7 @@ def __createFootprintVariant(config, fpParams, fpId):
             x = -x
         return x
 
-    pitchX = fpParams.get('pitch_x', fpParams.get('pitch'))
-    pitchY = fpParams.get('pitch_y', fpParams.get('pitch'))
-    if not (pitchX and pitchY):
-        raise KeyError('{}: Either pitch or both pitch_x and pitch_y must be given.'.format(fpId))
-    pitchString = str(pitchX) if pitchX == pitchY else f'{pitchX}x{pitchY}'
+    pitchX, pitchY, staggered = compute_stagger(fpParams)
 
     xCenter = 0.0
     xLeftFab = xCenter - pkgX / 2.0
@@ -180,16 +200,21 @@ def __createFootprintVariant(config, fpParams, fpId):
     f.append(Model(filename="{}Package_{}.3dshapes/{}.wrl".format(
                   config['3d_model_prefix'], packageType, fpId)))
 
-    f.setDescription("{0}, {1}x{2}mm, {3} Ball, {4}x{5} Layout, {6}mm Pitch, {7}".format(fpParams["description"], pkgY, pkgX, balls, layoutX, layoutY, pitchString, fpParams["size_source"]))
-    f.setTags("{} {} {}{}".format(packageType, balls, pitchString, additionalTag))
+    if staggered:
+        pdesc = str(fpParams.get('pitch')) if 'pitch' in fpParams else f'{pitchX}x{pitchY}'
+        sdesc = f'{staggered.upper()}-staggered '
+    else:
+        pdesc = str(pitchX) if pitchX == pitchY else f'{pitchX}x{pitchY}'
+        sdesc = ''
 
-    outputDir = 'Package_{lib_name:s}.pretty/'.format(lib_name=packageType)
-    if not os.path.isdir(outputDir): #returns false if path does not yet exist!! (Does not check path validity)
-        os.makedirs(outputDir)
-    filename = '{outdir:s}{fpId:s}.kicad_mod'.format(outdir=outputDir, fpId=fpId)
+    f.setDescription(f'{fpParams["description"]}, {pkgX}x{pkgY}mm, {balls} Ball, {sdesc}{layoutX}x{layoutY} Layout, {pdesc}mm Pitch, {fpParams["size_source"]}') #NOQA
+    f.setTags(f'{packageType} {balls} {pdesc}{additionalTag}')
+
+    outputDir = Path(f'Package_{packageType}.pretty')
+    outputDir.mkdir(exist_ok=True)
     
     file_handler = KicadFileHandler(f)
-    file_handler.writeFile(filename)
+    file_handler.writeFile(str(outputDir / f'{fpId}.kicad_mod'))
 
 def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
     layoutX = lParams["layout_x"]
@@ -198,6 +223,7 @@ def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
     rowSkips = lParams.get('row_skips', [])
     areaSkips = lParams.get('area_skips', [])
     padSkips = {skip.upper() for skip in lParams.get('pad_skips', [])}
+    pitchX, pitchY, staggered = compute_stagger(lParams)
 
     for row_start, col_start, row_end, col_end in areaSkips:
         rows = rowNames[rowNames.index(row_start.upper()):rowNames.index(row_end.upper())+1]
@@ -211,19 +237,20 @@ def makePadGrid(f, lParams, config, fpParams={}, xCenter=0.0, yCenter=0.0):
             else:
                 padSkips |= {f'{row}{skip}' for skip in range(*skip)}
 
-    if (cskip := lParams.get('checkerboard_skip')):
-        if cskip not in ('A1', 'B1', 'A2'):
-            raise ValueError('checkerboard_skip must be "A1" or "A2".')
-        skip_even = cskip == 'A1'
+    if (first_ball := lParams.get('first_ball')):
+        if not staggered:
+            raise ValueError('first_ball only makes sense for staggered layouts.')
+
+        if first_ball not in ('A1', 'B1', 'A2'):
+            raise ValueError('first_ball must be "A1" or "A2".')
+
+        skip_even = (first_ball != 'A1')
 
         for row_num, row in enumerate(rowNames):
             for col in range(layoutX):
                 is_even = (row_num + col) % 2 == 0
                 if is_even == skip_even:
                     padSkips.add(f'{row}{col+1}')
-
-    pitchX = lParams.get('pitch_x', lParams.get('pitch'))
-    pitchY = lParams.get('pitch_y', lParams.get('pitch'))
 
     padShape = {
             'circle': Pad.SHAPE_CIRCLE,
@@ -254,7 +281,7 @@ def rowNameGenerator(seq):
             yield ''.join(s)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='use confing .yaml files to create footprints.')
+    parser = argparse.ArgumentParser(description='use config .yaml files to create footprints.')
     parser.add_argument('files', metavar='file', type=str, nargs='+',
                         help='list of files holding information about what devices should be created.')
     parser.add_argument('--global_config', type=str, nargs='?', help='the config file defining how the footprint will look like. (KLC)', default='../../tools/global_config_files/config_KLCv3.0.yaml')
