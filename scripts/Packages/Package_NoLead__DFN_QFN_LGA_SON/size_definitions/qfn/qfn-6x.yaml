@@ -310,13 +310,13 @@ QFN-68-1EP_8x8mm_P0.4mm_EP6.4x6.4mm:
     maximum: 1.0
 
   lead_width:
-    minimum: 0.23
+    minimum: 0.20
     nominal: 0.25
-    maximum: 0.27
+    maximum: 0.30
   lead_len:
-    minimum: 0.48
+    minimum: 0.40
     nominal: 0.50
-    maximum: 0.55
+    maximum: 0.60
 
   EP_size_x:
     minimum: 6.3
