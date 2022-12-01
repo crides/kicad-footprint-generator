@@ -470,7 +470,7 @@ ST_WLCSP-115_4.63x4.15mm_P0.4mm_Stagger:
   body_size_x: 4.63
   body_size_y: 4.15
   pitch: 0.4
-  staggered: y
+  staggered: x
   first_ball: A2
   pad_diameter: 0.225
   mask_margin: 0.0325
