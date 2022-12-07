@@ -1,3 +1,20 @@
+Nexperia_WLCSP-15_6-3-6_2.37x1.17mm_Layout6x3_P0.4mm:
+  description: "Nexperia wafer level chip-size package; 15 bumps (6-3-6)"
+  size_source: "https://assets.nexperia.com/documents/data-sheet/PCMFXUSB3S_SER.pdf"
+  body_size_x: 2.37
+  body_size_y: 1.17
+  pitch: 0.4
+  pad_diameter: 0.25
+  mask_margin: 0.0375
+  layout_x: 6
+  layout_y: 3
+  area_skips:
+    - [b,1,b,6]   # remove complete 2nd row
+  secondary_layouts:
+    - pitch: 0.8  # replace 2nd row by 3 balls @ 0.8mm pitch
+      layout_x: 3
+      layout_y: 1
+      row_names: [B]
 WLCSP-12_1.403x1.555mm_P0.4mm_Stagger:
   description: "WLCSP-12, staggered array"
   size_source: "http://ww1.microchip.com/downloads/en/devicedoc/atmel-8235-8-bit-avr-microcontroller-attiny20_datasheet.pdf#page=208"
