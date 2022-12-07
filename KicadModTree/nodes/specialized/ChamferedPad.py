@@ -295,7 +295,7 @@ class ChamferedPad(Node):
 
             polygon_width = 0
             if self.round_radius_handler.roundingRequested():
-                if self.chamfer_size[0] != self.chamfer_size[1]:
+                if abs(self.chamfer_size[0] - self.chamfer_size[1]) > 1e-7:     # consider rounding errors
                     raise NotImplementedError(
                             'Rounded chamfered pads are only supported for 45 degree chamfers.'
                             ' Chamfer {}'.format(self.chamfer_size)
