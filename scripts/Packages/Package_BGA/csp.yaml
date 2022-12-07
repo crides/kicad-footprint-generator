@@ -1,3 +1,7 @@
+# NOTES for some parts in this file
+#
+# [1] ST does not specify this value in the linked datasheet, but they do in datasheets of similar parts. We use the
+#     value that they "usually" specify.
 Nexperia_WLCSP-15_6-3-6_2.37x1.17mm_Layout6x3_P0.4mm:
   description: "Nexperia wafer level chip-size package; 15 bumps (6-3-6)"
   size_source: "https://assets.nexperia.com/documents/data-sheet/PCMFXUSB3S_SER.pdf"
@@ -554,7 +558,7 @@ ST_WLCSP-100_4.437x4.456mm_Layout10x10_P0.4mm:
   pitch: 0.4
   pad_diameter: 0.225
   mask_margin: 0.0325
-  paste_margin: 0.0125
+  paste_margin: 0.0125 # See note [1] at the top of this file.
   layout_x: 10
   layout_y: 10
 ST_WLCSP-132_4.57x4.37mm_Layout12x11_P0.35mm:
