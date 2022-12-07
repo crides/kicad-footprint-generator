@@ -153,7 +153,7 @@ base:
             x_mm: 8.54
             y_mm: 6.4
             z_mm: 0.8635 # Average pin thickness plus distance to bottom side
-            project_x_mm: 0
+            project_x_mm: -1.01 # the pad is hidden by the body, therefore the value is negative
             colour: 'metal grey pins'
         marker:
             x_mm: 2.5

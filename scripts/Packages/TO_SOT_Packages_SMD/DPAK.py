@@ -32,6 +32,8 @@ class Dimensions(object):
         self.tab_centre_x_mm = (base['footprint']['x_mm'] - base['footprint']['tab']['x_mm']) / 2.0
         self.tab_centre_y_mm = 0.0
         self.split_paste = (base['footprint']['split_paste'] == 'on')
+        self.tab_size_x_mm = base['footprint']['tab']['x_mm']
+        self.tab_size_y_mm = base['footprint']['tab']['y_mm']
 
         # FAB OUTLINE
         self.device_offset_x_mm = base['device']['x_mm'] / 2.0  # x coordinate of RHS of device
@@ -40,14 +42,30 @@ class Dimensions(object):
         self.body_x_mm = base['device']['body']['x_mm']
         self.body_offset_y_mm = base['device']['body']['y_mm'] / 2.0  # y coordinate of bottom of body
         self.corner_mm = 1.0  #  x and y size of chamfered corner on top left of body -- from KLC
+        self.tab_x_mm = base['device']['tab']['x_mm']
+
+        if self.tab_project_x_mm >= 0:
+            # If the tab extends beyond the body, the device smaller than the footprint and
+            # the F.Fab drawing is placed centered onto the footprint.
+            self.device_shift_x_mm = 0
+        else:
+            # If the tab is not extending beyond the body the F.Fab drawing and CourtYard is
+            # shifted such that the tab sits centered on it's pad
+            tab_right_x_mm = self.device_offset_x_mm + min(0, self.tab_project_x_mm)
+            tab_center_x_mm = tab_right_x_mm - self.tab_x_mm / 2
+            self.device_shift_x_mm = self.tab_centre_x_mm - tab_center_x_mm
 
         # COURTYARD
-        self.biggest_x_mm = base['footprint']['x_mm']
-        self.biggest_y_mm = max(base['footprint']['tab']['y_mm'], base['device']['body']['y_mm'],
-                                       2.0 * self.pad_1_centre_y_mm + variant['pad']['y_mm'])
-        self.courtyard_offset_x_mm = self.round_to(self.courtyard_clearance_mm + self.biggest_x_mm / 2.0,
-                                                   self.courtyard_precision_mm)
-        self.courtyard_offset_y_mm = self.round_to(self.courtyard_clearance_mm + self.biggest_y_mm / 2.0,
+        left_x_mm = min(-base['device']['x_mm'] / 2.0 + self.device_shift_x_mm, -base['footprint']['x_mm'] / 2.0)
+        right_x_mm = max(base['device']['x_mm'] / 2.0 + self.device_shift_x_mm, base['footprint']['x_mm'] / 2.0)
+        biggest_y_mm = max(base['footprint']['tab']['y_mm'], base['device']['body']['y_mm'],
+                           2.0 * self.pad_1_centre_y_mm + variant['pad']['y_mm'])
+
+        self.courtyard_left_x_mm = self.round_to(left_x_mm - self.courtyard_clearance_mm,
+                                                 self.courtyard_precision_mm)
+        self.courtyard_right_x_mm = self.round_to(right_x_mm + self.courtyard_clearance_mm,
+                                                  self.courtyard_precision_mm)
+        self.courtyard_offset_y_mm = self.round_to(self.courtyard_clearance_mm + biggest_y_mm / 2.0,
                                                    self.courtyard_precision_mm)
         # SILKSCREEN
         self.label_centre_x_mm = 0
@@ -104,19 +122,22 @@ class DPAK(object):
         return m
 
 
-    def draw_tab(self, m, dim):
-        if dim.tab_project_x_mm != 0:
-            right_x = dim.device_offset_x_mm
-            left_x = right_x - dim.tab_project_x_mm
+    def draw_tab(self, m, dim, draw_hidden_part=False):
+        if dim.tab_project_x_mm > 0 or draw_hidden_part:
+            right_x = dim.device_offset_x_mm + min(0, dim.tab_project_x_mm) + dim.device_shift_x_mm
+            left_x = right_x - (dim.tab_x_mm if draw_hidden_part else dim.tab_project_x_mm)
             top_y = -dim.tab_offset_y_mm
             bottom_y = -top_y
             tab_outline = [[left_x, top_y], [right_x, top_y], [right_x, bottom_y], [left_x, bottom_y]]
+            if draw_hidden_part:     # close polygon
+                tab_outline += tab_outline[:1]
             m.append(PolygoneLine(polygone=tab_outline, layer='F.Fab', width=dim.fab_line_width_mm))
+
         return m
 
 
     def draw_body(self, m, dim):
-        right_x = dim.device_offset_x_mm - dim.tab_project_x_mm
+        right_x = dim.device_offset_x_mm - max(0, dim.tab_project_x_mm) + dim.device_shift_x_mm
         left_x = right_x - dim.body_x_mm
         top_y = -dim.body_offset_y_mm
         bottom_y = -top_y
@@ -127,7 +148,7 @@ class DPAK(object):
 
 
     def draw_pins(self, m, variant, dim, cut_pin):
-        right_x = dim.device_offset_x_mm - dim.tab_project_x_mm - dim.body_x_mm
+        right_x = dim.device_offset_x_mm - max(0, dim.tab_project_x_mm) - dim.body_x_mm + dim.device_shift_x_mm
         left_x = right_x - variant['pin']['x_mm']
         pin_1_top_y = dim.pad_1_centre_y_mm - (variant['pin']['y_mm'] / 2.0)
         body_corner_bottom_y = -dim.body_offset_y_mm + dim.corner_mm
@@ -142,8 +163,8 @@ class DPAK(object):
         return m
 
 
-    def draw_outline(self, m, variant, dim, cut_pin=False):
-        m = self.draw_tab(m, dim)
+    def draw_outline(self, m, variant, dim, cut_pin=False, show_hidden_tab=False):
+        m = self.draw_tab(m, dim, draw_hidden_part=show_hidden_tab)
         m = self.draw_body(m, dim)
         m = self.draw_pins(m, variant, dim, cut_pin)
         return m
@@ -152,8 +173,12 @@ class DPAK(object):
     def draw_markers(self, m, variant, dim):
         magic_number = 1.3  # TODO needs better name
         other_magic_number = 1.5  #  TODO needs better name
-        right_x = dim.device_offset_x_mm - dim.tab_project_x_mm - dim.body_x_mm + magic_number
-        middle_x = dim.device_offset_x_mm - dim.tab_project_x_mm - dim.body_x_mm - dim.silk_line_nudge_mm
+        if (dim.body_offset_y_mm < dim.tab_size_y_mm / 2):
+            right_x = dim.device_offset_x_mm - max(0, dim.tab_project_x_mm) - dim.body_x_mm + magic_number
+        else:
+            right_x = dim.device_offset_x_mm - max(0, dim.tab_project_x_mm) + dim.device_shift_x_mm
+        middle_x = dim.device_offset_x_mm  + dim.device_shift_x_mm \
+                   - max(0, dim.tab_project_x_mm) - dim.body_x_mm - dim.silk_line_nudge_mm
         left_x = dim.pad_1_centre_x_mm - variant['pad']['x_mm'] / 2.0
         top_y = -dim.body_offset_y_mm - dim.silk_line_nudge_mm
         bottom_y = dim.pad_1_centre_y_mm - variant['pad']['y_mm'] / 2.0 - other_magic_number * dim.silk_line_nudge_mm
@@ -207,8 +232,8 @@ class DPAK(object):
 
 
     def draw_courtyard(self, m ,dim):
-        m.append(RectLine(start=[-dim.courtyard_offset_x_mm, -dim.courtyard_offset_y_mm],
-                                  end=[dim.courtyard_offset_x_mm, dim.courtyard_offset_y_mm], layer='F.CrtYd',
+        m.append(RectLine(start=[dim.courtyard_left_x_mm, -dim.courtyard_offset_y_mm],
+                                  end=[dim.courtyard_right_x_mm, dim.courtyard_offset_y_mm], layer='F.CrtYd',
                                   width=dim.courtyard_line_width_mm))
         return m
 
