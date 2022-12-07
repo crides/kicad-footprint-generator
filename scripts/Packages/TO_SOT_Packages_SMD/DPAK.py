@@ -1,3 +1,4 @@
+import math
 import sys
 import os
 import argparse
@@ -62,20 +63,25 @@ class Dimensions(object):
                            2.0 * self.pad_1_centre_y_mm + variant['pad']['y_mm'])
 
         self.courtyard_left_x_mm = self.round_to(left_x_mm - self.courtyard_clearance_mm,
-                                                 self.courtyard_precision_mm)
+                                                 self.courtyard_precision_mm, '-')
         self.courtyard_right_x_mm = self.round_to(right_x_mm + self.courtyard_clearance_mm,
-                                                  self.courtyard_precision_mm)
+                                                  self.courtyard_precision_mm, '+')
         self.courtyard_offset_y_mm = self.round_to(self.courtyard_clearance_mm + biggest_y_mm / 2.0,
-                                                   self.courtyard_precision_mm)
+                                                   self.courtyard_precision_mm, '+')
         # SILKSCREEN
         self.label_centre_x_mm = 0
         self.label_centre_y_mm = self.courtyard_offset_y_mm + 1
         self.silk_line_nudge_mm = 0.20  #  amount to shift to stop silkscreen lines overlapping fab lines
 
 
-    def round_to(self, n, precision):
-        correction = 0.5 if n >= 0 else -0.5
-        return int(n / precision + correction) * precision
+    def round_to(self, n, precision, direction: str = None):
+        if (direction == '+'):
+            return math.ceil(n / precision) * precision
+        elif (direction == '-'):
+            return math.floor(n / precision) * precision
+        else:
+            correction = 0.5 if n >= 0 else -0.5
+            return int(n / precision + correction) * precision
 
 
     def footprint_name(self, series, num_pins, add_tab, tab_number):
