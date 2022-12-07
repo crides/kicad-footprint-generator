@@ -52,7 +52,7 @@ The following parameters are mandatory, and must be in every package definition:
     Defines the outside dimensions of the package. This is the dimensions of the actual package. Silkscreen and other
     graphical features are automatically generated from this using configurable offsets.
 
-``pitch|pitch{x,y}``
+``pitch|pitch_{x,y}``
     Defines the pin pitch in mm. Either one ``pitch`` must be given, which is then used for both X and Y pitch, or
     separate ``pitch_{x,y}`` can be given.
 
@@ -106,10 +106,18 @@ In addition to the above, package definitions can use the following, optional pa
     Contains a list of pad names of pads that are omitted in the generated footprint. For instance, to omit pads A1, B17
     and J3, use: ``pad_skips: [A1, B17, J3]``.
 
-``checkerboard_skip``
-    This option defines that every second pad should be omitted in a chekerboard pattern. This is used to define
-    staggered pin layouts. The value of this parameter is the first (top left) pin to be skipped and can be one of A1,
-    B1, or A2. B1 and A2 produce the same result.
+``staggered``
+    This option enables the generation of a staggered ball layout, where every second row or column is shifted by
+    one-half pitch. Valid values are ``x`` and ``y``, where ``x`` produces a layout with staggered rows and ``y``
+    produces one with staggered columns. Staggered ball layouts usually space rows (or columns) so that every three
+    adjacent balls form an equilateral triangle. When ``staggered`` and ``pitch`` are given, the pitch gives the side
+    length of that triangle, and its height that is used for row (or column) spacing is calculated automatically. You
+    can override this by manually giving both ``pitch_x`` and ``pitch_y``.
+
+``first_ball``
+    This option is used together with ``staggered`` to define staggered layouts. It expresses that every second pad
+    should be omitted in a checkerboard pattern. The value of this parameter is the first (top left) pin to be generated
+    and can be one of A1, B1, or A2. B1 and A2 produce the same result.
 
 ``offset_{x,y}``
     These values define an offset (in mm) that shifts the generated pad grid relative to the chip's package. Negative
@@ -123,30 +131,25 @@ Staggered pad layouts
 
 Some CSPs use staggered layouts, where every second row is offset horizontally by one half of the pin pitch. Usually,
 the pins are arranged in a triangular grid, with any three adjacent pins forming an equilateral triangle. Layouts like
-these can be expressed in footprint definitions like so (assuming horizontal staggering):
-
-* set the horizontal pitch to one half of the footprint's actual pitch
-* set the vertical pitch to the height of an equilateral triangle with side length of the footprint's actual pitch
-  (i.e. ``sqrt(3)/2 * pitch``).
-* set ``checkerboard_skip`` to ``A1`` or ``B1`` depending on whether the top left pin is the first one omitted or not. 
+these can be expressed in footprint definitions using the ``staggered`` and ``first_ball`` parameters.
 
 Here is an example of a footprint definition using staggered pins:
 
 .. code-block:: yaml
 
-    ST_WLCSP-115_Die461: # this package has a 0.4mm pin pitch.
-      description: "WLCSP-115"
+    ST_WLCSP-115_4.63x4.15mm_P0.4mm_Stagger:
+      description: "ST WLCSP-115, ST die ID 461"
       size_source: "https://www.st.com/resource/en/datasheet/stm32l496wg.pdf"
       body_size_x: 4.63
       body_size_y: 4.15
-      pitch_x: 0.2 # halve X pitch for checkerboard pattern
-      pitch_y: 0.34641016151377546 # calculated
+      pitch: 0.4
+      staggered: x
+      first_ball: A2
       pad_diameter: 0.225
       mask_margin: 0.0325
-      paste_margin: 0.000001
+      paste_margin: 0.0125
       layout_x: 21
       layout_y: 11
-      checkerboard_skip: A1
 
 Nested or multi-pitch pad layouts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -191,7 +194,7 @@ Note that multiple nested grids can be defined. ``secondary_layouts`` takes a YA
 additional grid. In the above example, the dash ``-`` on the first line under ``secondary_layouts`` starts a new item in
 that list.
 
-Each layout definition in ``secondary_layouts`` must define at least ``pitch|pitch{x,y}``, ``layout_{x,y}`` and
+Each layout definition in ``secondary_layouts`` must define at least ``pitch|pitch_{x,y}``, ``layout_{x,y}`` and
 ``row_names``. Skips are supported like in top-level layouts, and ``pad_shape`` and ``pad_size`` can be given to
 override values from the top-level footprint definition.
 
