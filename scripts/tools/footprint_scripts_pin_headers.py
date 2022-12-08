@@ -284,6 +284,11 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
                         mh_ddrill=0, mh_pad=[0,0], mh_overlen=0, mh_offset=0, mh_number='MP',
                         tags_additional=[], extra_description=False, lib_name="Connector_IDC", classname="IDC-Header", classname_description="IDC box header", offset3d=[0, 0, 0], scale3d=[1, 1, 1],
                         rotate3d=[0, 0, 0], model3d_path_prefix="${KICAD6_3DMODEL_DIR}"):
+    # If ddrill is zero, then create a SMD footprint:
+    #     SMT pads are created.
+    #     rm is row pitch
+    #     coldist is pad pitch for columns
+
     pin_size = 0.64 # square pin side length; this appears to be the same for all connectors so use a fixed internal value
     
     mh_present = True if mh_ddrill > 0 and mh_pad[0] > 0 and mh_pad[1] > 0 and mh_overlen > 0 else False
@@ -291,8 +296,13 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     
     h_fab = (rows - 1) * rm + overlen_top + overlen_bottom
     w_fab = body_width
-    l_fab = (coldist * (cols - 1) - w_fab) / 2 if body_offset == 0 else body_offset
-    t_fab = -overlen_top
+    if ddrill == 0:
+        # Body should be centered for SMT footprints
+        l_fab = - w_fab / 2 if body_offset == 0 else body_offset
+        t_fab = -overlen_top - (rows-1)*rm/2
+    else:
+        l_fab = (coldist * (cols - 1) - w_fab) / 2 if body_offset == 0 else body_offset
+        t_fab = -overlen_top
     
     h_slk = h_fab + 2 * slk_offset
     w_slk = max(w_fab + 2 * slk_offset, coldist * (cols - 1) - pad[0] - 4 * slk_offset)
@@ -302,17 +312,27 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     # these calculations are so tight that new body styles will probably break them
     h_crt = max(max(h_fab, (rows - 1) * rm + pad[1]) + 2 * latch_len, (rows - 1) * rm + 2 * mh_overlen + mh_pad[1]) + 2 * crt_offset
     w_crt = max(body_width, coldist * (cols - 1) + pad[0]) + 2 * crt_offset if body_offset <= 0 else pad[0] / 2 + body_offset + body_width + 2 * crt_offset
-    l_crt = l_fab - crt_offset if body_offset <= 0 else -pad[0] / 2 - crt_offset
-    t_crt = min(t_fab - latch_len, -mh_overlen - mh_pad[1] / 2) - crt_offset
+    if ddrill == 0:
+        # Courtyard should be centered for SMT footprints
+        l_crt =  -pad[0] / 2 - coldist/2- crt_offset
+        t_crt = min(t_fab - latch_len, -mh_overlen - mh_pad[1] / 2) - crt_offset
+    else:
+        l_crt = l_fab - crt_offset if body_offset <= 0 else -pad[0] / 2 - crt_offset
+        t_crt = min(t_fab - latch_len, -mh_overlen - mh_pad[1] / 2) - crt_offset
     #if orientation == 'Horizontal' and latching and mh_ddrill > 0:
     if mh_present and (mh_offset - mh_pad[0] / 2 < l_fab):
         # horizontal latching with mounting holes is a special case
         l_crt = mh_offset - mh_pad[0] / 2 - crt_offset
         w_crt = -l_crt + body_width + body_offset + crt_offset
     
-    # center of the body (horizontal: middle pin or the center of the middle pins for vertical)
-    center_fab = [coldist * (cols - 1) / 2 if orientation == 'Vertical' else body_offset + body_width / 2, t_fab + h_fab / 2]
-    center_fp = [l_crt + w_crt / 2, center_fab[1]]
+    if ddrill == 0:
+        # center is [0, 0] for SMD footprints
+        center_fab = [0, 0]
+        center_fp = [0,0]
+    else:
+        # center of the body (horizontal: middle pin or the center of the middle pins for vertical)
+        center_fab = [coldist * (cols - 1) / 2 if orientation == 'Vertical' else body_offset + body_width / 2, t_fab + h_fab / 2]
+        center_fp = [l_crt + w_crt / 2, center_fab[1]]
     
     text_size = w_fab*0.6
     fab_text_size_max = 1.0
@@ -324,7 +344,7 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     text_size = [text_size,text_size]
     text_t = text_size[0] * 0.15
     
-    footprint_name = "{3}_{0}x{1:02}{7}_P{2:03.2f}mm{4}{5}_{6}".format(cols, rows, rm, classname, "_Latch" if latching else "", "{0:03.1f}mm".format(latch_len) if latch_len > 0 else "", orientation, "-1MP" if mh_present else "")
+    footprint_name = "{3}_{0}x{1:02}{7}_P{2:03.2f}mm{4}{5}_{6}{8}".format(cols, rows, rm, classname, "_Latch" if latching else "", "{0:03.1f}mm".format(latch_len) if latch_len > 0 else "", orientation, "-1MP" if mh_present else "", "_SMD"if ddrill==0 else "")
     #footprint_name = footprint_name_base + "_MountHole" if mh_present else footprint_name_base
     
     if cols == 1:
@@ -340,8 +360,17 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
         description_rows = "quadruple rows"
         tags_rows = "quadruple row"
     
-    description = "Through hole {3}, {0}x{1:02}, {2:03.2f}mm pitch, DIN 41651 / IEC 60603-13, {4}{5}{6}{7}".format(cols, rows, rm, classname_description, description_rows, ", {0:03.1f}mm".format(latch_len) if latch_len > 0 else "", " latches" if latching else "", ", mounting holes" if mh_present else "", orientation.lower())
-    tags = "Through hole {5} {3} THT {0}x{1:02} {2:03.2f}mm {4}".format(cols, rows, rm, classname_description, tags_rows, orientation.lower())
+    if ddrill == 0:
+      description = "SMD"
+      tags = "SMD"
+      mounting_type = ""
+    else:
+      description = "Through hole"
+      tags = "Through hole"
+      mounting_type = "THT"
+
+    description = description + " {3}, {0}x{1:02}, {2:03.2f}mm pitch, DIN 41651 / IEC 60603-13, {4}{5}{6}{7}".format(cols, rows, rm, classname_description, description_rows, ", {0:03.1f}mm".format(latch_len) if latch_len > 0 else "", " latches" if latching else "", ", mounting holes" if mh_present else "", orientation.lower())
+    tags = tags + " {5} {3} {6} {0}x{1:02} {2:03.2f}mm {4}".format(cols, rows, rm, classname_description, tags_rows, orientation.lower(), mounting_type)
     
     if (len(tags_additional) > 0):
         for t in tags_additional:
@@ -358,6 +387,9 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     kicad_mod = Footprint(footprint_name)
     kicad_mod.setDescription(description)
     kicad_mod.setTags(tags)
+
+    if ddrill == 0:
+        kicad_mod.setAttribute('smd')
     
     # instantiate footprint (SMD origin at center, THT at pin 1)
     kicad_modg = Footprint(footprint_name)
@@ -409,21 +441,40 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
                     {'x':l_fab - lyr_offset, 'y':t_fab + h_fab + lyr_offset}, {'x':mh_offset - mh_pad[0]/2 + lyr_offset, 'y':t_fab + h_fab + lyr_offset}]
                 kicad_mod.append(PolygoneLine(polygone=body_polygon, layer=layer, width=line_width))
             else:
-                body_polygon = [{'x':l_fab + chamfer - lyr_offset, 'y':t_fab - lyr_offset}, {'x':l_fab + w_fab + lyr_offset, 'y':t_fab - lyr_offset},
-                    {'x':l_fab + w_fab + lyr_offset, 'y':t_fab + h_fab + lyr_offset}, {'x':l_fab - lyr_offset, 'y':t_fab + h_fab + lyr_offset},
-                    {'x':l_fab - lyr_offset, 'y':t_fab + chamfer - lyr_offset}]
-                kicad_mod.append(PolygoneLine(polygone=body_polygon, layer=layer, width=line_width))
+                if layer == 'F.SilkS' and ddrill == 0:
+                    # Break silkscreen for SMD pads
+                    body_polygon = [{'x':l_fab - lyr_offset, 'y':-((rows-1)*rm/2)-pad[1]/2-0.5}, {'x':l_fab - lyr_offset, 'y':t_fab - lyr_offset},
+                        {'x':l_fab + w_fab + lyr_offset, 'y':t_fab - lyr_offset}, {'x':l_fab +w_fab + lyr_offset, 'y':-((rows-1)*rm/2)-pad[1]/2-0.5}]
+                    kicad_mod.append(PolygoneLine(polygone=body_polygon, layer=layer, width=line_width))
+                    body_polygon = [{'x':l_fab - lyr_offset, 'y':((rows-1)*rm/2)+pad[1]/2+0.5}, {'x':l_fab - lyr_offset, 'y':t_fab + h_fab + lyr_offset},
+                        {'x':l_fab + w_fab + lyr_offset, 'y':t_fab +h_fab + lyr_offset}, {'x':l_fab +w_fab + lyr_offset, 'y':((rows-1)*rm/2)+pad[1]/2+0.5}]
+                    kicad_mod.append(PolygoneLine(polygone=body_polygon, layer=layer, width=line_width))
+                else:
+                    body_polygon = [{'x':l_fab + chamfer - lyr_offset, 'y':t_fab - lyr_offset}, {'x':l_fab + w_fab + lyr_offset, 'y':t_fab - lyr_offset},
+                        {'x':l_fab + w_fab + lyr_offset, 'y':t_fab + h_fab + lyr_offset}, {'x':l_fab - lyr_offset, 'y':t_fab + h_fab + lyr_offset},
+                        {'x':l_fab - lyr_offset, 'y':t_fab + chamfer - lyr_offset}]
+                    kicad_mod.append(PolygoneLine(polygone=body_polygon, layer=layer, width=line_width))
         if chamfer > 0 and not (orientation == 'Horizontal' and latching):
             kicad_modg.append(Line(start=[l_fab, t_fab + chamfer], end=[l_fab + chamfer, t_fab], layer=layer, width=line_width))
         
         # vertical mating connector outline (this is the same for both layers)
         if orientation == 'Vertical':
-            mating_conn_polygon = [{'x':l_fab - lyr_offset, 'y':center_fab[1] - notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] - notch_width/2},
-                {'x':l_fab + wall_thickness, 'y':-mating_overlen}, {'x':l_fab + w_fab - wall_thickness, 'y':-mating_overlen},
-                {'x':l_fab + w_fab - wall_thickness, 'y':(rows - 1) * rm + mating_overlen}, {'x':l_fab + wall_thickness, 'y':(rows - 1) * rm + mating_overlen},
-                {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2},
-                {'x':l_fab - lyr_offset, 'y':center_fab[1] + notch_width/2}]
-            kicad_mod.append(PolygoneLine(polygone=mating_conn_polygon, layer=layer, width=line_width))
+            if ddrill == 0:
+                mating_conn_polygon = [{'x':l_fab - lyr_offset, 'y':center_fab[1] - notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] - notch_width/2},
+                    {'x':l_fab + wall_thickness, 'y':t_fab+wall_thickness}, {'x':l_fab + w_fab - wall_thickness, 'y':t_fab+wall_thickness},
+                    {'x':l_fab + w_fab - wall_thickness, 'y':t_fab+h_fab-wall_thickness}, {'x':l_fab + wall_thickness, 'y':t_fab+h_fab-wall_thickness},
+                    {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2},
+                    {'x':l_fab - lyr_offset, 'y':center_fab[1] + notch_width/2}]
+                if layer == "F.Fab":
+                    # Only append mating connector outline in F.Fab for SMD footprints (silkscreen would be on top of pads)
+                    kicad_mod.append(PolygoneLine(polygone=mating_conn_polygon, layer=layer, width=line_width))
+            else:
+                mating_conn_polygon = [{'x':l_fab - lyr_offset, 'y':center_fab[1] - notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] - notch_width/2},
+                    {'x':l_fab + wall_thickness, 'y':-mating_overlen}, {'x':l_fab + w_fab - wall_thickness, 'y':-mating_overlen},
+                    {'x':l_fab + w_fab - wall_thickness, 'y':(rows - 1) * rm + mating_overlen}, {'x':l_fab + wall_thickness, 'y':(rows - 1) * rm + mating_overlen},
+                    {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2}, {'x':l_fab + wall_thickness, 'y':center_fab[1] + notch_width/2},
+                    {'x':l_fab - lyr_offset, 'y':center_fab[1] + notch_width/2}]
+                kicad_mod.append(PolygoneLine(polygone=mating_conn_polygon, layer=layer, width=line_width))
         
         # horizontal mating connector 'notch' lines
         if orientation == 'Horizontal' and not latching:
@@ -463,20 +514,55 @@ def makeIdcHeader(rows, cols, rm, coldist, body_width, overlen_top, overlen_bott
     # silk pin 1 mark (triangle to the left of pin 1)
     slk_mark_height = 1
     slk_mark_width = 1
-    slk_mark_tip = min(l_fab, -pad[0] / 2) - 0.5 # offset 0.5mm from pin 1 or the body
-    slk_polygon = [{'x':slk_mark_tip, 'y':0}, {'x':slk_mark_tip - slk_mark_width, 'y':-slk_mark_height / 2},
-        {'x':slk_mark_tip - slk_mark_width, 'y':slk_mark_height / 2}, {'x':slk_mark_tip, 'y':0}]
+    if ddrill == 0:
+        slk_polygon = [{'x':l_fab - lyr_offset, 'y':-((rows-1)*rm/2)-pad[1]/2-0.5}, {'x':l_fab - lyr_offset-1.5, 'y':-((rows-1)*rm/2)-pad[1]/2-0.5}]
+    else:
+        slk_mark_tip = min(l_fab, -pad[0] / 2) - 0.5 # offset 0.5mm from pin 1 or the body
+        slk_polygon = [{'x':slk_mark_tip, 'y':0}, {'x':slk_mark_tip - slk_mark_width, 'y':-slk_mark_height / 2},
+            {'x':slk_mark_tip - slk_mark_width, 'y':slk_mark_height / 2}, {'x':slk_mark_tip, 'y':0}]
     kicad_mod.append(PolygoneLine(polygone=slk_polygon, layer='F.SilkS', width=lw_slk))
     
     # create courtyard
-    kicad_mod.append(RectLine(start=[roundCrt(l_crt), roundCrt(t_crt)], end=[roundCrt(l_crt + w_crt),
-                roundCrt(t_crt + h_crt)], layer='F.CrtYd', width=lw_crt))
+    if ddrill == 0 and orientation == 'Vertical' and not latching:
+      #         l_crt =  -pad[0] / 2 - coldist/2- crt_offset
+        crt_polygon = [ {'x': roundCrt(l_fab - crt_offset), 'y':roundCrt(t_crt)},
+            {'x': roundCrt(l_fab - crt_offset), 'y': roundCrt(-((rows-1)*rm/2)-pad[1]/2 - crt_offset)},
+            {'x': roundCrt(l_crt), 'y': roundCrt(-((rows-1)*rm/2)-pad[1]/2 - crt_offset)},
+            {'x': roundCrt(l_crt), 'y': roundCrt(((rows-1)*rm/2)+pad[1]/2 + crt_offset)},
+            {'x': roundCrt(l_fab - crt_offset), 'y': roundCrt(((rows-1)*rm/2)+pad[1]/2 + crt_offset)},
+            {'x': roundCrt(l_fab - crt_offset), 'y':roundCrt(-t_crt)},
+            {'x': roundCrt(-l_fab + crt_offset), 'y':roundCrt(-t_crt)},
+            {'x': roundCrt(-l_fab + crt_offset), 'y': roundCrt(((rows-1)*rm/2)+pad[1]/2 + crt_offset)},
+            {'x': roundCrt(-l_crt), 'y': roundCrt(((rows-1)*rm/2)+pad[1]/2 + crt_offset)},
+            {'x': roundCrt(-l_crt), 'y': roundCrt(-((rows-1)*rm/2)-pad[1]/2 - crt_offset)},
+            {'x': roundCrt(-l_fab + crt_offset), 'y': roundCrt(-((rows-1)*rm/2)-pad[1]/2 - crt_offset)},
+            {'x': roundCrt(-l_fab + crt_offset), 'y':roundCrt(t_crt)},
+            {'x': roundCrt(l_fab - crt_offset), 'y':roundCrt(t_crt)}]
+        kicad_mod.append(PolygoneLine(polygone=crt_polygon, layer='F.CrtYd', width=lw_crt))
+    else:
+        kicad_mod.append(RectLine(start=[roundCrt(l_crt), roundCrt(t_crt)], end=[roundCrt(l_crt + w_crt),
+                    roundCrt(t_crt + h_crt)], layer='F.CrtYd', width=lw_crt))
     
     # create pads (first the left row then the right row)
-    for start_pos, initial in zip([0, coldist], range(1, cols + 1)):
-        kicad_modg.append(PadArray(pincount=rows, spacing=[0,rm], start=[start_pos,0], initial=initial, increment=cols,
-            type=Pad.TYPE_THT, shape=Pad.SHAPE_OVAL, size=pad, drill=ddrill, layers=Pad.LAYERS_THT))
-    
+    if ddrill == 0:
+        pad_type = Pad.TYPE_SMT
+        pad_shape = Pad.SHAPE_ROUNDRECT
+        pad_layers = Pad.LAYERS_SMT
+    else:
+        pad_type = Pad.TYPE_THT
+        pad_shape = Pad.SHAPE_OVAL
+        pad_layers = Pad.LAYERS_THT
+
+    if ddrill == 0:
+        # For SMD footprints, pad 1 location is not (0,0)
+        for start_pos, initial in zip([-coldist/2, coldist/2], range(1, cols + 1)):
+            kicad_modg.append(PadArray(pincount=rows, spacing=[0,rm], start=[start_pos,-(rows-1)*rm/2], initial=initial, increment=cols,
+                type=pad_type, shape=pad_shape, size=pad, drill=ddrill, layers=pad_layers))
+    else:
+        for start_pos, initial in zip([0, coldist], range(1, cols + 1)):
+            kicad_modg.append(PadArray(pincount=rows, spacing=[0,rm], start=[start_pos,0], initial=initial, increment=cols,
+                type=pad_type, shape=pad_shape, size=pad, drill=ddrill, layers=pad_layers))
+
     # create mounting hole pads
     if mh_present:
         for mh_y_offset in mh_y:

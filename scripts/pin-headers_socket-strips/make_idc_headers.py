@@ -131,3 +131,39 @@ if __name__ == '__main__':
                             0, [0,0], 0, 0, 0,
                             tags_additional, extra_description, "Connector_IDC", "IDC-Header", "IDC box header",
                             [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
+
+    # from https://www.tme.eu/Document/4baa0e952ce73e37bc68cf730b541507/T821M114A1S100CEU-B.pdf
+    
+    rm=2.54
+    cols = 2
+    ddrill=0
+    pad=[5.0,1.02]
+
+    orientation='Vertical'
+    latching = False
+    has_latch=False
+    body_width=8.95
+    body_overlen=3.81+1.27
+    body_offset=0
+    mating_overlen=2.72
+    wall_thickness=1.2
+    latch_lengths = [] 
+    latch_width=0 
+    mh_ddrill=0
+    mh_pad=[] 
+    mh_overlen=0 
+    mh_offset=0
+    mh_number=''
+    extra_description = 'https://www.tme.eu/Document/4baa0e952ce73e37bc68cf730b541507/T821M114A1S100CEU-B.pdf'
+
+    for rows in [3,4,5,6,7,8,10,12,13,20,25,30]:
+        makeIdcHeader(rows, cols, rm, 7.60, body_width,
+                            body_overlen, body_overlen, body_offset,
+                            ddrill, pad,
+                            mating_overlen, wall_thickness, notch_width,
+                            orientation, latching,
+                            0, 0,
+                            0, [0,0], 0, 0, 0,
+                            tags_additional, extra_description, "Connector_IDC", "IDC-Header", "IDC box header",
+                            [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
+
