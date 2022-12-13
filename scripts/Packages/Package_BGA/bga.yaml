@@ -212,7 +212,7 @@ Texas_DSBGA-6_0.704x1.054mm_Layout2x3_P0.35mm:
   layout_x: 2
   layout_y: 3
   mask_margin: 0.0325
-Texas_DSBGA-6_0.95x1.488mm_Layout2x3_P0.5mm:
+Texas_DSBGA-6_0.95x1.488mm_Layout2x3_P0.4mm:
   description: "Texas Instruments, DSBGA, area grid, YBG pad definition"
   size_source: "https://www.ti.com/lit/ml/mxbg419/mxbg419.pdf, https://www.ti.com/lit/ds/symlink/tmp117.pdf"
   body_size_x: 0.95
