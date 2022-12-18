@@ -45,6 +45,17 @@ ST_WLCSP-18_1.86x2.14mm_P0.4mm_Stagger:
   paste_margin: 0.0125
   layout_x: 7
   layout_y: 5
+ST_WLCSP-20_1.94x2.40mm_Layout4x5_P0.4mm:
+  description: "ST WLCSP-20, ST die ID 456"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g051f8.pdf#page=102"
+  body_size_x: 1.94
+  body_size_y: 2.40
+  pitch: 0.4
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.0125
+  layout_x: 4
+  layout_y: 5
 ST_WLCSP-25_Die425:
   description: "WLCSP-25"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l031f6.pdf#page=112"
@@ -220,6 +231,19 @@ ST_WLCSP-49_Die448:
   paste_margin: 0.000001
   layout_x: 7
   layout_y: 7
+ST_WLCSP-52_3.09x3.15mm_P0.4mm_Stagger:
+  description: "ST WLCSP-52, ST die ID 467"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32g0b1ne.pdf#page=136"
+  body_size_x: 3.09
+  body_size_y: 3.15
+  pitch: 0.4
+  staggered: x
+  first_ball: A2
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.0125
+  layout_x: 13
+  layout_y: 8
 ST_WLCSP-63_Die427:
   description: "WLCSP-63"
   size_source: "http://www.st.com/resource/en/datasheet/stm32l151cc.pdf#page=125"
@@ -399,6 +423,19 @@ ST_WLCSP-90_Die413:
   paste_margin: 0.000001
   layout_x: 10
   layout_y: 9
+ST_WLCSP-90_4.20x3.95mm_P0.4mm_Stagger:
+  description: "ST WLCSP-90, ST die ID 482"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32u575og.pdf#page=306"
+  body_size_x: 4.20
+  body_size_y: 3.95
+  pitch: 0.4
+  staggered: x
+  first_ball: A1
+  pad_diameter: 0.225
+  mask_margin: 0.0325
+  paste_margin: 0.0125
+  layout_x: 18
+  layout_y: 10
 ST_WLCSP-100_Die422:
   description: "WLCSP-100"
   size_source: "http://www.st.com/resource/en/datasheet/stm32f302vc.pdf#page=133"
@@ -616,6 +653,19 @@ ST_WLCSP-49_3.15x3.13mm_Layout7x7_P0.4mm:
   paste_margin: 0.000001
   layout_x: 7
   layout_y: 7
+ST_WLCSP-49_3.30x3.38mm_Layout7x7_P0.4mm_Offcenter:
+  description: "ST WLCSP-49, off-center ball grid, ST die ID 494"
+  size_source: "https://www.st.com/resource/en/datasheet/stm32wb15cc.pdf#page=119"
+  body_size_x: 3.30
+  body_size_y: 3.38
+  pitch: 0.4
+  pad_diameter: 0.250
+  mask_margin: 0.0325
+  paste_margin: 0.0125
+  layout_x: 7
+  layout_y: 7
+  offset_x: -0.129
+  offset_y: 0.012
 ST_WLCSP-64_3.56x3.52mm_Layout8x8_P0.4mm:
   description: "ST WLCSP-64, ST die ID 479"
   size_source: "https://www.st.com/resource/en/datasheet/stm32g491re.pdf"
