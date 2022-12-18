@@ -1,0 +1,34 @@
+Texas_R-PUSON-N14:
+  device_type: 'USON'
+  library: Package_SON
+  #manufacturer: 'man'
+  #part_number: 'mpn'
+  size_source: 'https://www.ti.com/lit/ds/symlink/tpd6e05u06.pdf#page=28'
+  ipc_class: 'qfn' #'qfn' | 'qfn_pull_back'
+  #ipc_density: 'least' #overwrite global value for this device.
+  
+  custom_name_format: 'Texas_R-PUSON-N14'
+
+  body_size_x:
+    minimum: 1.25
+    maximum: 1.45
+  body_size_y:
+    minimum: 3.4
+    maximum: 3.6
+
+  lead_width:
+    minimum: 0.15
+    maximum: 0.25
+  lead_len:
+    minimum: 0.25
+    maximum: 0.35
+
+  pitch: 0.5
+  num_pins_x: 0
+  num_pins_y: 7
+  #chamfer_edge_pins: 0.25
+  #pin_count_grid:
+  #pad_length_addition: 0.5
+  #suffix: '_PullBack'
+  #include_suffix_in_3dpath: 'False'
+  #include_pad_size: 'fp_name_only' # 'both' | 'none' (default)
