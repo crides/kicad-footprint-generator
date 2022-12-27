@@ -94,26 +94,18 @@ with open(batchInputFile, 'r') as stream:
                 kicad_mod.append(Text(type='user', text='${REFERENCE}', at=[0, 0], layer='F.Fab', rotation=rot, size=[clampscale, clampscale], thickness=clampscale*0.15))
 
 
-                # create silkscreen
-                #kicad_mod.append(RectLine(start=[0-width/2-silkscreenOffset, 0-height/2-silkscreenOffset], end=[width/2+silkscreenOffset, height/2+silkscreenOffset], layer='F.SilkS'))
+                # Create silkscreen
+                kicad_mod.append(Line(start=[leftX, upperY], end=[rightX, upperY], layer='F.SilkS'))        # Full upper line
+                kicad_mod.append(Line(start=[leftX, lowerY], end=[rightX, lowerY], layer='F.SilkS'))        # Full lower line
+                
+                # If the part is too small and we can't make vertical tick's, don't create 0 length lines.
+                if (vertLen > 0):
+                    kicad_mod.append(Line(start=[leftX, upperY], end=[leftX, upperY + vertLen], layer='F.SilkS'))       # Tick down left
+                    kicad_mod.append(Line(start=[rightX, upperY], end=[rightX, upperY + vertLen], layer='F.SilkS'))     # Tick down right
+                    kicad_mod.append(Line(start=[leftX, lowerY], end=[leftX, lowerY - vertLen], layer='F.SilkS'))       # Tick up left
+                    kicad_mod.append(Line(start=[rightX, lowerY], end=[rightX, lowerY - vertLen], layer='F.SilkS'))     # Tick up right
 
-                #kicad_mod.append(Line(start=[leftX, upperY], end=[leftX+horzLen, upperY], layer='F.SilkS'))
-                kicad_mod.append(Line(start=[leftX, upperY], end=[rightX, upperY], layer='F.SilkS'))     # Full upper line
-                kicad_mod.append(Line(start=[leftX, upperY], end=[leftX, upperY + vertLen], layer='F.SilkS')) # Tick down left
-
-                #kicad_mod.append(Line(start=[rightX, upperY], end=[rightX-horzLen, upperY], layer='F.SilkS'))
-                kicad_mod.append(Line(start=[rightX, upperY], end=[rightX, upperY + vertLen], layer='F.SilkS')) # Tick down right
-
-                #kicad_mod.append(Line(start=[leftX, lowerY], end=[leftX+horzLen, lowerY], layer='F.SilkS'))
-                kicad_mod.append(Line(start=[leftX, lowerY], end=[leftX, lowerY - vertLen], layer='F.SilkS')) # Tick up left
-                kicad_mod.append(Line(start=[leftX, lowerY], end=[rightX, lowerY], layer='F.SilkS')) # Full line
-                #kicad_mod.append(Line(start=[rightX, lowerY], end=[rightX-horzLen, lowerY], layer='F.SilkS'))
-                kicad_mod.append(Line(start=[rightX, lowerY], end=[rightX, lowerY - vertLen], layer='F.SilkS')) # Tick up right
-
-
-
-
-                # fab layer
+                # Fab layer
                 kicad_mod.append(RectLine(start=[0-widthX/2-fabOffset, 0-lengthY/2-fabOffset], end=[widthX/2+fabOffset, lengthY/2+fabOffset], layer='F.Fab'))
 
                 # create COURTYARD
