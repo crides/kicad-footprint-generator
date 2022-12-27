@@ -30,7 +30,8 @@ or you can perform grouping if there are multiple parts sharing the same footpri
 
 `padX` and `padY` - the center of the pad
 
-`padGap` - the gap between the copper pads (NOT center to center)
+`padGap` - the gap between the copper pads. This can be center-to-center, or edge-to-edge (default). 
+You should set the YAML file parameter accordingly based on what measurement the datasheet uses.
 
 **Note** - you may need to swap the `length`/`width` values, and thus the `pad x`/`pad y` values.
 The `lengthY` value should be the dimension/edge that shares the same side as the copper pads.
@@ -42,7 +43,7 @@ In this example from the SWPA series, the recommended land pattern is in the pro
 
 - `b` becomes `padX`
 - `c` is `padY`
-- `a` is `pad gap`.
+- `a` is `padGap`.
 
 In this datasheet, care must be taken to adjust the physical dimensions. `A` becomes `widthX` and `B` becomes `lengthY`,
 since the land pattern is rotated to differ from the physical drawings.

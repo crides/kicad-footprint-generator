@@ -38,26 +38,33 @@ with open(batchInputFile, 'r') as stream:
         seriesManufacturer = data_loaded[yamlBlocks]['manufacturer']
         seriesDatasheet = data_loaded[yamlBlocks]['datasheet']
         seriesCsv = data_loaded[yamlBlocks]['csv']
+        seriesSpacing = data_loaded[yamlBlocks].get('spacing', 'edge')   # default to edge
         seriesTags = data_loaded[yamlBlocks]['tags']      # space delimited list of the tags
         seriesTagsString = ' '.join(seriesTags)
 
-        with open(seriesCsv) as csvfile:
+        with open(seriesCsv, encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
 
             for row in reader:
                 widthX = float(row['widthX'])
                 lengthY = float(row['lengthY'])
-                padX = float(row['padX'])
-                padY = float(row['padY'])
-                padGap = float(row['padGap'])
-                partName = row['PartNumber']
+                height = float(row['height'])
+                landingX = float(row['landingX'])
+                landingY = float(row['landingY'])
+                if seriesSpacing == 'edge':
+                    landingGap = float(row['landingGap'])
+                else:   
+                    # If datasheet uses center-to-center spacing, subtract two of the half pad X values to get
+                    # the edge-to-edge spacing
+                    landingGap = float(float(row['landingGap']) - landingX)
+                partNumber = row['PartNumber']
                 
-                footprint_name = f'L_{seriesManufacturer}_{partName}'
+                footprint_name = f'L_{seriesManufacturer}_{partNumber}'
                 print(f'Processing {footprint_name}')
 
                 # Silkscreen corners
-                vertLen = (lengthY/2 - padY/2) + silkscreenOffset - 0.2
-                horzLen = (widthX/2 - padX/2) + silkscreenOffset - 0.2
+                vertLen = (lengthY/2 - landingY/2) + silkscreenOffset - 0.2
+                horzLen = (widthX/2 - landingX/2) + silkscreenOffset - 0.2
 
                 leftX = 0-widthX/2-silkscreenOffset
                 rightX = widthX/2+silkscreenOffset
@@ -67,18 +74,18 @@ with open(batchInputFile, 'r') as stream:
 
                 # init kicad footprint
                 kicad_mod = Footprint(footprint_name)
-                kicad_mod.setDescription(f"Inductor, {seriesManufacturer}, {partName}, {widthX}mmx{lengthY}mm, {seriesDatasheet}")
+                kicad_mod.setDescription(f"Inductor, {seriesManufacturer}, {partNumber}, {widthX}x{lengthY}x{height}mm, {seriesDatasheet}")
                 kicad_mod.setTags(f"Inductor {seriesTagsString}")
                 kicad_mod.setAttribute("smd")
                 # set general values
                 kicad_mod.append(Text(type='reference', text='REF**', at=[0, 0-lengthY/2-1], layer='F.SilkS'))
                 
                 kicad_mod.append(Text(type='value', text=footprint_name, at=[0, lengthY/2+1], layer='F.Fab'))
-                scaling = padX/3
+                scaling = landingX/3
                 clampscale = clamp(scaling, 0.5, 1)
                 
                 # Check if our part is so small that REF will overlap the pads. Rotate it to fit.
-                if padX + padGap < 2:
+                if landingX + landingGap < 2:
                     y=lengthY/2+2
                     rot = 90
                 else:
@@ -113,18 +120,18 @@ with open(batchInputFile, 'r') as stream:
                 # Base it off the copper or physical, whichever is biggest. Need to check both X and Y.
                 
                 # Extreme right edge
-                rightCopperMax= padGap/2 + padX
+                rightCopperMax= landingGap/2 + landingX
                 rightPhysicalMax = widthX / 2
                 if rightCopperMax > rightPhysicalMax:    # Copper is bigger
-                    widest = padGap + (padX * 2)
+                    widest = landingGap + (landingX * 2)
                 else:
                     widest = widthX
 
                 # Extreme top edge
-                bottomCopperMax= padY / 2
+                bottomCopperMax= landingY / 2
                 bottomPhysicalMax = lengthY / 2
                 if bottomCopperMax > bottomPhysicalMax:    # Copper is bigger
-                    tallest = padY
+                    tallest = landingY
                 else:
                     tallest = lengthY
 
@@ -133,9 +140,9 @@ with open(batchInputFile, 'r') as stream:
 
                 # create pads
                 kicad_mod.append(Pad(number=1, type=Pad.TYPE_SMT, shape=Pad.SHAPE_RECT,
-                                    at=[0-padGap/2-padX/2, 0], size=[padX, padY], layers=Pad.LAYERS_SMT))
+                                    at=[0-landingGap/2-landingX/2, 0], size=[landingX, landingY], layers=Pad.LAYERS_SMT))
                 kicad_mod.append(Pad(number=2, type=Pad.TYPE_SMT, shape=Pad.SHAPE_RECT,
-                                    at=[padGap/2+padX/2, 0], size=[padX, padY], layers=Pad.LAYERS_SMT))
+                                    at=[landingGap/2+landingX/2, 0], size=[landingX, landingY], layers=Pad.LAYERS_SMT))
 
                 # add model
                 kicad_mod.append(Model(filename="${KICAD6_3DMODEL_DIR}/" + f"Inductor_SMD.3dshapes/{footprint_name}.wrl",
