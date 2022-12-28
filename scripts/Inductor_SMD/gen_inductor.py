@@ -29,6 +29,7 @@ else:
 silkscreenOffset = 0.2
 fabOffset = 0.0
 courtyardOffset = 0.25      # 0.25 per KLC
+silkLineThickness = 0.12    # Default silkscreen line is 0.12mm thick. Do not change.
 
 with open(batchInputFile, 'r') as stream:
     data_loaded = yaml.safe_load(stream)
@@ -65,12 +66,11 @@ with open(batchInputFile, 'r') as stream:
                 # Silkscreen corners
                 vertLen = (lengthY/2 - landingY/2) + silkscreenOffset - 0.2
                 horzLen = (widthX/2 - landingX/2) + silkscreenOffset - 0.2
-
-                leftX = 0-widthX/2-silkscreenOffset
-                rightX = widthX/2+silkscreenOffset
-                upperY = 0-lengthY/2-silkscreenOffset
-                lowerY = lengthY/2+silkscreenOffset
-                
+                leftX = 0-widthX/2-silkscreenOffset - silkLineThickness/2
+                rightX = widthX/2+silkscreenOffset + silkLineThickness/2
+                upperY = 0-lengthY/2-silkscreenOffset - silkLineThickness/2
+                lowerY = lengthY/2+silkscreenOffset + silkLineThickness/2
+                # End of silkscreen vars
 
                 # init kicad footprint
                 kicad_mod = Footprint(footprint_name)

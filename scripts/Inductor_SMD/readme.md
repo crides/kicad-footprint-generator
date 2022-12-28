@@ -11,22 +11,34 @@ The workflow that has worked well for me is as follows
 1. Use Foxit PDF to copy the specifications table.
 1. Paste this in the spreadsheet editor of your choice
 1. Delete the columns which aren't required
-1. Rename the headers and perform any other editing or grouping required
+1. Rename the headers and perform any other editing or grouping required (eg. regex `# ±[\d\. ]*` is useful to match tolerances and delete)
 1. Export to CSV format
 
 ## YAML input file
-The yaml file is used to define all the generic series inputs.
-It will have an entries for the CSV for that specific series which will actually hold the footprint measurements. You can see the included YAML file for the format.
+The yaml file is used to define all the series inputs. The `3d` section is needed if the file will be used with the the `kicad-packages3D-generator` script.
 
+- series: Name of the series
+- manufacturer: Name of the series
+- datasheet: URL of the datasheet
+- csv: Filename for the CSV file. Should not have a path prepended.
+-   3d: Optional.
+    - type: Optional. 
+        * 1 - Rectangle body, rectangle pads on the bottom surface.
+        * 2 - Rectangle body, rectangle pads on the bottom surface, with visible wings on the sides
+        * 3 - Rectangle body with 4 chamfered corners
+    - bodyColor: Optional. Default to `black body`.
+    - pinColor: Optional. Default to `metal grey pins`
+    - padThickness: Optional. Default to `0.05` mm.
+- tags: Optional. The word `inductor` as a tag is included already in the script. You should add the series name.
+ 
 
 ## CSV input files
 The CSV format requires the following 6 columns, which can be in any order in the actual CSV file.
 
-
 `PartNumber` - Part number that will be generated. This could be the unique part number,
 or you can perform grouping if there are multiple parts sharing the same footprint.
 
-`lengthY` and `widthX` - physical dimensions of the inductor
+`lengthY`, `widthX` and `height` - physical dimensions of the inductor.
 
 `padX` and `padY` - the center of the pad
 
