@@ -25,10 +25,11 @@ The yaml file is used to define all the series inputs. The `3d` section is neede
     - type: Optional. 
         * 1 - Rectangle body, rectangle pads on the bottom surface.
         * 2 - Rectangle body, rectangle pads on the bottom surface, with visible wings on the sides
-        * 3 - Rectangle body with 4 chamfered corners
+        * 3 - Rectangle body with 4 heavy fillet (rounded) corners
     - bodyColor: Optional. Default to `black body`.
     - pinColor: Optional. Default to `metal grey pins`
     - padThickness: Optional. Default to `0.05` mm.
+    - cornerRadius: Optional. Default to `2`mm. Corner radius used for type `3` above.
 - tags: Optional. The word `inductor` as a tag is included already in the script. You should add the series name.
  
 
