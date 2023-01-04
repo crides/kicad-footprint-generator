@@ -45,29 +45,29 @@ if __name__ == '__main__':
         for rows in range(1,41):
             makePinHeadStraight(rows, cols, rm, rm, cols * singlecol_packwidth + singlecol_packoffset,
                                 singlecol_packwidth / 2 + singlecol_packoffset,
-                                singlecol_packwidth / 2 + singlecol_packoffset, ddrill, pad, [], "/Pin_Headers", "Pin_Header", "pin header",
+                                singlecol_packwidth / 2 + singlecol_packoffset, ddrill, pad, [], "Pin_Headers", "Pin_Header", "pin header",
                                 [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
             makePinHeadAngled(rows, cols, rm, rm, angled_pack_width, angled_pack_offset, angled_pin_length, angled_pin_width, ddrill, pad,
-                              [], "/Pin_Headers", "Pin_Header", "pin header", [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
+                              [], "Pin_Headers", "Pin_Header", "pin header", [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
             if rows != 1 or cols == 2:
               if cols == 2:
                   makePinHeadStraightSMD(rows, cols, rm, rm, rmx_pad_offset[cols-1], rmx_pin_length[cols-1], pin_width, cols * singlecol_packwidth + singlecol_packoffset,
                                       singlecol_packwidth / 2 + singlecol_packoffset,
                                       singlecol_packwidth / 2 + singlecol_packoffset, dual_pad_smd,
-                                         True, [], "/Pin_Headers", "Pin_Header", "pin header",
+                                         True, [], "Pin_Headers", "Pin_Header", "pin header",
                                          [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
               if cols==1:
                   makePinHeadStraightSMD(rows, cols, rm, rm, rmx_pad_offset[cols-1], rmx_pin_length[cols-1], pin_width,
                                      cols * singlecol_packwidth + singlecol_packoffset,
                                      singlecol_packwidth / 2 + singlecol_packoffset,
                                      singlecol_packwidth / 2 + singlecol_packoffset, single_pad_smd,
-                                     True, [], "/Pin_Headers", "Pin_Header", "pin header",
+                                     True, [], "Pin_Headers", "Pin_Header", "pin header",
                                      [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
                   makePinHeadStraightSMD(rows, cols, rm, rm, rmx_pad_offset[cols-1], rmx_pin_length[cols-1], pin_width,
                                      cols * singlecol_packwidth + singlecol_packoffset,
                                      singlecol_packwidth / 2 + singlecol_packoffset,
                                      singlecol_packwidth / 2 + singlecol_packoffset, single_pad_smd,
-                                     False, [], "/Pin_Headers", "Pin_Header", "pin header",
+                                     False, [], "Pin_Headers", "Pin_Header", "pin header",
                                      [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
 
     rm=2.00
@@ -216,3 +216,35 @@ if __name__ == '__main__':
                                            singlecol_packwidth / 2 + singlecol_packoffset, single_pad_smd,
                                            False, [], "Pin_Headers", "Pin_Header", "pin header",
                                            [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
+
+    # Samtec HPM series:
+    #   datasheet: https://suddendocs.samtec.com/catalog_english/hpm.pdf
+    #   recommended footprint: https://suddendocs.samtec.com/prints/hpm-xx-xx-xx-x-xx-x-footprint.pdf
+    #   detailed drawing: https://suddendocs.samtec.com/prints/hpm-xx-xx-xx-x-xx-x-mkt.pdf
+    rm=5.08
+    ddrill=1.75
+    pad=[2.8,2.8]
+    singlecol_packwidth=6.35
+    singlecol_packoffset=0
+    angled_pack_width=[6.35]
+    angled_pack_offset=[1.5]
+    angled_pin_length=8.08 # 8.08 for -02 lead style, 13.82 for -04 lead style
+    angled_pin_width=1.14
+    rmx_pad_offset=[0] # Not used for TH
+    rmx_pin_length=[0] # Not used for TH
+    pin_width=1.14
+    single_pad_smd=[0, 0] # Not used for TH
+    dual_pad_smd=[0,0]   # Not used for TH
+
+    for cols in [1,1]:
+        for rows in range(1,20):
+            makePinHeadStraight(rows, cols, rm, rm, cols * singlecol_packwidth + singlecol_packoffset,
+                                2.54,
+                                2.54, ddrill, pad, [], 
+                                "Connector_Samtec_HPM_THT", "Samtec_HPM-{0:02}-01-x-S".format(rows), "Samtec HPM power header series 11.94mm post length",
+                                [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
+            makePinHeadStraight(rows, cols, rm, rm, cols * singlecol_packwidth + singlecol_packoffset,
+                                2.54,
+                                2.54, ddrill, pad, [], 
+                                "Connector_Samtec_HPM_THT", "Samtec_HPM-{0:02}-05-x-S".format(rows), "Samtec HPM power header series 3.81mm post length",
+                                [0, 0, 0], [1, 1, 1], [0, 0, 0], "${KICAD6_3DMODEL_DIR}")
