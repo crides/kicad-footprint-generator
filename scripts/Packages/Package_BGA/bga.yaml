@@ -672,6 +672,16 @@ WLP-9_1.448x1.468mm_Layout3x3_P0.4mm_Ball0.27mm_Pad0.25mm:
   paste_margin: 0.000001
   layout_x: 3
   layout_y: 3
+Maxim_WLP-12_1.608x2.008mm_Layout4x3_P0.4mm_Ball0.27mm_Pad0.25mm_NSMD:
+  description: "Maxim WLP-12, W121H2+1"
+  size_source: "https://pdfserv.maximintegrated.com/package_dwgs/21-100302.PDF, https://pdfserv.maximintegrated.com/package_dwgs/21-100302.PDF"
+  body_size_x: 2.008
+  body_size_y: 1.608
+  overall_height: 0.64
+  pitch: 0.4
+  pad_diameter: 0.25
+  layout_x: 4
+  layout_y: 3
 NXP_VFBGA-42_2.6x3mm_Layout6x7_P0.4mm_Ball0.25mm_Pad0.24mm:
   description: "NXP VFBGA-42"
   size_source: "https://www.nxp.com/docs/en/package-information/SOT1963-1.pdf"
