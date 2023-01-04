@@ -223,6 +223,19 @@ Texas_DSBGA-6_0.95x1.488mm_Layout2x3_P0.4mm:
   layout_x: 2
   layout_y: 3
   mask_margin: 0.05
+Texas_DSBGA-5_0.8875x1.3875mm_Layout2x3_P0.5mm:
+  description: "Texas Instruments, DSBGA, area grid, NSMD, YZP0005 pad definition"
+  size_source: "https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf#page=42, https://www.ti.com/lit/ml/mxbg018l/mxbg018l.pdf"
+  additional_tags: "YZP"
+  body_size_x: 0.8875
+  body_size_y: 1.3875
+  overall_height: 0.5
+  pitch: 0.5
+  pad_diameter: 0.23
+  layout_x: 2
+  layout_y: 3
+  mask_margin: 0.05
+  pad_skips: [B2]
 Texas_DSBGA-8_0.705x1.468mm_Layout2x4_P0.4mm:
   description: "Texas Instruments, DSBGA, area grid, NSMD, YBJ0008 pad definition"
   size_source: "https://www.ti.com/lit/gpn/ina234"
