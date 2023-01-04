@@ -587,6 +587,46 @@ TSSOP-20_4.4x6.5mm_P0.65mm:
   num_pins_x: 0
   num_pins_y: 10
 
+TSSOP-20_4.4x6.5mm_P0.65mm_EP2.15x3.35mm:
+  size_source: 'https://pdfserv.maximintegrated.com/package_dwgs/21-100132.PDF'
+  
+  body_size_x:
+    minimum: 4.30
+    maximum: 4.50 
+  body_size_y:
+    minimum: 6.40
+    maximum: 6.60
+
+  overall_size_x: 
+    minimum: 6.30
+    maximum: 6.50
+
+  body_height:
+    maximum: 1.10
+
+  lead_width:
+    minimum: 0.195
+    maximum: 0.30
+
+  lead_len: 
+    minimum: 0.50
+    maximum: 0.70
+
+  pitch: 0.65
+
+  num_pins_x: 0
+  num_pins_y: 10
+
+  EP_size_x:
+    minimum: 1.90
+    nominal: 2.15
+    maximum: 2.26
+  EP_size_y:
+    minimum: 3.10
+    nominal: 3.35
+    maximum: 3.45
+  EP_num_paste_pads: [2, 2]
+
 TSSOP-24_4.4x7.8mm_P0.65mm:
   size_source: 'JEDEC MO-153 Var AD https://www.jedec.org/document_search?search_api_views_fulltext=MO-153'
   body_size_x: 4.4 +/-0.1
