@@ -1,4 +1,4 @@
-﻿PartNumber,widthX,lengthY,height,padY,padX,padGap,landingGap,landingX,landingY
+﻿PartNumber,widthX,lengthY,height,padY,padX,padSpacing,landingSpacing,landingX,landingY
 SWPA252010S,2.5,2.0,1.0,1.5,0.80,0.80,0.8,0.85,2
 SWPA252012S,2.5,2.0,1.2,1.5,0.80,0.80,0.8,0.85,2
 SWPA3010S,3.0,3.0,1.0,2.5,0.75,1.5,1.5,0.8,2.7

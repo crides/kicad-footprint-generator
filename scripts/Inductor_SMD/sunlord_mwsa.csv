@@ -1,4 +1,4 @@
-PartNumber,lengthY,widthX,height,padX,padY,landingX,landingGap,landingY
+PartNumber,lengthY,widthX,height,padX,padY,landingX,landingSpacing,landingY
 MWSA0412S,4.2,4.4,1.0,0.8,2.0,1.5,2.2,2.5
 MWSA0402S,4.2,4.4,1.8,0.8,2.0,1.5,2.2,2.5
 MWSA0518S,5.2,5.4,1.6,1.2,2.2,1.9,2.2,2.5
