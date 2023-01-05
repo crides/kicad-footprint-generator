@@ -1204,6 +1204,31 @@ TDFN-6-1EP_2.5x2.5mm_P0.65mm_EP1.3x2mm:
   #include_suffix_in_3dpath: 'False'
   #include_pad_size: 'fp_name_only' # 'both' | 'none' (default)
 
+TDFN-12-1EP_3x3mm_P0.4mm_EP1.7x2.45mm:
+  device_type: 'TDFN'
+  size_source: 'https://www.renesas.com/us/en/document/psc/package-drawing-tdfn-12pin-l123x3c'
+  body_size_x: 3.0 +/-0.05
+  body_size_y: 3.0 +/-0.05
+  overall_height: 0.75
+  lead_width: 0.2 +/-0.05
+  lead_len: 0.4 +/-0.05
+
+  EP_size_x: 1.7 +/-0.1
+  EP_size_y: 2.45 +/-0.1
+  EP_num_paste_pads: [3, 4]
+
+  thermal_vias:
+    count: [2, 3]
+    drill: 0.2
+    paste_via_clearance: 0.1
+    EP_num_paste_pads: [3, 4]
+    paste_avoid_via: False
+
+  pitch: 0.4
+  num_pins_x: 0
+  num_pins_y: 6
+  suffix: ''
+
 TDFN-14-1EP_3x3mm_P0.4mm_EP1.78x2.35mm:
   device_type: 'TDFN'
   size_source: 'https://pdfserv.maximintegrated.com/package_dwgs/21-0137.PDF (T1433-2C)'
