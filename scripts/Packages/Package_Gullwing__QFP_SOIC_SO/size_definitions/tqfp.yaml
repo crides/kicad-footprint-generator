@@ -15,6 +15,24 @@ TQFP-48_7x7mm_P0.5mm:
   num_pins_x: 12
   num_pins_y: 12
 
+TQFP-48-1EP_7x7mm_P0.5mm_EP4.11x4.11mm:
+  size_source: 'https://www.lumissil.com/assets/pdf/core/IS31FL3236_DS.pdf'
+  body_size_x: 7.0
+  body_size_y: 7.0
+  overall_size_x: 9.0
+  overall_size_y: 9.0
+  lead_width: 0.17 .. 0.22 .. 0.27
+  lead_len: 0.45 .. 0.60 .. 0.75
+  pitch: 0.5
+  num_pins_x: 12
+  num_pins_y: 12
+
+  EP_size_x: 4.0 .. 4.21
+  EP_size_y: 4.0 .. 4.21
+  EP_size_x_overwrite: 4.11
+  EP_size_y_overwrite: 4.11
+  EP_num_paste_pads: [4, 4]
+
 TQFP-48-1EP_7x7mm_P0.5mm_EP5.0x5.0mm:
   size_source: 'https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2100_datasheet_Rev1.08.pdf (page 45)'
   body_size_x:
