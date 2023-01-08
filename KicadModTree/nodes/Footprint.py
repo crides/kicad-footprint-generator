@@ -32,7 +32,7 @@ ADVANTAGES:
 # define in which order the general "lisp" operators are arranged
 render_order = ['descr', 'tags', 'attr', 'solder_mask_margin',
                 'solder_paste_margin', 'solder_paste_ratio', 'fp_text',
-                'fp_circle', 'fp_line', 'pad', 'model']
+                'fp_circle', 'fp_line', 'fp_rect', 'pad', 'model']
 # TODO: sort Text by type
 
 

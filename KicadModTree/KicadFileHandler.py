@@ -135,7 +135,7 @@ class KicadFileHandler(FileHandler):
 
         for key, value in sorted(grouped_nodes.items()):
             # check if key is a base node, except Model
-            if key not in {'Arc', 'Circle', 'Line', 'Pad', 'Polygon', 'Text'}:
+            if key not in {'Arc', 'Circle', 'Line', 'Pad', 'Polygon', 'Text', 'Rect'}:
                 continue
 
             # render base nodes
@@ -212,15 +212,23 @@ class KicadFileHandler(FileHandler):
                ]
 
     def _serialize_Line(self, node):
-        start_pos = node.getRealPosition(node.start_pos)
-        end_pos = node.getRealPosition(node.end_pos)
-
         sexpr = ['fp_line']
         sexpr += self._serialize_LinePoints(node)
         sexpr += [
                 ['layer', node.layer],
                  ['width', _get_layer_width(node.layer, node.width)]
                 ]  # NOQA
+
+        return sexpr
+
+    def _serialize_Rect(self, node):
+        sexpr = ['fp_rect']
+        sexpr += self._serialize_LinePoints(node)
+        sexpr += [
+            ['layer', node.layer],
+            ['width', _get_layer_width(node.layer, node.width)],
+            ['fill', "solid" if node.fill else "none"],
+        ]  # NOQA
 
         return sexpr
 

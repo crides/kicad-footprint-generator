@@ -26,3 +26,5 @@ from .Pad import Pad
 from .Polygon import Polygon
 
 from .Text import Text
+
+from .Rect import Rect
